@@ -17,7 +17,11 @@ class AdminController extends BaseController
     public function animalTabla()
     {
         $animalModel = model('AnimalModel');
+        $areasModel = model('AreasModel');
+        $especiesModel = model('EspeciesModel');
         $data ['animales']= $animalModel->findAll();
+        $data ['areas']= $areasModel->findAll();
+        $data ['especies']= $especiesModel->findAll();
         return
             view('common/menu') .
             view('administrarAnimales/animalTabla',$data);
@@ -91,5 +95,32 @@ class AdminController extends BaseController
         return
             view('common/menu') .
             view('empleados/especificacionesEmpleado');
+    }
+
+
+    public function insertarAnimal() {
+        
+            $animalModel = model('AnimalModel');
+            $data = [
+                "especie"=> $_POST["idEspecie"],
+                "nombre" => $_POST['nombre'],
+                "descripcion"=> $_POST["descripcion"],
+                "edad"=> $_POST["edad"],
+                "sexo" => $_POST['sexo'],
+                "idArea"=> $_POST["area"],
+                "dieta"=> $_POST["dieta"],
+                "expectativaDeVida"=> $_POST["expectativaDeVida"],
+                "fechaNacimiento" => $_POST['fechaNacimiento'],
+                "historialMedico" => $_POST['historialMedico']
+            ];
+            $animalModel->insert($data, false);
+            return redirect('Administrador/animalTabla');
+    
+    }
+
+    public function eliminarAnimal($id){
+        $animalModel = model('AnimalModel');
+        $animalModel->delete($id);
+        return redirect('Administrador/animalTabla');
     }
 }
