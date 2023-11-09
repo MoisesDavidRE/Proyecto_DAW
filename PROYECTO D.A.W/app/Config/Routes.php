@@ -17,6 +17,7 @@ $routes->get('/Administrador/animalTabla', 'AdminController::animalTabla');
 $routes->get('/Administrador/especificacionesAnimal/(:num)', 'AdminController::especificacionesAnimal/$1');
 $routes->post('/Administrador/ins', 'AdminController::insertarAnimal');
 $routes->get('/Administrador/delAn/(:num)','AdminController::eliminarAnimal/$1');
+$routes->get('/Administrador/edit/(:num)', 'AdminController::editarAnimal/$1');
 
 // Áreas
 $routes->get('/Administrador/areasTabla', 'AdminController::areasTabla');
