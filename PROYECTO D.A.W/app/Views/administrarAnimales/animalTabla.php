@@ -42,9 +42,8 @@
                                     </lord-icon>
                                 </a>
                             </td>
-                            <td> <a href="<?= base_url('/Administrador/edit/' . $animal->numeroIdentificador); ?>"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#formEditar">
-                                    Ediar animal
+                            <td> <a href="<?= base_url('/Administrador/edit/' . $animal->numeroIdentificador); ?>"><button>
+                                    Ediar información
                                 </button></a></td>
                         </tr>
                     <?php endforeach; ?>
@@ -142,27 +141,6 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- Modal para EDITAR un registro -->
-
-<div class="modal fade" id="formEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar animal</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ola
             </div>
             <div class="modal-footer">
 

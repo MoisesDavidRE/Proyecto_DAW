@@ -56,7 +56,6 @@ class AdminController extends BaseController
             view('common/menu') .
             view('empleados/mostrar');
     }
-
     public function especificacionesAnimal($idAnimal)
     {
         $animalModel = model('AnimalModel');
@@ -83,7 +82,6 @@ class AdminController extends BaseController
             view('common/menu') .
             view('administrarReservaciones/reservacionEspecificaciones');
     }
-
     public function usuarioEspecificaciones()
     {
         return
