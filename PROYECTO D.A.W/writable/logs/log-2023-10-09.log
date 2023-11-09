@@ -1,0 +1,30 @@
+CRITICAL - 2023-10-09 23:45:56 --> Invalid file: "generalAdministrador/vistaGeneral.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('generalAdministrador/vistaGeneral.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('generalAdministrador/vistaGeneral', [], true)
+ 3 APPPATH\Controllers\AdminController.php(16): view('generalAdministrador/vistaGeneral')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->vistaGeneral()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-10-09 23:47:43 --> Invalid file: "generalAdministrador/vistaGeneral.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('generalAdministrador/vistaGeneral.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('generalAdministrador/vistaGeneral', [], true)
+ 3 APPPATH\Controllers\AdminController.php(16): view('generalAdministrador/vistaGeneral')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->vistaGeneral()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-10-09 23:47:47 --> Invalid file: "generalAdministrador/vistaGeneral.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('generalAdministrador/vistaGeneral.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('generalAdministrador/vistaGeneral', [], true)
+ 3 APPPATH\Controllers\AdminController.php(16): view('generalAdministrador/vistaGeneral')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->vistaGeneral()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\PROYECTO D.A.W\\public\\index.php')

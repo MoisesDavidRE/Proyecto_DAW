@@ -1,0 +1,1 @@
+<h1>Vista general</h1>

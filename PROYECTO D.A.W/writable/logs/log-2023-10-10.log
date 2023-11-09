@@ -1,0 +1,10 @@
+CRITICAL - 2023-10-10 00:52:04 --> Invalid file: "administrarAnimales/especificacionesArea.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('administrarAnimales/especificacionesArea.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/especificacionesArea', [], true)
+ 3 APPPATH\Controllers\AdminController.php(55): view('administrarAnimales/especificacionesArea')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\PROYECTO D.A.W\\public\\index.php')

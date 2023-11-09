@@ -1,0 +1,1 @@
+<h1>Especificaciones de la atracción</h1>
