@@ -9,16 +9,25 @@
                         <td>Nombre completo</td>
                         <td>Correo electrónico</td>
                         <td>Teléfono de contacto</td>
-                        <td>Fecha de nacimiento</td>
+                        <td>Mostrar especificaciones</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="/Administrador/empleadoEspecificaciones">Especificaciones</a></td>
-                    </tr>
+                    <?php foreach ($empleados as $empleado): ?>
+                        <tr>
+                            <td>
+                                <?= $empleado->nombre . " " . $empleado->apellido_Paterno . " " . $empleado->apellido_Materno ?>
+                            </td>
+                            <td>
+                                <?= $empleado->correoElectronico ?>
+                            </td>
+                            <td>
+                                <?= $empleado->telefono ?>
+                            </td>
+                            <td><a href="/Administrador/empleadoEspecificaciones/">Especificaciones</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

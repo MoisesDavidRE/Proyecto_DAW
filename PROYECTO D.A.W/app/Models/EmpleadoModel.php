@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AnimalModel extends Model
+class EmpleadoModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'animal';
-    protected $primaryKey       = 'numeroIdentificador';
+    protected $table            = 'empleados';
+    protected $primaryKey       = 'idEmpleado';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $useSoftDeletes   = true;
+    protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['especie','ilustracion','nombre','descripcion','edad',
-                                   'sexo','area','dieta','expectativaDeVida','fechaNacimiento','historialMedico'];
+    protected $allowedFields    = ['nombre','apellido_Paterno','apellido_Materno',
+                                   'contrasenia','correoElectronico','telefono','fechaNacimiento','imagenEmpleado'];
 
     // Dates
     protected $useTimestamps = false;

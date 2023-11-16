@@ -43,8 +43,8 @@
                                 </a>
                             </td>
                             <td> <a href="<?= base_url('/Administrador/edit/' . $animal->numeroIdentificador); ?>"><button>
-                                    Ediar información
-                                </button></a></td>
+                                        Ediar información
+                                    </button></a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -82,6 +82,7 @@
                         <label class="form-label" for="ilustracion">Ilustración del animal</label>
                         <input type="file" class="form-control" name="ilustracion">
                     </div>
+                    
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
@@ -146,5 +147,21 @@
 
             </div>
         </div>
+    </div>
+</div>
+
+
+
+<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small class="text-body-secondary">11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
     </div>
 </div>

@@ -1,3 +1,6 @@
+
+
+
 <h1>Áreas tabla</h1>
 
 <div class="container">
@@ -6,22 +9,29 @@
             <table class='table table-bordered-stripped'>
                 <thead>
                     <tr>
-                        <td>Área</td>
-                        <td>Animal</td>
-                        <td>Estatus</td>
-                        <td>Especificaciones</td>
+                        <th>Área</th>
+                        <th>Temperatura</th>
+                        <th>Estatus</th>
+                        <th>Nivel de acceso</th>
+                        <th>Especificaciones</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($areas as $area): ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?= $area->nombre ?></td>
+                        <td><?= $area->temperatura . " ºC" ?></td>
+                        <td><?= $area->estado ?></td>
+                        <td><?= $area->nivelAcceso ?></td>
                         <td><a href="/Administrador/especificacionesArea">Especificaciones</a></td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
         </div>
     </div>
 </div>
+
+
+

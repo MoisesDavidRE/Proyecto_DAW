@@ -1,0 +1,107 @@
+ERROR - 2023-11-15 00:33:38 --> Error connecting to the database: mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'acuario', 3306, '', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(58): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->empleadosTabla()
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(58): CodeIgniter\BaseModel->findAll()
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->empleadosTabla()
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#11 {main}
+CRITICAL - 2023-11-15 00:33:38 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `empleados`', [], false)
+ 3 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\AdminController.php(58): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->empleadosTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-15 00:59:40 --> Undefined property: stdClass::$peso
+in APPPATH\Views\administrarAnimales\especificacionesAnimal.php on line 10.
+ 1 APPPATH\Views\administrarAnimales\especificacionesAnimal.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$peso', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\especificacionesAnimal.php', 10)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\especificacionesAnimal.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/especificacionesAnimal', [], true)
+ 5 APPPATH\Controllers\AdminController.php(69): view('administrarAnimales/especificacionesAnimal', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesAnimal('1')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+ERROR - 2023-11-15 19:20:49 --> Error connecting to the database: mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'acuario', 3306, '', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->animalTabla()
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(22): CodeIgniter\BaseModel->findAll()
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->animalTabla()
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#11 {main}
+CRITICAL - 2023-11-15 19:20:50 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `animal`', [], false)
+ 3 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\AdminController.php(22): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->animalTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-15 19:46:50 --> Too few arguments to function App\Controllers\AdminController::especificacionesAnimal(), 1 passed in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php on line 919 and exactly 2 expected
+in APPPATH\Controllers\AdminController.php on line 63.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesAnimal('1')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')

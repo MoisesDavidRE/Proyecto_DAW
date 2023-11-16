@@ -28,9 +28,11 @@ class AdminController extends BaseController
     }
     public function areasTabla()
     {
+        $areasModel = model('AreasModel');
+        $data ['areas'] = $areasModel->findAll();
         return
             view('common/menu') .
-            view('administrarAreas/areasTabla');
+            view('administrarAreas/areasTabla',$data);
     }
     public function reservacionesTabla()
     {
@@ -52,9 +54,11 @@ class AdminController extends BaseController
     }
     public function empleadosTabla()
     {
+        $empleadoModel = model('EmpleadoModel');
+        $data ['empleados']= $empleadoModel->findAll();
         return
             view('common/menu') .
-            view('empleados/mostrar');
+            view('empleados/mostrar',$data);
     }
     public function especificacionesAnimal($idAnimal)
     {
@@ -90,15 +94,16 @@ class AdminController extends BaseController
     }
     public function empleadoEspecificaciones()
     {
+        $empleadoModel = model('EmpleadoModel');
+        $data['empleados'] = $empleadoModel->findAll();
         return
             view('common/menu') .
-            view('empleados/especificacionesEmpleado');
+            view('empleados/especificacionesEmpleado',$data);
     }
 
 
     public function insertarAnimal()
     {
-
         $animalModel = model('AnimalModel');
         $data = [
             "especie" => $_POST["idEspecie"],
@@ -114,7 +119,6 @@ class AdminController extends BaseController
         ];
         $animalModel->insert($data, false);
         return redirect('Administrador/animalTabla');
-
     }
 
     public function eliminarAnimal($id)
