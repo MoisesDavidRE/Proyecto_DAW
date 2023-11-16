@@ -41,10 +41,10 @@
                                         colors="primary:#3080e8" style="width:50px;height:50px">
                                     </lord-icon>
                                 </a>
-                            </td>
-                            <td> <a href="<?= base_url('/Administrador/edit/' . $animal->numeroIdentificador); ?>"><button>
+                                <a href="<?= base_url('/Administrador/edit/' . $animal->numeroIdentificador); ?>"><button>
                                         Ediar información
-                                    </button></a></td>
+                                    </button></a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -82,7 +82,7 @@
                         <label class="form-label" for="ilustracion">Ilustración del animal</label>
                         <input type="file" class="form-control" name="ilustracion">
                     </div>
-                    
+
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>

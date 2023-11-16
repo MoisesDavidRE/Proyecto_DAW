@@ -131,13 +131,11 @@ h5{
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h4 class="card-title"><?= "Especificaciones de " . $animal->nombre ?></h4>
+        <h4 class="card-title"><?= "Editar las especificaciones de " . $animal->nombre ?></h4>
         <div class="row g-0">
           <div class="col-md-3 border">
             <h5>Descripción</h5>
-            <p class="card-text">
-              <?= $animal->descripcion ?>
-            </p>
+            <textarea class="form-control" aria-label="With textarea" style="height: 86%;"><?= $animal->descripcion?></textarea>
           </div>
           <div class="col-md-3 border">
             <h5>Dieta</h5>
@@ -166,7 +164,6 @@ h5{
               } else
                 echo $resultado[0]["nombre"];
               ?>
-
             </p>
           </div>
         </div>

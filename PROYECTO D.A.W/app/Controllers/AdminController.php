@@ -127,4 +127,64 @@ class AdminController extends BaseController
         $animalModel->delete($id);
         return redirect('Administrador/animalTabla');
     }
+
+    public function editarAnimal($idAnimal)
+    {
+        $especieModel = model('EspeciesModel');
+        $animalModel = model('AnimalModel');
+        $data['animal'] = $animalModel->find($idAnimal);
+        $data['especies'] = $especieModel->findAll();
+
+        $validation =  \Config\Services::validation();
+
+        if ((strtolower($this->request->getMethod()) === 'get')) {
+            return 
+            view('common/header',$data) .
+            view('common/menu') .
+            view('administrarAnimales/editarAnimal',$data);
+        }
+        
+        $rules = [
+            'especie' => 'required',
+            'nombre'=> 'required',
+            'sexo'=> 'required',
+            'edad'=> 'required',
+            'area'=> 'required',
+            'dieta'=> 'required',
+            'expectativaDeVida'=> 'required',
+            'fechaNacimiento'=> 'required'
+        ];
+
+        if (! $this->validate($rules)) {
+            return 
+            view('common/header',$data) .
+        view('common/menu') .
+        view('administrarAnimales/editarAnimal',['validation' => $validation],$data) .
+        view('common/footer');
+        }else{
+            if($this->update()){
+                return redirect('administrarAnimales/animalTabla');
+            }
+        }
+    }
+
+    public function update()
+    {
+        $animal = model('AnimalModel');
+        $data = [
+            "especie" => $_POST['especie'],
+            "nombre" => $_POST['nombre'],
+            "ilustracion" => $_POST["ilustracion"],
+            "sexo" => $_POST['sexo'],
+            'edad' => $_POST['edad'],
+            'descripcion' => $_POST['descripcion'],
+            'area' => $_POST['area'],
+            'dieta' => $_POST['dieta'],
+            'expectativaDeVida' => $_POST['expectativaDeVida'],
+            'fechaNacimiento' => $_POST['fechaNacimiento'],
+            'historialMedico' => $_POST['historialMedico']
+        ];
+        $animal->update($_POST['numeroIdentificador'], $data);
+        return true;
+    }
 }
