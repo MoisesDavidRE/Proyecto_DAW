@@ -1,0 +1,68 @@
+CRITICAL - 2023-11-17 00:18:58 --> Undefined property: stdClass::$idArea
+in APPPATH\Views\administrarAnimales\editarAnimal.php on line 147.
+ 1 APPPATH\Views\administrarAnimales\editarAnimal.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$idArea', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\editarAnimal.php', 147)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\editarAnimal.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/editarAnimal', [], true)
+ 5 APPPATH\Controllers\AdminController.php(146): view('administrarAnimales/editarAnimal', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('2')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-17 00:19:00 --> Undefined property: stdClass::$idArea
+in APPPATH\Views\administrarAnimales\editarAnimal.php on line 147.
+ 1 APPPATH\Views\administrarAnimales\editarAnimal.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$idArea', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\editarAnimal.php', 147)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\editarAnimal.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/editarAnimal', [], true)
+ 5 APPPATH\Controllers\AdminController.php(146): view('administrarAnimales/editarAnimal', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('2')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-17 19:33:45 --> Class "App\Controllers\Dompdf" not found
+in APPPATH\Controllers\AdminController.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->PDF()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-17 19:34:38 --> Class "Dompdf\Dompdf" not found
+in APPPATH\Controllers\AdminController.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->PDF()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-17 19:37:03 --> Class "Dompdf\Dompdf" not found
+in APPPATH\Controllers\AdminController.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->PDF()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-17 19:58:04 --> Undefined constant "Hola"
+in APPPATH\Views\administrarAnimales\animalTabla.php on line 55.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/animalTabla', [], true)
+ 4 APPPATH\Controllers\AdminController.php(51): view('administrarAnimales/animalTabla', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->animalTabla()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-17 20:15:56 --> Undefined variable $html
+in APPPATH\Views\administrarAnimales\animalTabla.php on line 52.
+ 1 APPPATH\Views\administrarAnimales\animalTabla.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $html', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\animalTabla.php', 52)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\animalTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/animalTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(51): view('administrarAnimales/animalTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->animalTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')

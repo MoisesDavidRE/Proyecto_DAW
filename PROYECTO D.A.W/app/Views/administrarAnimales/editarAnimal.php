@@ -1,52 +1,4 @@
-<style>
-  .Btn {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 150px;
-    height: 45px;
-    border: none;
-    padding: 0px 20px;
-    background-color: rgb(82, 193, 218, 255);
-    color: black;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 5px 5px 0px rgb(35, 139, 187, 255);
-    transition-duration: .3s;
-    display: block;
-    margin: auto;
-  }
 
-  .svg {
-    width: 13px;
-    position: absolute;
-    right: 0;
-    margin-right: 20px;
-    fill: black;
-    transition-duration: .3s;
-  }
-
-  .Btn:hover {
-    color: transparent;
-  }
-
-  .Btn:hover svg {
-    top: 35%;
-    right: 42%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    transition-duration: .3s;
-  }
-
-  .Btn:active {
-    transform: translate(3px, 3px);
-    transition-duration: .3s;
-    box-shadow: 2px 2px 0px rgb(140, 32, 212);
-  }
-</style>
 
 <style>
   button {
@@ -137,17 +89,31 @@ h5{
             <h5>Descripción</h5>
             <textarea class="form-control" aria-label="With textarea" style="height: 86%;"><?= $animal->descripcion?></textarea>
           </div>
-          <div class="col-md-3 border">
+          <div class="col-md-3 border" style="height:325px;">
             <h5>Dieta</h5>
-            <p class="card-text">
-              <?= $animal->dieta ?>
-            </p>
+            <textarea class="form-control" aria-label="With textarea" style="height: 86%;"><?= $animal->dieta?></textarea>
           </div>
           <div class="col-md-3 border">
             <h5>Área</h5>
-            <p class="card-text">
-              <?= $animal->area ?>
-            </p>
+            <select name="area" id="area">
+              <option value="<?= $animal->area?>" default>
+              
+              <?php
+                        $db = \Config\Database::connect();
+                        $idArea = $animal->area;
+                        $query = "SELECT nombre FROM area WHERE idArea = $idArea";
+                        $resultado = $db->query($query)->getResultArray();
+                        if (!$resultado) {
+                            // Error al conectar a la base de datos
+                            echo mysqli_error($db);
+                        } else
+                            echo $resultado[0]["nombre"];
+                        ?>
+            </option>
+              <?php foreach($areas as $area) : ?>
+                  <option value="<?= $area->idArea?>"><?= $area->nombre?></option>
+              <?php endforeach; ?>
+            </select>
           </div>
           <div class="col-md-3 border">
             <h5>Especie</h5>

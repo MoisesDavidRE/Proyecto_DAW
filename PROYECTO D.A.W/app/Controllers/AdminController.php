@@ -130,8 +130,10 @@ class AdminController extends BaseController
 
     public function editarAnimal($idAnimal)
     {
+        $areas = model('AreasModel');
         $especieModel = model('EspeciesModel');
         $animalModel = model('AnimalModel');
+        $data ['areas'] = $areas->findAll();
         $data['animal'] = $animalModel->find($idAnimal);
         $data['especies'] = $especieModel->findAll();
 
