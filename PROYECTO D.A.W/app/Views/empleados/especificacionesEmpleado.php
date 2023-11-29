@@ -1,28 +1,16 @@
-<h1>Empleados tabla</h1>
+<h1>Especificaciones del empleado</h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col-8">
-            <table class='table table-bordered-stripped'>
-                <thead>
-                    <tr>
-                        <td>Nombre completo</td>
-                        <td>Correo electrónico</td>
-                        <td>Teléfono de contacto</td>
-                        <td>Mostrar especificaciones</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($empleados as $empleado): ?>
-                        <tr>
-                            <td><?= $empleado->nombre ." ".$empleado->apellido_Paterno." ".$empleado->apellido_Materno ?></td>
-                            <td><?= $empleado->correoElectronico ?></td>
-                            <td><?= $empleado->telefono?></td>
-                            <td>Especificaciones</td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+<h5>Nombre completo</h5>
+<p><?= $empleado->nombre . " " .$empleado->apellido_Paterno . " " . $empleado->apellido_Materno ?></p>
+
+<h5>Correo electrónico</h5>
+<p><?= $empleado->correoElectronico ?></p>
+
+<h5>Teléfono</h5>
+<p><?= $empleado->telefono ?></p>
+
+<h5>Fecha de nacimiento</h5>
+<p><?= $empleado->fechaNacimiento ?></p>
+
+<h5>Imagen del empleado</h5>
+<p><?= $empleado->imagenEmpleado ?></p>

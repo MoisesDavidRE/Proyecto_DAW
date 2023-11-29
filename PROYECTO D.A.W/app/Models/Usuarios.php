@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AreasModel extends Model
+class Usuarios extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'area';
-    protected $primaryKey       = 'idArea';
+    protected $table            = 'usuario';
+    protected $primaryKey       = 'numeroControl';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['encargado','nombre','descripcion','tamanio','temperatura','nivelAcceso','estado','horaMantenimiento','phPromedio','iluminacion','filtracionAgua','noHabitantesMax','imagen'];
+    protected $allowedFields    = ['nombre','apellido_Paterno','apellido_Materno','nombreUsuario','contrasenia','perfilUsuario','correoElectronico','fechaNacimiento','comentarioPreferencias','imagenUsuario'];
 
     // Dates
     protected $useTimestamps = false;

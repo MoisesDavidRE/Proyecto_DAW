@@ -1,0 +1,731 @@
+CRITICAL - 2023-11-25 01:22:34 --> Undefined variable $animal
+in APPPATH\Views\administrarAreas\especificacionesArea.php on line 132.
+ 1 APPPATH\Views\administrarAreas\especificacionesArea.php(132): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $animal', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\especificacionesArea.php', 132)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\especificacionesArea.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/especificacionesArea', [], true)
+ 5 APPPATH\Controllers\AdminController.php(76): view('administrarAreas/especificacionesArea')
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 01:45:20 --> Undefined variable $animales
+in APPPATH\Views\administrarAnimales\animalTabla.php on line 93.
+ 1 APPPATH\Views\administrarAnimales\animalTabla.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $animales', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\animalTabla.php', 93)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\animalTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/animalTabla', [...], true)
+ 5 APPPATH\Controllers\AdminController.php(66): view('administrarAnimales/animalTabla', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->agregarAnimal()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 01:46:31 --> Undefined variable $animales
+in APPPATH\Views\administrarAnimales\animalTabla.php on line 93.
+ 1 APPPATH\Views\administrarAnimales\animalTabla.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $animales', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\animalTabla.php', 93)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\animalTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/animalTabla', [...], true)
+ 5 APPPATH\Controllers\AdminController.php(66): view('administrarAnimales/animalTabla', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->agregarAnimal()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 01:46:56 --> Undefined variable $animales
+in APPPATH\Views\administrarAnimales\animalTabla.php on line 93.
+ 1 APPPATH\Views\administrarAnimales\animalTabla.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $animales', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\animalTabla.php', 93)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\animalTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/animalTabla', [...], true)
+ 5 APPPATH\Controllers\AdminController.php(66): view('administrarAnimales/animalTabla', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->agregarAnimal()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 01:50:29 --> Call to a member function findAll() on null
+in APPPATH\Controllers\AdminController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->agregarAnimal()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 01:56:07 --> Undefined array key "idEspecie"
+in APPPATH\Controllers\AdminController.php on line 87.
+ 1 APPPATH\Controllers\AdminController.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "idEspecie"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 87)
+ 2 APPPATH\Controllers\AdminController.php(76): App\Controllers\AdminController->insertarAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->agregarAnimal()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 02:01:27 --> Undefined variable $animales
+in APPPATH\Views\administrarAreas\areasTabla.php on line 98.
+ 1 APPPATH\Views\administrarAreas\areasTabla.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $animales', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php', 98)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/areasTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(169): view('administrarAreas/areasTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->areasTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+ERROR - 2023-11-25 02:25:14 --> mysqli_sql_exception: Table 'acuario.empleado' doesn't exist in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT nombre F...', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT nombre F...')
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT nombre F...')
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Views\administrarAreas\areasTabla.php(104): CodeIgniter\Database\BaseConnection->query('SELECT nombre F...')
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\View\View.php(226): include('C:\\Users\\Mois\xC3\xA9...')
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Common.php(1188): CodeIgniter\View\View->render('administrarArea...', Array, true)
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(169): view('administrarArea...', Array)
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->areasTabla()
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#13 {main}
+CRITICAL - 2023-11-25 02:25:14 --> Table 'acuario.empleado' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 APPPATH\Views\administrarAreas\areasTabla.php(104): CodeIgniter\Database\BaseConnection->query('SELECT nombre FROM empleado WHERE idEmpleado = 1')
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/areasTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(169): view('administrarAreas/areasTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->areasTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+ERROR - 2023-11-25 02:25:14 --> mysqli_sql_exception: Table 'acuario.empleado' doesn't exist in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT nombre F...', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT nombre F...')
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT nombre F...')
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Views\administrarAreas\areasTabla.php(104): CodeIgniter\Database\BaseConnection->query('SELECT nombre F...')
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\View\View.php(226): include('C:\\Users\\Mois\xC3\xA9...')
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Common.php(1188): CodeIgniter\View\View->render('administrarArea...', Array, true)
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(169): view('administrarArea...', Array)
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->areasTabla()
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#13 {main}
+CRITICAL - 2023-11-25 02:25:14 --> Table 'acuario.empleado' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 APPPATH\Views\administrarAreas\areasTabla.php(104): CodeIgniter\Database\BaseConnection->query('SELECT nombre FROM empleado WHERE idEmpleado = 1')
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/areasTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(169): view('administrarAreas/areasTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->areasTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 02:27:11 --> Undefined variable $empleados
+in APPPATH\Views\administrarAreas\areasTabla.php on line 166.
+ 1 APPPATH\Views\administrarAreas\areasTabla.php(166): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $empleados', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php', 166)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/areasTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(169): view('administrarAreas/areasTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->areasTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 02:27:59 --> Call to a member function findAll() on null
+in APPPATH\Controllers\AdminController.php on line 167.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->areasTabla()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 02:35:54 --> Call to a member function findAll() on null
+in APPPATH\Controllers\AdminController.php on line 249.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('3')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 03:45:00 --> Call to a member function findAll() on null
+in APPPATH\Controllers\AdminController.php on line 249.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('4')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 03:46:42 --> Call to a member function findAll() on null
+in APPPATH\Controllers\AdminController.php on line 249.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('4')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 03:47:33 --> Call to a member function findAll() on null
+in APPPATH\Controllers\AdminController.php on line 249.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('4')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 03:48:01 --> Undefined variable $animal
+in APPPATH\Views\administrarAreas\editarArea.php on line 77.
+ 1 APPPATH\Views\administrarAreas\editarArea.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $animal', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\editarArea.php', 77)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\editarArea.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/editarArea', [], true)
+ 5 APPPATH\Controllers\AdminController.php(257): view('administrarAreas/editarArea', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('4')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 03:49:29 --> Undefined variable $animal
+in APPPATH\Views\administrarAreas\editarArea.php on line 191.
+ 1 APPPATH\Views\administrarAreas\editarArea.php(191): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $animal', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\editarArea.php', 191)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\editarArea.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/editarArea', [], true)
+ 5 APPPATH\Controllers\AdminController.php(257): view('administrarAreas/editarArea', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('4')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 03:57:39 --> Invalid file: "administrarAnimales/editarAn.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('administrarAnimales/editarAn.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/editarAn', [], true)
+ 3 APPPATH\Controllers\AdminController.php(118): view('administrarAnimales/editarAn', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('5')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 03:57:46 --> Invalid file: "administrarAnimales/editarAn.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('administrarAnimales/editarAn.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/editarAn', [], true)
+ 3 APPPATH\Controllers\AdminController.php(118): view('administrarAnimales/editarAn', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('5')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 04:40:50 --> Undefined array key "especie"
+in APPPATH\Controllers\AdminController.php on line 297.
+ 1 APPPATH\Controllers\AdminController.php(297): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "especie"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 297)
+ 2 APPPATH\Controllers\AdminController.php(287): App\Controllers\AdminController->updateArea()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('2')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 04:42:15 --> Undefined array key "idArea"
+in APPPATH\Controllers\AdminController.php on line 310.
+ 1 APPPATH\Controllers\AdminController.php(310): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "idArea"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 310)
+ 2 APPPATH\Controllers\AdminController.php(287): App\Controllers\AdminController->updateArea()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('2')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 04:42:27 --> Undefined array key "idArea"
+in APPPATH\Controllers\AdminController.php on line 310.
+ 1 APPPATH\Controllers\AdminController.php(310): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "idArea"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 310)
+ 2 APPPATH\Controllers\AdminController.php(287): App\Controllers\AdminController->updateArea()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarArea('2')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+ERROR - 2023-11-25 04:44:00 --> Error connecting to the database: mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'acuario', 3306, '', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#11 {main}
+CRITICAL - 2023-11-25 04:44:00 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `area`
+WHERE `area`.`deleted_at` IS NULL
+AND `area`.`idArea` = :area.idArea:', [...], false)
+ 3 SYSTEMPATH\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+ 5 APPPATH\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+ERROR - 2023-11-25 04:44:06 --> Error connecting to the database: mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'acuario', 3306, '', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#11 {main}
+CRITICAL - 2023-11-25 04:44:06 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `area`
+WHERE `area`.`deleted_at` IS NULL
+AND `area`.`idArea` = :area.idArea:', [...], false)
+ 3 SYSTEMPATH\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+ 5 APPPATH\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:55:30 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 214.
+ 1 ROOTPATH\spark(88): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-11-25 16:55:30 --> Uncaught Error: Class "Locale" not found in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\I18n\TimeTrait.php:74
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\I18n\TimeTrait.php(115): CodeIgniter\I18n\Time->__construct(NULL, NULL, NULL)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\HTTP\ResponseTrait.php(468): CodeIgniter\I18n\Time::now()
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\HTTP\ResponseTrait.php(446): CodeIgniter\HTTP\Response->sendHeaders()
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Debug\ExceptionHandler.php(78): CodeIgniter\HTTP\Response->send()
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Debug\Exceptions.php(146): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\spark(88): CodeIgniter\CodeIgniter->initialize()
+#1 {main}
+in SYSTEMPATH\I18n\TimeTrait.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2023-11-25 15:56:08 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'acuario' in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'acuario', 3306, '', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'acuario' in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#11 {main}
+CRITICAL - 2023-11-25 15:56:08 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'acuario'
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `area`
+WHERE `area`.`deleted_at` IS NULL
+AND `area`.`idArea` = :area.idArea:', [...], false)
+ 3 SYSTEMPATH\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(563): CodeIgniter\Model->doFind(true, '5')
+ 5 APPPATH\Controllers\AdminController.php(179): CodeIgniter\BaseModel->find('5')
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:01:13 --> Attempt to read property "nombre" on null
+in APPPATH\Views\administrarAreas\especificacionesArea.php on line 223.
+ 1 APPPATH\Views\administrarAreas\especificacionesArea.php(223): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nombre" on null', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\especificacionesArea.php', 223)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\especificacionesArea.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/especificacionesArea', [], true)
+ 5 APPPATH\Controllers\AdminController.php(182): view('administrarAreas/especificacionesArea', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesArea('5')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:23:08 --> Cannot redeclare App\Controllers\AdminController::especificacionesArea()
+in APPPATH\Controllers\AdminController.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-25 16:24:53 --> Undefined variable $areas
+in APPPATH\Views\administrarAreas\areasTabla.php on line 99.
+ 1 APPPATH\Views\administrarAreas\areasTabla.php(99): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $areas', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php', 99)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/areasTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(328): view('administrarAreas/areasTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->reservacionesTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:24:55 --> Undefined variable $areas
+in APPPATH\Views\administrarAreas\areasTabla.php on line 99.
+ 1 APPPATH\Views\administrarAreas\areasTabla.php(99): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $areas', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php', 99)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/areasTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(328): view('administrarAreas/areasTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->reservacionesTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:25:08 --> Undefined variable $areas
+in APPPATH\Views\administrarAreas\areasTabla.php on line 99.
+ 1 APPPATH\Views\administrarAreas\areasTabla.php(99): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $areas', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php', 99)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAreas\\areasTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAreas/areasTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(328): view('administrarAreas/areasTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->reservacionesTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:26:06 --> Invalid file: "administrarReservaciones/areasTabla.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('administrarReservaciones/areasTabla.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/areasTabla', [], true)
+ 3 APPPATH\Controllers\AdminController.php(328): view('administrarReservaciones/areasTabla', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->reservacionesTabla()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:29:00 --> Undefined property: stdClass::$id
+in APPPATH\Views\administrarReservaciones\reservacionesTabla.php on line 21.
+ 1 APPPATH\Views\administrarReservaciones\reservacionesTabla.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\reservacionesTabla.php', 21)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\reservacionesTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/reservacionesTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(328): view('administrarReservaciones/reservacionesTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->reservacionesTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:33:52 --> Undefined variable $reservacion
+in APPPATH\Views\administrarReservaciones\reservacionEspecificaciones.php on line 4.
+ 1 APPPATH\Views\administrarReservaciones\reservacionEspecificaciones.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $reservacion', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\reservacionEspecificaciones.php', 4)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\reservacionEspecificaciones.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/reservacionEspecificaciones', [], true)
+ 5 APPPATH\Controllers\AdminController.php(501): view('administrarReservaciones/reservacionEspecificaciones')
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->reservacionEspecificaciones('1')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:34:57 --> Invalid file: "administrarReservaciones/especificacionesReservacion.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('administrarReservaciones/especificacionesReservacion.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/especificacionesReservacion', [], true)
+ 3 APPPATH\Controllers\AdminController.php(337): view('administrarReservaciones/especificacionesReservacion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesReservacion('1')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+ERROR - 2023-11-25 16:40:34 --> mysqli_sql_exception: Unknown column 'idUsuario' in 'where clause' in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT nombre, ...', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT nombre, ...')
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT nombre, ...')
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Views\administrarReservaciones\reservacionesTabla.php(101): CodeIgniter\Database\BaseConnection->query('SELECT nombre, ...')
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\View\View.php(226): include('C:\\Users\\Mois\xC3\xA9...')
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Common.php(1188): CodeIgniter\View\View->render('administrarRese...', Array, true)
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(328): view('administrarRese...', Array)
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->reservacionesTabla()
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#13 {main}
+CRITICAL - 2023-11-25 16:40:34 --> Unknown column 'idUsuario' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 APPPATH\Views\administrarReservaciones\reservacionesTabla.php(101): CodeIgniter\Database\BaseConnection->query('SELECT nombre, apellido_Paterno, apellido_Materno FROM usuario WHERE idUsuario = 2')
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\reservacionesTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/reservacionesTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(328): view('administrarReservaciones/reservacionesTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->reservacionesTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 16:46:25 --> Call to a member function delete() on null
+in APPPATH\Controllers\AdminController.php on line 401.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->eliminarReservacion('1')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 17:02:25 --> Undefined variable $reservacion
+in APPPATH\Views\administrarReservaciones\editarReservacion.php on line 4.
+ 1 APPPATH\Views\administrarReservaciones\editarReservacion.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $reservacion', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\editarReservacion.php', 4)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\editarReservacion.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/editarReservacion', [], true)
+ 5 APPPATH\Controllers\AdminController.php(409): view('administrarReservaciones/editarReservacion', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarReservacion('1')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 17:05:24 --> Undefined variable $area
+in APPPATH\Views\administrarReservaciones\editarReservacion.php on line 121.
+ 1 APPPATH\Views\administrarReservaciones\editarReservacion.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $area', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\editarReservacion.php', 121)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\editarReservacion.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/editarReservacion', [], true)
+ 5 APPPATH\Controllers\AdminController.php(411): view('administrarReservaciones/editarReservacion', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarReservacion('1')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 17:05:29 --> Undefined variable $area
+in APPPATH\Views\administrarReservaciones\editarReservacion.php on line 121.
+ 1 APPPATH\Views\administrarReservaciones\editarReservacion.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $area', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\editarReservacion.php', 121)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\editarReservacion.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/editarReservacion', [], true)
+ 5 APPPATH\Controllers\AdminController.php(411): view('administrarReservaciones/editarReservacion', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarReservacion('1')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 17:05:49 --> Undefined property: stdClass::$idArea
+in APPPATH\Views\administrarReservaciones\editarReservacion.php on line 121.
+ 1 APPPATH\Views\administrarReservaciones\editarReservacion.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$idArea', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\editarReservacion.php', 121)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarReservaciones\\editarReservacion.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarReservaciones/editarReservacion', [], true)
+ 5 APPPATH\Controllers\AdminController.php(411): view('administrarReservaciones/editarReservacion', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarReservacion('1')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 17:06:46 --> Undefined array key "idReservacion"
+in APPPATH\Controllers\AdminController.php on line 449.
+ 1 APPPATH\Controllers\AdminController.php(449): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "idReservacion"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 449)
+ 2 APPPATH\Controllers\AdminController.php(430): App\Controllers\AdminController->updateReservacion()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarReservacion('1')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 17:07:26 --> Undefined array key "idReservacion"
+in APPPATH\Controllers\AdminController.php on line 449.
+ 1 APPPATH\Controllers\AdminController.php(449): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "idReservacion"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 449)
+ 2 APPPATH\Controllers\AdminController.php(430): App\Controllers\AdminController->updateReservacion()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarReservacion('1')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 17:07:34 --> Undefined array key "idReservacion"
+in APPPATH\Controllers\AdminController.php on line 449.
+ 1 APPPATH\Controllers\AdminController.php(449): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "idReservacion"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 449)
+ 2 APPPATH\Controllers\AdminController.php(430): App\Controllers\AdminController->updateReservacion()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarReservacion('1')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 17:07:46 --> Undefined array key "idReservacion"
+in APPPATH\Controllers\AdminController.php on line 449.
+ 1 APPPATH\Controllers\AdminController.php(449): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "idReservacion"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 449)
+ 2 APPPATH\Controllers\AdminController.php(430): App\Controllers\AdminController->updateReservacion()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarReservacion('1')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:02:47 --> Undefined variable $animal
+in APPPATH\Views\administrarUsuarios\usuariosTabla.php on line 121.
+ 1 APPPATH\Views\administrarUsuarios\usuariosTabla.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $animal', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuariosTabla.php', 121)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuariosTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarUsuarios/usuariosTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(462): view('administrarUsuarios/usuariosTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->usuariosTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:03:05 --> Undefined variable $especies
+in APPPATH\Views\administrarUsuarios\usuariosTabla.php on line 163.
+ 1 APPPATH\Views\administrarUsuarios\usuariosTabla.php(163): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $especies', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuariosTabla.php', 163)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuariosTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarUsuarios/usuariosTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(462): view('administrarUsuarios/usuariosTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->usuariosTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:03:20 --> Undefined variable $areas
+in APPPATH\Views\administrarUsuarios\usuariosTabla.php on line 193.
+ 1 APPPATH\Views\administrarUsuarios\usuariosTabla.php(193): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $areas', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuariosTabla.php', 193)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuariosTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarUsuarios/usuariosTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(462): view('administrarUsuarios/usuariosTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->usuariosTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:03:21 --> Undefined variable $areas
+in APPPATH\Views\administrarUsuarios\usuariosTabla.php on line 193.
+ 1 APPPATH\Views\administrarUsuarios\usuariosTabla.php(193): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $areas', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuariosTabla.php', 193)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuariosTabla.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarUsuarios/usuariosTabla', [], true)
+ 5 APPPATH\Controllers\AdminController.php(462): view('administrarUsuarios/usuariosTabla', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->usuariosTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:18:57 --> Invalid file: "administrarUsuario/usuarioEspecificaciones.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('administrarUsuario/usuarioEspecificaciones.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarUsuario/usuarioEspecificaciones', [], true)
+ 3 APPPATH\Controllers\AdminController.php(471): view('administrarUsuario/usuarioEspecificaciones', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesUsuario('5')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:23:02 --> Undefined property: stdClass::$nomnreUsuario
+in APPPATH\Views\administrarUsuarios\usuarioEspecificaciones.php on line 7.
+ 1 APPPATH\Views\administrarUsuarios\usuarioEspecificaciones.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$nomnreUsuario', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuarioEspecificaciones.php', 7)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\usuarioEspecificaciones.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarUsuarios/usuarioEspecificaciones', [], true)
+ 5 APPPATH\Controllers\AdminController.php(471): view('administrarUsuarios/usuarioEspecificaciones', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->especificacionesUsuario('1')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:38:50 --> Undefined variable $reservacion
+in APPPATH\Views\administrarUsuarios\editarUsuario.php on line 126.
+ 1 APPPATH\Views\administrarUsuarios\editarUsuario.php(126): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $reservacion', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\editarUsuario.php', 126)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarUsuarios\\editarUsuario.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarUsuarios/editarUsuario', [], true)
+ 5 APPPATH\Controllers\AdminController.php(540): view('administrarUsuarios/editarUsuario', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarUsuario('1')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:41:31 --> Undefined array key "atraccion_animal"
+in APPPATH\Controllers\AdminController.php on line 440.
+ 1 APPPATH\Controllers\AdminController.php(440): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "atraccion_animal"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 440)
+ 2 APPPATH\Controllers\AdminController.php(560): App\Controllers\AdminController->updateReservacion()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarUsuario('1')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:42:23 --> Undefined array key "atraccion_animal"
+in APPPATH\Controllers\AdminController.php on line 440.
+ 1 APPPATH\Controllers\AdminController.php(440): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "atraccion_animal"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 440)
+ 2 APPPATH\Controllers\AdminController.php(560): App\Controllers\AdminController->updateReservacion()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarUsuario('1')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-25 18:44:13 --> Undefined array key "atraccion_animal"
+in APPPATH\Controllers\AdminController.php on line 440.
+ 1 APPPATH\Controllers\AdminController.php(440): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "atraccion_animal"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 440)
+ 2 APPPATH\Controllers\AdminController.php(560): App\Controllers\AdminController->updateReservacion()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarUsuario('2')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')

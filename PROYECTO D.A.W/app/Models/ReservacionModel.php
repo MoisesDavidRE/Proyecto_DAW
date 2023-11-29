@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AreasModel extends Model
+class ReservacionModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'area';
-    protected $primaryKey       = 'idArea';
+    protected $table            = 'reservacion';
+    protected $primaryKey       = 'idReservacion';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['encargado','nombre','descripcion','tamanio','temperatura','nivelAcceso','estado','horaMantenimiento','phPromedio','iluminacion','filtracionAgua','noHabitantesMax','imagen'];
+    protected $allowedFields    = ['atraccion_animal','usuario','fechaReservada','horaInicio','horaFin','estatus','costoTotal','comentariosAdicionales'];
 
     // Dates
     protected $useTimestamps = false;

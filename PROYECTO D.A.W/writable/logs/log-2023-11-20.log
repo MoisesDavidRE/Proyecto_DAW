@@ -1,0 +1,339 @@
+ERROR - 2023-11-20 02:00:59 --> Error connecting to the database: mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'acuario', 3306, '', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->animalTabla()
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(22): CodeIgniter\BaseModel->findAll()
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->animalTabla()
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#11 {main}
+CRITICAL - 2023-11-20 02:00:59 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `animal`
+WHERE `animal`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\AdminController.php(22): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->animalTabla()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 02:32:37 --> Invalid file: "administrarAnimales/ediarAnimal.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('administrarAnimales/ediarAnimal.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/ediarAnimal', [], true)
+ 3 APPPATH\Controllers\AdminController.php(146): view('administrarAnimales/ediarAnimal', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:21:57 --> Undefined variable $mascota
+in APPPATH\Views\administrarAnimales\editarAnimal.php on line 93.
+ 1 APPPATH\Views\administrarAnimales\editarAnimal.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $mascota', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\editarAnimal.php', 93)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\editarAnimal.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/editarAnimal', [], true)
+ 5 APPPATH\Controllers\AdminController.php(146): view('administrarAnimales/editarAnimal', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:21:58 --> Undefined variable $mascota
+in APPPATH\Views\administrarAnimales\editarAnimal.php on line 93.
+ 1 APPPATH\Views\administrarAnimales\editarAnimal.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $mascota', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\editarAnimal.php', 93)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Views\\administrarAnimales\\editarAnimal.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('administrarAnimales/editarAnimal', [], true)
+ 5 APPPATH\Controllers\AdminController.php(146): view('administrarAnimales/editarAnimal', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:30:21 --> Invalid file: "common/footer.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('common/footer.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('common/footer', [], true)
+ 3 APPPATH\Controllers\AdminController.php(158): view('common/footer')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:32:34 --> Invalid file: "common/footer.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('common/footer.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('common/footer', [], true)
+ 3 APPPATH\Controllers\AdminController.php(158): view('common/footer')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:33:47 --> Unclosed '{' on line 154 does not match ')'
+in APPPATH\Controllers\AdminController.php on line 158.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AdminController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AdminController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AdminController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:33:51 --> Unclosed '{' on line 154 does not match ')'
+in APPPATH\Controllers\AdminController.php on line 158.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AdminController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AdminController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AdminController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:33:52 --> Unclosed '{' on line 154 does not match ')'
+in APPPATH\Controllers\AdminController.php on line 158.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AdminController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AdminController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AdminController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:33:53 --> Unclosed '{' on line 154 does not match ')'
+in APPPATH\Controllers\AdminController.php on line 158.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AdminController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AdminController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AdminController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:33:54 --> Unclosed '{' on line 154 does not match ')'
+in APPPATH\Controllers\AdminController.php on line 158.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AdminController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AdminController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AdminController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:34:14 --> syntax error, unexpected token "}"
+in APPPATH\Controllers\AdminController.php on line 63.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AdminController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AdminController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AdminController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:38:12 --> Undefined array key "especie"
+in APPPATH\Controllers\AdminController.php on line 170.
+ 1 APPPATH\Controllers\AdminController.php(170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "especie"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 170)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:40:55 --> Undefined array key "nombre"
+in APPPATH\Controllers\AdminController.php on line 171.
+ 1 APPPATH\Controllers\AdminController.php(171): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 171)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:42:54 --> Undefined array key "nombre"
+in APPPATH\Controllers\AdminController.php on line 171.
+ 1 APPPATH\Controllers\AdminController.php(171): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 171)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:43:13 --> Undefined array key "sexo"
+in APPPATH\Controllers\AdminController.php on line 172.
+ 1 APPPATH\Controllers\AdminController.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sexo"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 172)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:51:19 --> Undefined array key "edad"
+in APPPATH\Controllers\AdminController.php on line 173.
+ 1 APPPATH\Controllers\AdminController.php(173): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "edad"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 173)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:51:50 --> Undefined array key "edad"
+in APPPATH\Controllers\AdminController.php on line 173.
+ 1 APPPATH\Controllers\AdminController.php(173): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "edad"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 173)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:51:52 --> Undefined array key "edad"
+in APPPATH\Controllers\AdminController.php on line 173.
+ 1 APPPATH\Controllers\AdminController.php(173): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "edad"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 173)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:52:02 --> Undefined array key "edad"
+in APPPATH\Controllers\AdminController.php on line 173.
+ 1 APPPATH\Controllers\AdminController.php(173): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "edad"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 173)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:52:04 --> Undefined array key "edad"
+in APPPATH\Controllers\AdminController.php on line 173.
+ 1 APPPATH\Controllers\AdminController.php(173): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "edad"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 173)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:52:09 --> Undefined array key "expectativaDeVida"
+in APPPATH\Controllers\AdminController.php on line 177.
+ 1 APPPATH\Controllers\AdminController.php(177): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "expectativaDeVida"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 177)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:52:30 --> Undefined array key "fechaNacimiento"
+in APPPATH\Controllers\AdminController.php on line 178.
+ 1 APPPATH\Controllers\AdminController.php(178): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "fechaNacimiento"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 178)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:52:49 --> Undefined array key "fechaNacimiento"
+in APPPATH\Controllers\AdminController.php on line 178.
+ 1 APPPATH\Controllers\AdminController.php(178): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "fechaNacimiento"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 178)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:52:57 --> Undefined array key "historialMedico"
+in APPPATH\Controllers\AdminController.php on line 179.
+ 1 APPPATH\Controllers\AdminController.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "historialMedico"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 179)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:53:09 --> Undefined array key "historialMedico"
+in APPPATH\Controllers\AdminController.php on line 179.
+ 1 APPPATH\Controllers\AdminController.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "historialMedico"', 'C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\app\\Controllers\\AdminController.php', 179)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->updateAnimal()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:54:15 --> The route for "administrarAnimales/animalTabla" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('administrarAnimales/animalTabla')
+ 2 SYSTEMPATH\Common.php(878): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\AdminController.php(161): redirect('administrarAnimales/animalTabla')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:55:37 --> The route for "Administrador/especificacionesAnimal/3" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('Administrador/especificacionesAnimal/3')
+ 2 SYSTEMPATH\Common.php(878): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\AdminController.php(161): redirect('Administrador/especificacionesAnimal/3')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:58:27 --> The route for "Administrador/especificacionesAnimal/3" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('Administrador/especificacionesAnimal/3')
+ 2 SYSTEMPATH\Common.php(878): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\AdminController.php(161): redirect('Administrador/especificacionesAnimal/3')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+CRITICAL - 2023-11-20 03:58:41 --> The route for "Administrador/especificacionesAnimal" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('Administrador/especificacionesAnimal')
+ 2 SYSTEMPATH\Common.php(878): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\AdminController.php(161): redirect('Administrador/especificacionesAnimal')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->editarAnimal('3')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')
+ERROR - 2023-11-20 04:01:00 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`acuario`.`animal`, CONSTRAINT `area` FOREIGN KEY (`area`) REFERENCES `area` (`idArea`)) in C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `an...', 0)
+#1 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `an...')
+#2 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `an...')
+#3 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `an...', Array, false)
+#4 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\app\Controllers\AdminController.php(121): CodeIgniter\Model->insert(Array, false)
+#8 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(919): App\Controllers\AdminController->insertarAnimal()
+#9 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#10 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\Moisés David\Desktop\Proyecto_DAW\PROYECTO D.A.W\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Mois\xC3\xA9...')
+#13 {main}
+CRITICAL - 2023-11-20 04:01:00 --> Cannot add or update a child row: a foreign key constraint fails (`acuario`.`animal`, CONSTRAINT `area` FOREIGN KEY (`area`) REFERENCES `area` (`idArea`))
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `animal` (`especie`, `nombre`, `descripcion`, `edad`, `sexo`, `dieta`, `expectativaDeVida`, `fechaNacimiento`, `historialMedico`) VALUES (:especie:, :nombre:, :descripcion:, :edad:, :sexo:, :dieta:, :expectativaDeVida:, :fechaNacimiento:, :historialMedico:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 APPPATH\Controllers\AdminController.php(121): CodeIgniter\Model->insert([...], false)
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->insertarAnimal()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\Moisés David\\Desktop\\Proyecto_DAW\\PROYECTO D.A.W\\public\\index.php')

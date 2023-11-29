@@ -114,24 +114,29 @@
   .contenedor-botones .Btn {
     margin-right: 20px;
   }
-.card-text{
-  padding: 10px;
-}
 
-h5{
-  padding: 10px;
-}
+  .card-text {
+    padding: 10px;
+  }
+
+  h5 {
+    padding: 10px;
+  }
 </style>
 
 <div class="card mb-3" style="max-width:100%; ">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="/img/delfin2.jpg" class="img-fluid rounded-start mb-2" alt="..." style="heigth:100%;">
-      <p style="text-align: center; font-size:20px;"><?= "Fotografía de ".$animal->nombre ?></p>
+      <p style="text-align: center; font-size:20px;">
+        <?= "Fotografía de " . $animal->nombre ?>
+      </p>
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h4 class="card-title"><?= "Especificaciones de " . $animal->nombre ?></h4>
+        <h4 class="card-title">
+          <?= "Especificaciones de " . $animal->nombre ?>
+        </h4>
         <div class="row g-0">
           <div class="col-md-3 border">
             <h5>Descripción</h5>
@@ -153,9 +158,9 @@ h5{
           </div>
           <div class="col-md-3 border">
             <h5>Especie</h5>
-            <p class="card-text"> 
+            <p class="card-text">
 
-            <?php
+              <?php
               $db = \Config\Database::connect();
               $idEspecie = $animal->especie;
               $query = "SELECT nombre FROM especie WHERE idEspecie = $idEspecie";
@@ -210,7 +215,7 @@ h5{
 </div>
 
 <div class="contenedor-botones" style="display:flex; justify-content:center;">
-  <a href="<?= base_url('/Administrador/edit/' . $animal->numeroIdentificador) ?>" style="text-decoration:none;">
+  <a href="<?= base_url('/Administrador/editAn/' . $animal->numeroIdentificador) ?>" style="text-decoration:none;">
     <button class="Btn">Editar
       <svg class="svg" viewBox="0 0 512 512">
         <path
