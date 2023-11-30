@@ -122,6 +122,9 @@
   h5 {
     padding: 10px;
   }
+  h1{
+    align:center;
+  }
 </style>
 
 <div class="card mb-3" style="max-width:100%; ">

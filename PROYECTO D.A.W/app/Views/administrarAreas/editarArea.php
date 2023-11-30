@@ -85,7 +85,6 @@
             }
             ?>
 
-
             <input type="hidden" name="idArea" value="<?= $area->idArea ?>"/>
             <div class="col-md-4">
                 <img src="/img/delfin2.jpg" class="img-fluid rounded-start mb-2" alt="..." style="heigth:100%;">
@@ -97,7 +96,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h4 class="card-title">
-                        Especificaciones de
+                        Editar área 
                         <input type="text" name="nombre" value="<?= $area->nombre ?>">
                     </h4>
                     <div class="row g-0">

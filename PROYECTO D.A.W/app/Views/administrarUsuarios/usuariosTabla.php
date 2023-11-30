@@ -70,7 +70,7 @@
     }
 </style>
 
-<h1 class="mb-5">Usuarios registrados</h1>
+<h1 class="mb-5" align="center">Usuarios registrados</h1>
 
 <div class="container ">
     <div class="row">

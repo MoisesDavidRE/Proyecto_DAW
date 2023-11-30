@@ -70,7 +70,7 @@
     }
 </style>
 
-<h1 class="mb-5">Reservaciones registradas</h1>
+<h1 class="mb-5" align="center">Reservaciones registradas</h1>
 
 <div class="container ">
     <div class="row">
@@ -169,9 +169,9 @@
                     <div class="mb-3">
                         <label for="usuario" class="form-label">Usuario</label>
                         <select name="usuario" class="form-control">
-                            <?php foreach ($usuarios as $usuario): ?>
-                                <option value="<?= $usuario->numeroControl ?>">
-                                    <?= $usuario->nombre . " " . $usuario->apellido_Paterno . " " . $usuario->apellido_Materno ?>
+                            <?php foreach ($usuarios as $atraccion): ?>
+                                <option value="<?= $atraccion->numeroControl ?>">
+                                    <?= $atraccion->nombre . " " . $atraccion->apellido_Paterno . " " . $atraccion->apellido_Materno ?>
                                 </option>
                             <?php endforeach ?>
                         </select>

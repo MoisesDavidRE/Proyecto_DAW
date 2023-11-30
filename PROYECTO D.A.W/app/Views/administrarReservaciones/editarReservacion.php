@@ -74,8 +74,6 @@
     }
 </style>
 
-<h1>Editar reservación</h1>
-
 <form action="<?= base_url('Administrador/editReservacion/' . $reservacion->idReservacion); ?>" method="POST" style="margin-bottom: -50px;">
     
 <?php
@@ -85,30 +83,62 @@
             ?>
     <input type="hidden" name="idReservacion" value="<?= $reservacion->idReservacion ?>">
 
-    <h5>Atracción reservada</h5>
-    <input type="text" name="atraccion_animal" value="<?= $reservacion->atraccion_animal ?>">
-
-    <h5>Usuario que reservó</h5>
-    <input type="text" name="usuario" value="<?= $reservacion->usuario ?>">
-
-
-    <h5>Fecha reservada</h5>
-    <input type="text" name="fechaReservada" value="<?= $reservacion->fechaReservada ?>">
-
-    <h5>Hora de inicio</h5>
-    <input type="time" name="horaInicio" value="<?= $reservacion->horaInicio ?>">
-
-    <h5>Hora de finalización</h5>
-    <input type="time" name="horaFin" value="<?= $reservacion->horaFin ?>">
-
-    <h5>Estatus de la reservación</h5>
-    <input type="text" name="estatus" value="<?= $reservacion->estatus ?>">
-
-    <h5>Monto total de la reservación</h5>
-    <input type="text" name="costoTotal" value="<?= $reservacion->costoTotal ?>">
-
-    <h5>Comentarios adicionales de la reservación</h5>
-    <input type="text" name="comentariosAdicionales" value="<?= $reservacion->comentariosAdicionales ?>">
+    <h1 class="mb-5" align="center">Editar las especificaciones de la reservación de <?php $db = \Config\Database::connect();
+                                $query = "SELECT nombre, apellido_Paterno, apellido_Materno FROM usuario WHERE numeroControl = $reservacion->usuario";
+                                $resultado = $db->query($query)->getResultArray();
+                                echo $resultado[0]["nombre"] . " " . $resultado[0]["apellido_Paterno"] . " " . $resultado[0]["apellido_Materno"];?></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="background-color: #2596be;font-size:20px;">Detalle</th>
+            <th style="background-color: #2596be;font-size:20px;">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Atracción reservada</td>
+            <td><input type="text" name="atraccionReservada" value="<?php $query = "SELECT nombre FROM atraccion_animal WHERE id = $reservacion->atraccion_animal";
+            $resultado = $db->query($query)->getResultArray();
+            echo $resultado[0]["nombre"]?>"></td>
+          </tr>
+          <tr>
+            <td>Usuario que reservó</td>
+            <td><input disabled type="text" name="usuarioReserva" value="<?php  $query = "SELECT nombre, apellido_Paterno, apellido_Materno FROM usuario WHERE numeroControl = $reservacion->usuario";
+                                $resultado = $db->query($query)->getResultArray();
+                                echo $resultado[0]["nombre"] . " " . $resultado[0]["apellido_Paterno"] . " " . $resultado[0]["apellido_Materno"]; ?>"></td>
+          </tr>
+          <tr>
+            <td>Fecha reservada</td>
+            <td><input type="date" name="fechaReservada" value="<?= $reservacion->fechaReservada ?>"></td>
+          </tr>
+          <tr>
+            <td>Hora de inicio</td>
+            <td><input type="time" name="horaInicio" value="<?= $reservacion->horaInicio ?>"></td>
+          </tr>
+          <tr>
+            <td>Hora de finalización</td>
+            <td><input type="time" name="horaFin" value="<?= $reservacion->horaFin ?>"></td>
+          </tr>
+          <tr>
+            <td>Estatus de la reservación</td>
+            <td><input type="text" name="estatusReserva" value="<?= $reservacion->estatus ?>"></td>
+          </tr>
+          <tr>
+            <td>Monto total de la reservación</td>
+            <td><input type="number" name="costoTotal" value="<?= $reservacion->costoTotal ?>"></td>
+          </tr>
+          <tr>
+            <td>Comentarios adicionales de la reservación</td>
+            <td><textarea name="comentariosAdicionales"><?= $reservacion->comentariosAdicionales ?></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 
     <div class="contenedor-botones" style="display:flex; justify-content:center;">
@@ -125,8 +155,7 @@
 
 
 <div class="contenedor-botones" style="display:flex; justify-content:center;position:absolute;right:740px">
-
-    <a href="<?= base_url('/Administrador/especificacionesReservacion/' . $reservacion->idReservacion) ?>" style="text-decoration:none;">
+    <a href="<?= base_url('/Administrador/reservacionEspecificaciones/' . $reservacion->idReservacion) ?>" style="text-decoration:none;">
         <button class="noselect"><span class="text">Cancelar</span><span class="icon"><svg
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path

@@ -75,7 +75,7 @@
 </style>
 
 
-<h1>Editar empleado</h1>
+<h1 align="center">Editar empleado</h1>
 
 
 <form action="<?= base_url('Administrador/editEm/' . $empleado->idEmpleado); ?>" method="POST" style="margin-bottom: -50px;">
@@ -88,25 +88,42 @@
 
 <input type="hidden" value="<?= $empleado->idEmpleado?>" name="idEmpleado">
 
-<h5>Nombre</h5>
-<input type="text" value="<?= $empleado->nombre ?>" name="nombre">
-
-<h5>Apellido Paterno</h5>
-<input type="text" value="<?= $empleado->apellido_Paterno ?>" name="apellido_Paterno">
-<h5>Apellido materno</h5>
-<input type="text" value="<?= $empleado->apellido_Materno?>" name="apellido_Materno">
-
-<h5>Correo electrónico</h5>
-<input type="text" value="<?= $empleado->correoElectronico ?>" name="correoElectronico">
-
-<h5>Teléfono</h5>
-<input type="text" value="<?= $empleado->telefono ?>" name="telefono">
-
-<h5>Fecha de nacimiento</h5>
-<input type="text" value="<?= $empleado->fechaNacimiento ?>" name="fechaNacimiento">
-
-<h5>Imagen del empleado</h5>
-<input type="text" value="<?= $empleado->imagenEmpleado ?>" name="imagenEmpleado">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="background-color:#2596be;font-size:20px;">Detalle</th>
+            <th style="background-color:#2596be;font-size:20px;">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nombre completo</td>
+            <td><input type="text" name="nombreCompleto" value="<?= $empleado->nombre . " " .$empleado->apellido_Paterno . " " . $empleado->apellido_Materno ?>"></td>
+          </tr>
+          <tr>
+            <td>Correo electrónico</td>
+            <td><input type="email" name="correoElectronico" value="<?= $empleado->correoElectronico ?>"></td>
+          </tr>
+          <tr>
+            <td>Teléfono</td>
+            <td><input type="tel" name="telefono" value="<?= $empleado->telefono ?>"></td>
+          </tr>
+          <tr>
+            <td>Fecha de nacimiento</td>
+            <td><input type="date" name="fechaNacimiento" value="<?= $empleado->fechaNacimiento ?>"></td>
+          </tr>
+          <tr>
+            <td>Imagen del empleado</td>
+            <td><input type="text" name="imagenEmpleado"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <div class="contenedor-botones" style="display:flex; justify-content:center;">
 

@@ -84,7 +84,7 @@
         print $validation->listErrors();
       }
       ?>
-
+<h1 align="center">Editar animal <?= $animal->nombre?> </h1>
 
       <input type="hidden" name="idAnimal" value="<?= $animal->numeroIdentificador ?>" />
       <div class="col-md-4">

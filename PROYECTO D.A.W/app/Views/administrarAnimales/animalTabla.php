@@ -70,14 +70,28 @@
     }
 </style>
 
-<h1 class="mb-5">Animales registrados</h1>
+<h1 class="mb-5" align="center">Animales registrados</h1>
 
 <div class="container ">
     <div class="row">
         <div class="col-12">
-            <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#formAgregar">
-                Registrar nuevo animal
-            </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                    
+                        <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal"
+                            data-bs-target="#formAgregar">
+                            Registrar nuevo animal
+                        </button>
+                        <a href="<?= base_url('/Administrador/buscarAn'); ?>" style="position:absolute; top:168px; left:27%;">
+                            <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal">
+                                Buscar animal
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <?php
             if (isset($validation)) {
                 print $validation->listErrors();

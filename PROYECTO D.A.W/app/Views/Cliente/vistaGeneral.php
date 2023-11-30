@@ -1,1 +1,1 @@
-<h1>Vista general</h1>
+<h1>Vista general del cliente</h1>

@@ -69,9 +69,8 @@
         transform-origin: right;
     }
 </style>
-Smart soft
-Conducef
-<h1 class="mb-5">Empleados registradas</h1>
+
+<h1 class="mb-5" align="center">Empleados registrados</h1>
 
 <div class="container ">
     <div class="row">

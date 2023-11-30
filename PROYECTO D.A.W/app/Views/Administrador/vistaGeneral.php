@@ -1,1 +1,1 @@
-<h1>Esta es la vista general</h1>
+<h1 align="center">Inicio</h1>

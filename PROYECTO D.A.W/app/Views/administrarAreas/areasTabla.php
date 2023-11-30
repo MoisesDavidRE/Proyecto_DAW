@@ -70,7 +70,7 @@
     }
 </style>
 
-<h1 class="mb-5">Areas registradas</h1>
+<h1 class="mb-5" align="center">Areas registradas</h1>
 
 <div class="container ">
     <div class="row">
@@ -154,7 +154,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar área</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel" align="center">Registrar área</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
