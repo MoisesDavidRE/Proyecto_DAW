@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+
 $session = \Config\Services::session();
+$pager = \Config\Services::pager();
 
 class AdminController extends BaseController
 {
@@ -13,7 +15,7 @@ class AdminController extends BaseController
     public function vistaGeneral()
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -23,15 +25,15 @@ class AdminController extends BaseController
             view('Administrador/vistaGeneral');
     }
 
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Funciones para "Animal"
 
-// Método que muestra la tabla de animales en caso que la sesión exista, 
+    // Método que muestra la tabla de animales en caso que la sesión exista, 
 // no se puede acceder por URL si la sesión no existe
     public function animalTabla()
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -40,20 +42,21 @@ class AdminController extends BaseController
         $animalModel = model('AnimalModel');
         $areasModel = model('AreasModel');
         $especiesModel = model('EspeciesModel');
-        $data['animales'] = $animalModel->findAll();
+        $data['animales'] = $animalModel->paginate(10);
         $data['areas'] = $areasModel->findAll();
         $data['especies'] = $especiesModel->findAll();
+        $data['pager'] = $animalModel->pager;
         return
             view('common/menu') .
             view('administrarAnimales/animalTabla', $data);
     }
 
-// Método para visualizar las especificaciones del animal, verifica la existencia de la sesión
+    // Método para visualizar las especificaciones del animal, verifica la existencia de la sesión
 // No es posible acceder mediante URL si la sesión es inexistente
     public function especificacionesAnimal($idAnimal)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -65,29 +68,80 @@ class AdminController extends BaseController
             view('administrarAnimales/especificacionesAnimal', $data);
     }
 
-// Método que valida los campos del formulario para agregar un registro en la tabla
+    // Método que valida los campos del formulario para agregar un registro en la tabla
 // "Animal", en caso que las reglas de validación sean aceptadas, se invoca al método insertarAnimal()
     public function agregarAnimal()
     {
         $areas = model('AreasModel');
         $especieModel = model('EspeciesModel');
         $animales = model('AnimalModel');
-        $data['animales'] = $animales->findAll();
+        $data['animales'] = $animales->paginate(10);
         $data['areas'] = $areas->findAll();
         $data['especies'] = $especieModel->findAll();
+        $data['pager'] = $animales->pager;
 
 
         $validation = \Config\Services::validation();
 
         $rules = [
-            'descripcion' => 'required',
-            'edad' => 'required',
-            'dieta' => 'required',
-            'area' => 'required',
-            'idEspecie' => 'required',
+            'nombre' => [
+                'label' => "Nombre",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                    //Aquí puedes agregar el mensaje de una regla definida anteriormente
+                ]
+            ],
+            'descripcion' => [
+                'label' => "Descripción",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
+            'edad' => [
+                'label' => "Edad",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
+            'dieta' => [
+                'label' => "Dieta",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
+            'area' => [
+                'label' => "Área",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerida'
+                ]
+            ],
+            'idEspecie' => [
+                'label' => "Especie",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
             'sexo' => 'required',
-            'fechaNacimiento' => 'required',
-            'historialMedico' => 'required'
+            'fechaNacimiento' => [
+                'label' => "Fecha de nacimiento",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
+            'historialMedico' => [
+                'label' => "Historial médico",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                ]
+            ],
         ];
 
         if (!$this->validate($rules)) {
@@ -97,13 +151,19 @@ class AdminController extends BaseController
                 view('administrarAnimales/animalTabla', ['validation' => $validation], $data);
         } else {
             if ($this->insertarAnimal()) {
-                return redirect('Administrador/animalTabla');
+                
+                $nombre = $_POST['nombre'];
+                $mensaje =" fué agregado exitosamente!";
+                return 
+                view('common/header', $data) . 
+                view('common/menu') . 
+                view('administrarAnimales/animalTabla', ['mensaje' => $mensaje,'nombre'=>$nombre]);
             }
         }
 
     }
 
-// Método que hace la propia inserción del animal en la base de datos
+    // Método que hace la propia inserción del animal en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarAnimal(), no es invocado de manera directa en los formularios
     public function insertarAnimal()
@@ -125,7 +185,19 @@ class AdminController extends BaseController
         return true;
     }
 
-// Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
+    private function guardarImagen()
+    {
+        $imagen = \Config\Services::image()->withFile('');
+        $config['upload_path'] = 'img/';
+        $config['file_name'] = 'ilustracion';
+        $config['allowed_types'] = 'jpg|png';
+        $config['max_size'] = '5000'; //kb
+        $config['max_with'] = '2000';
+        $config['max_height'] = '2000';
+
+    }
+
+    // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarAnimal($id)
     {
         $animalModel = model('AnimalModel');
@@ -134,13 +206,13 @@ class AdminController extends BaseController
     }
 
 
-// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateAnimal()
     public function editarAnimal($idAnimal)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -179,12 +251,27 @@ class AdminController extends BaseController
                 view('administrarAnimales/editarAnimal', ['validation' => $validation], $data);
         } else {
             if ($this->updateAnimal()) {
+                $this->_upload($idAnimal);
                 return redirect('Administrador/animalTabla');
             }
         }
     }
 
-// Método que hace la actualización del registro en la base de datos, únicamente se invoca
+    private function _upload ($id){
+        echo "uno";
+        if($imageFile = $this->request->getFile('ilustracion')){
+            echo "Dos";
+            if($imageFile->isValid() && !$imageFile->hasMoved()){
+               echo WRITEPATH;
+
+               $nombre = $imageFile->getRandomName();
+               $imageFile->move(WRITEPATH . 'uploads/avatar/', $nombre );
+               return true;
+            }
+        }
+    }
+
+    // Método que hace la actualización del registro en la base de datos, únicamente se invoca
 // cuando las reglas de validación en el método editarAnimal() han sido aceptadas, no se invoca de manera directa
 // en los formularios
     public function updateAnimal()
@@ -210,15 +297,15 @@ class AdminController extends BaseController
     public function buscarAnimal()
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE){
+        if ($session->get('logged_in') != TRUE) {
             return redirect('/');
         }
-        
+
         $especies = model('EspeciesModel');
         $animales = model('AnimalModel');
         $data['especies'] = $especies->findAll();
         $data['animales'] = $animales->findAll();
-        
+
         if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
             $buscador = $_GET['Buscador'];
             $valor = $_GET['Valor'];
@@ -226,41 +313,38 @@ class AdminController extends BaseController
 
             if ($buscador == 'Nombre') {
                 $data['animales'] = $animales->like('nombre', $valor)
-                ->findAll();
+                    ->findAll();
                 if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie',($data['animales'][0]->especie))->findAll();       
-                }
-                else{
+                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
+                } else {
                     $buscador = 'Todo';
                 }
             }
 
             if ($buscador == 'numeroIdentificador') {
                 $data['animales'] = $animales->like('numeroIdentificador', $valor)
-                ->findAll();
+                    ->findAll();
                 if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie',($data['animales'][0]->especie))->findAll();  
-                }
-                else{
+                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
+                } else {
                     $buscador = 'Todo';
                 }
             }
 
             if ($buscador == 'Especie') {
                 $data['especies'] = $especies->like('idEspecie', $valor)
-                ->findAll();
+                    ->findAll();
                 if (isset($data['especies'][0])) {
-                    $data['animales'] = $animales->where('especie',($data['especies'][0]->idEspecie))->findAll();  
-                }
-                else{
+                    $data['animales'] = $animales->where('especie', ($data['especies'][0]->idEspecie))->findAll();
+                } else {
                     $buscador = 'Todo';
                 }
-            } 
+            }
         } else {
             $buscador =
-            $valor =
+                $valor =
 
-            $data['animales'] = $animales->findAll();    
+                $data['animales'] = $animales->findAll();
         }
         return
             view('common/header') .
@@ -279,16 +363,16 @@ class AdminController extends BaseController
 
 
 
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Funciones para "Área"
 
 
-// Método que muestra la tabla de áreas en caso que la sesión exista, 
+    // Método que muestra la tabla de áreas en caso que la sesión exista, 
 // no se puede acceder por URL si la sesión no existe
     public function areasTabla()
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -303,12 +387,12 @@ class AdminController extends BaseController
             view('administrarAreas/areasTabla', $data);
     }
 
-// Método para visualizar las especificaciones del área, verifica la existencia de la sesión
+    // Método para visualizar las especificaciones del área, verifica la existencia de la sesión
 // No es posible acceder mediante URL si la sesión es inexistente
     public function especificacionesArea($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -320,7 +404,7 @@ class AdminController extends BaseController
             view('administrarAreas/especificacionesArea', $data);
     }
 
-// Método que valida los campos del formulario para agregar un registro en la tabla
+    // Método que valida los campos del formulario para agregar un registro en la tabla
 // "area", en caso que las reglas de validación sean aceptadas, se invoca al método insertarArea()
     public function agregarArea()
     {
@@ -358,7 +442,7 @@ class AdminController extends BaseController
 
     }
 
-// Método que hace la propia inserción del área en la base de datos
+    // Método que hace la propia inserción del área en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarArea(), no es invocado de manera directa en los formularios
     public function insertarArea()
@@ -382,7 +466,7 @@ class AdminController extends BaseController
         return true;
     }
 
-// Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
+    // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarArea($id)
     {
         $area = model('AreasModel');
@@ -390,13 +474,13 @@ class AdminController extends BaseController
         return redirect('Administrador/areasTabla');
     }
 
-// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateArea()
     public function editarArea($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -441,7 +525,7 @@ class AdminController extends BaseController
         }
     }
 
-// Método que hace la actualización del registro en la base de datos, únicamente se invoca
+    // Método que hace la actualización del registro en la base de datos, únicamente se invoca
 // cuando las reglas de validación en el método editarArea() han sido aceptadas, no se invoca de manera directa
 // en los formularios
     public function updateArea()
@@ -468,12 +552,12 @@ class AdminController extends BaseController
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Funciones para "Reservación"
 
-// Método que muestra la tabla de reservaciones en caso que la sesión exista, 
+    // Método que muestra la tabla de reservaciones en caso que la sesión exista, 
 // no se puede acceder por URL si la sesión no existe
     public function reservacionesTabla()
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -491,12 +575,12 @@ class AdminController extends BaseController
             view('administrarReservaciones/reservacionesTabla', $data);
     }
 
-// Método para visualizar las especificaciones de la reservación, verifica la existencia de la sesión
+    // Método para visualizar las especificaciones de la reservación, verifica la existencia de la sesión
 // No es posible acceder mediante URL si la sesión es inexistente
     public function especificacionesReservacion($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -508,7 +592,7 @@ class AdminController extends BaseController
             view('administrarReservaciones/reservacionEspecificaciones', $data);
     }
 
-// Método que valida los campos del formulario para agregar un registro en la tabla
+    // Método que valida los campos del formulario para agregar un registro en la tabla
 // "Reservacion", en caso que las reglas de validación sean aceptadas, se invoca al método insertarReservacion()
     public function agregarReservacion()
     {
@@ -542,7 +626,7 @@ class AdminController extends BaseController
 
     }
 
-// Método que hace la propia inserción de la reservación en la base de datos
+    // Método que hace la propia inserción de la reservación en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarReservacion(), no es invocado de manera directa en los formularios
     public function insertarReservacion()
@@ -561,7 +645,7 @@ class AdminController extends BaseController
         $reservacion->insert($data, false);
         return true;
     }
-// Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
+    // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarReservacion($id)
     {
         $reservacion = model('ReservacionModel');
@@ -569,13 +653,13 @@ class AdminController extends BaseController
         return redirect('Administrador/reservacionesTabla');
     }
 
-// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateReservacion()
     public function editarReservacion($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -619,7 +703,7 @@ class AdminController extends BaseController
     }
 
 
-// Método que hace la actualización del registro en la base de datos, únicamente se invoca
+    // Método que hace la actualización del registro en la base de datos, únicamente se invoca
 // cuando las reglas de validación en el método editarReservacion() han sido aceptadas, no se invoca de manera directa
 // en los formularios
     public function updateReservacion()
@@ -643,12 +727,12 @@ class AdminController extends BaseController
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Funciones para "Usuarios"
 
-// Método que muestra la tabla de usuarios en caso que la sesión exista, 
+    // Método que muestra la tabla de usuarios en caso que la sesión exista, 
 // no se puede acceder por URL si la sesión no existe
     public function usuariosTabla()
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -660,12 +744,12 @@ class AdminController extends BaseController
             view('administrarUsuarios/usuariosTabla', $data);
     }
 
-// Método para visualizar las especificaciones del usuario, verifica la existencia de la sesión
+    // Método para visualizar las especificaciones del usuario, verifica la existencia de la sesión
 // No es posible acceder mediante URL si la sesión es inexistente
     public function especificacionesUsuario($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -677,7 +761,7 @@ class AdminController extends BaseController
             view('administrarUsuarios/usuarioEspecificaciones', $data);
     }
 
-// Método que valida los campos del formulario para agregar un registro en la tabla
+    // Método que valida los campos del formulario para agregar un registro en la tabla
 // "Usuario", en caso que las reglas de validación sean aceptadas, se invoca al método insertarUsuario()
     public function agregarUsuario()
     {
@@ -701,7 +785,7 @@ class AdminController extends BaseController
             return
                 view('common/header') .
                 view('common/menu') .
-                view('administrarUsuarios/usuariosTabla', ['validation' => $validation],$data);
+                view('administrarUsuarios/usuariosTabla', ['validation' => $validation], $data);
         } else {
             if ($this->insertarUsuario()) {
                 return redirect('Administrador/usuariosTabla');
@@ -710,7 +794,7 @@ class AdminController extends BaseController
 
     }
 
-// Método que hace la propia inserción del usuario en la base de datos
+    // Método que hace la propia inserción del usuario en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarUsuario(), no es invocado de manera directa en los formularios
     public function insertarUsuario()
@@ -731,7 +815,7 @@ class AdminController extends BaseController
         return true;
     }
 
-// Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
+    // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarUsuario($id)
     {
         $usuario = model('Usuarios');
@@ -739,13 +823,13 @@ class AdminController extends BaseController
         return redirect('Administrador/usuariosTabla');
     }
 
-// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateUsuario()
     public function editarUsuario($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -784,7 +868,7 @@ class AdminController extends BaseController
         }
     }
 
-// Método que hace la actualización del registro en la base de datos, únicamente se invoca
+    // Método que hace la actualización del registro en la base de datos, únicamente se invoca
 // cuando las reglas de validación en el método editarUsuario() han sido aceptadas, no se invoca de manera directa
 // en los formularios
     public function updateUsuario()
@@ -808,12 +892,12 @@ class AdminController extends BaseController
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Funciones para "Empleados"
 
-// Método que muestra la tabla de empleados en caso que la sesión exista, 
+    // Método que muestra la tabla de empleados en caso que la sesión exista, 
 // no se puede acceder por URL si la sesión no existe
     public function empleadosTabla()
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -825,12 +909,12 @@ class AdminController extends BaseController
             view('empleados/mostrar', $data);
     }
 
-// Método para visualizar las especificaciones del empleado, verifica la existencia de la sesión
+    // Método para visualizar las especificaciones del empleado, verifica la existencia de la sesión
 // No es posible acceder mediante URL si la sesión es inexistente
     public function especificacionesEmpleado($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -842,7 +926,7 @@ class AdminController extends BaseController
             view('empleados/especificacionesEmpleado', $data);
     }
 
-// Método que valida los campos del formulario para agregar un registro en la tabla
+    // Método que valida los campos del formulario para agregar un registro en la tabla
 // "Empleado", en caso que las reglas de validación sean aceptadas, se invoca al método insertarEmpleado()
     public function agregarEmpleado()
     {
@@ -871,7 +955,7 @@ class AdminController extends BaseController
 
     }
 
-// Método que hace la propia inserción del empleado en la base de datos
+    // Método que hace la propia inserción del empleado en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarEmpleado(), no es invocado de manera directa en los formularios
     public function insertarEmpleado()
@@ -890,7 +974,7 @@ class AdminController extends BaseController
         return true;
     }
 
-// Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
+    // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarEmpleado($id)
     {
         $empleado = model('EmpleadoModel');
@@ -898,13 +982,13 @@ class AdminController extends BaseController
         return redirect('Administrador/empleadosTabla');
     }
 
-// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateEmpleado()
     public function editarEmpleado($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -942,7 +1026,7 @@ class AdminController extends BaseController
         }
     }
 
-// Método que hace la actualización del registro en la base de datos, únicamente se invoca
+    // Método que hace la actualización del registro en la base de datos, únicamente se invoca
 // cuando las reglas de validación en el método editarEmpleado() han sido aceptadas, no se invoca de manera directa
 // en los formularios
     public function updateEmpleado()
@@ -965,12 +1049,12 @@ class AdminController extends BaseController
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Funciones para "Atracciones"
 
-// Método que muestra la tabla de atracciones en caso que la sesión exista, 
+    // Método que muestra la tabla de atracciones en caso que la sesión exista, 
 // no se puede acceder por URL si la sesión no existe
     public function atraccionesTabla()
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -986,12 +1070,12 @@ class AdminController extends BaseController
             view('administrarAtracciones/atraccionesTabla', $data);
     }
 
-// Método para visualizar las especificaciones de la atracción, verifica la existencia de la sesión
+    // Método para visualizar las especificaciones de la atracción, verifica la existencia de la sesión
 // No es posible acceder mediante URL si la sesión es inexistente
     public function especificacionesAtraccion($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -1003,7 +1087,7 @@ class AdminController extends BaseController
             view('administrarAtracciones/especificacionesAtraccion', $data);
     }
 
-// Método que valida los campos del formulario para agregar un registro en la tabla
+    // Método que valida los campos del formulario para agregar un registro en la tabla
 // "Atraccion", en caso que las reglas de validación sean aceptadas, se invoca al método insertarAtraccion()
     public function agregarAtraccion()
     {
@@ -1038,7 +1122,7 @@ class AdminController extends BaseController
         }
     }
 
-// Método que hace la propia inserción de la atracción en la base de datos
+    // Método que hace la propia inserción de la atracción en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarAtraccion(), no es invocado de manera directa en los formularios
     public function insertarAtraccion()
@@ -1060,7 +1144,7 @@ class AdminController extends BaseController
         return true;
     }
 
-// Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
+    // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarAtraccion($id)
     {
         $atraccion = model('AtraccionesModel');
@@ -1068,13 +1152,13 @@ class AdminController extends BaseController
         return redirect('Administrador/atraccionesTabla');
     }
 
-// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateAtraccion()
     public function editarAtraccion($id)
     {
         $session = session();
-        if($session->get('logged_in')!=TRUE || $session->get('Perfil')!='ADMINISTRADOR'){
+        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
             $session->destroy();
             return redirect('/');
         }
@@ -1117,7 +1201,7 @@ class AdminController extends BaseController
         }
     }
 
-// Método que hace la actualización del registro en la base de datos, únicamente se invoca
+    // Método que hace la actualización del registro en la base de datos, únicamente se invoca
 // cuando las reglas de validación en el método editarAtraccion() han sido aceptadas, no se invoca de manera directa
 // en los formularios
     public function updateAtraccion()

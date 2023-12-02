@@ -72,11 +72,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 align="center">Buscar bicicleta</h1>
+            <h1 align="center">Buscar animal</h1>
 
             <form action="<?= base_url('/Administrador/buscarAn'); ?>" method="GET">
 
-                <div class="col-5">
+                <div class="col-5 mb-3">
                     <label for="Buscador">Buscar por: </label>
                     <select name="Buscador" class="form-control">
                         <option value="Todo">Mostrar todo</option>
@@ -86,7 +86,7 @@
                     </select>
                 </div>
 
-                <div class="col-5">
+                <div class="col-5 mb-3">
                     <label for="Valor">Ingresa alguna semejanza:</label>
                     <input type="text" class="form-control" name="Valor" maxlength="30"
                         pattern="[a-z - A-Z 0-9 \s]{1,15}">

@@ -74,7 +74,7 @@
   }
 </style>
 
-<form action="<?= base_url('Administrador/editAn/' . $animal->numeroIdentificador); ?>" method="POST" style="margin-bottom: -50px;">
+<form action="<?= base_url('Administrador/editAn/' . $animal->numeroIdentificador); ?>" method="POST" style="margin-bottom: -50px;" enctype="multipart/form-data">
   <?= csrf_field() ?>
   <div class="card mb-3" style="max-width:100%; ">
     <div class="row g-0">
@@ -88,7 +88,7 @@
 
       <input type="hidden" name="idAnimal" value="<?= $animal->numeroIdentificador ?>" />
       <div class="col-md-4">
-        <img src="/img/delfin2.jpg" class="img-fluid rounded-start mb-2" alt="..." style="heigth:100%;">
+        <img src="<?=$animal->ilustracion?>" class="img-fluid rounded-start mb-2" alt="..." style="heigth:100%;">
         <p style="text-align: center; font-size:20px;">
           <?= "Fotografía de " . $animal->nombre ?>
         </p>
@@ -173,7 +173,12 @@
               <h5>Fecha de nacimiento</h5>
               <input type="date" name="fechaNacimiento" value="<?= $animal->fechaNacimiento ?>">
             </div>
+            
           </div>
+          <div class="col-md-3 border">
+              <h5>Avatar</h5>
+              <input type="file" name="ilustracion"> 
+            </div>
           <div class="row g-0">
             <div class="col-md-12 border">
               <h5>Historial médico</h5>
