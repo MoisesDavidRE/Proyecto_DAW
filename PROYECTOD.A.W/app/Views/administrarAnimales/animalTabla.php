@@ -47,8 +47,8 @@
             <table class='table table-bordered  table-striped' style="border-radius: 7px;">
                 <thead>
                     <tr>
-                        <th style="background-color: #fa6900;">Número identificador</th>
                         <th style="background-color: #fa6900;">Nombre</th>
+                        <th style="background-color: #fa6900;">Número identificador</th>
                         <th style="background-color: #fa6900;">Fecha de nacimiento</th>
                         <th style="background-color: #fa6900;">Especie</th>
                         <th style="background-color: #fa6900;">Área</th>
@@ -109,6 +109,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            Se muestran <?=count($animales) ?> registros de un total de <?=$registros?>
             <?= $pager->links(); ?>
         </div>
     </div>

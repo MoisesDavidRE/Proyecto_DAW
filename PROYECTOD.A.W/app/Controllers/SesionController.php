@@ -40,6 +40,7 @@ class SesionController extends BaseController
                     'idUsuario' => $data['usuario'][0]->numeroControl,
                     'Nombre' => $data['usuario'][0]->nombre,
                     'ApellidoPaterno' => $data['usuario'][0]->apellido_Paterno,
+                    'ApellidoMaterno' => $data['usuario'][0]->apellido_Materno,
                     'Correo_Elec' => $data['usuario'][0]->correoElectronico,
                     'logged_in' => true,
                     'Perfil' => $data['usuario'][0]->perfilUsuario

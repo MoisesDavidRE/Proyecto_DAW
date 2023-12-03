@@ -132,14 +132,12 @@
             <div class="col-md-3 border">
               <h5>Especie</h5>
               <select name="especie" id="especie">
-
                 <option value="<?= $animal->especie ?>" default>
                   <?php $db = \Config\Database::connect();
                   $query = "SELECT nombre FROM especie WHERE idEspecie = $animal->especie";
                   $resultado = $db->query($query)->getResultArray();
                   echo $resultado[0]["nombre"]; ?>
                 </option>
-
                 <?php foreach ($especies as $especie): ?>
                   <option value="<?= $especie->idEspecie ?>">
                     <?= $especie->nombre ?>

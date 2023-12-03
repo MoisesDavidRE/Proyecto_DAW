@@ -28,7 +28,7 @@
           </tr>
           <tr>
             <td>Imagen del empleado</td>
-            <td><img src="<?= $empleado->imagenEmpleado ?>" width="100" alt="Imagen del empleado"></td>
+            <td><img src="/imgEmpleados/<?= $empleado->imagenEmpleado ?>" class="img-fluid rounded mb-2" alt="..." style="heigth:300px; width:300px"></td>
           </tr>
         </tbody>
       </table>

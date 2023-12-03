@@ -78,7 +78,7 @@
 <h1 align="center">Editar empleado</h1>
 
 
-<form action="<?= base_url('Administrador/editEm/' . $empleado->idEmpleado); ?>" method="POST" style="margin-bottom: -50px;">
+<form action="<?= base_url('Administrador/editEm/' . $empleado->idEmpleado); ?>" method="POST" style="margin-bottom: -50px;" enctype="multipart/form-data">
     
 <?php
             if (isset($validation)) {
@@ -100,24 +100,36 @@
         </thead>
         <tbody>
           <tr>
-            <td>Nombre completo</td>
-            <td><input type="text" name="nombreCompleto" value="<?= $empleado->nombre . " " .$empleado->apellido_Paterno . " " . $empleado->apellido_Materno ?>"></td>
+            <td>Nombre</td>
+            <td><input class="form-control" type="text" name="nombre" value="<?= $empleado->nombre?>"></td>
+          </tr>
+          <tr>
+            <td>Apellido paterno</td>
+            <td><input class="form-control" type="text" name="apellido_Paterno" value="<?= $empleado->apellido_Paterno?>"></td>
+          </tr>
+          <tr>
+            <td>Apellido materno</td>
+            <td><input class="form-control" type="text" name="apellido_Materno" value="<?= $empleado->apellido_Materno?>"></td>
           </tr>
           <tr>
             <td>Correo electrónico</td>
-            <td><input type="email" name="correoElectronico" value="<?= $empleado->correoElectronico ?>"></td>
+            <td><input class="form-control" type="email" name="correoElectronico" value="<?= $empleado->correoElectronico ?>"></td>
           </tr>
           <tr>
             <td>Teléfono</td>
-            <td><input type="tel" name="telefono" value="<?= $empleado->telefono ?>"></td>
+            <td><input class="form-control" type="tel" name="telefono" value="<?= $empleado->telefono ?>"></td>
           </tr>
           <tr>
             <td>Fecha de nacimiento</td>
-            <td><input type="date" name="fechaNacimiento" value="<?= $empleado->fechaNacimiento ?>"></td>
+            <td><input class="form-control" type="date" name="fechaNacimiento" value="<?= $empleado->fechaNacimiento ?>"></td>
+          </tr>
+          <tr>
+            <td>Actualizar la imagen del empleado</td>
+            <td><input class="form-control" type="file" name="ilustracion"></td>
           </tr>
           <tr>
             <td>Imagen del empleado</td>
-            <td><input type="text" name="imagenEmpleado"></td>
+            <td><img src="/imgEmpleados/<?= $empleado->imagenEmpleado ?>" class="img-fluid rounded mb-2" alt="..." style="heigth:300px; width:300px"></td>
           </tr>
         </tbody>
       </table>

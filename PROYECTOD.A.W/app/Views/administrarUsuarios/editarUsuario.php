@@ -76,7 +76,7 @@
 <h1 align="center">Editar usuario</h1>
 
 <form action="<?= base_url('Administrador/editUsr/' . $usuario->numeroControl); ?>" method="POST"
-    style="margin-bottom: -50px;">
+    style="margin-bottom: -50px;" enctype="multipart/form-data">
 
     <?php
     if (isset($validation)) {
@@ -99,28 +99,44 @@
         </thead>
         <tbody>
           <tr>
-            <td>Nombre completo</td>
-            <td><input type="text" name="nombreCompleto" value="<?= $usuario->nombre . " " .$usuario->apellido_Paterno . " " . $usuario->apellido_Materno ?>"></td>
+            <td>Nombre</td>
+            <td><input class="form-control" type="text" name="nombre" value="<?= $usuario->nombre ?>"></td>
+          </tr>
+          <tr>
+            <td>Apellido paterno</td>
+            <td><input class="form-control" type="text" name="apellido_Paterno" value="<?= $usuario->apellido_Paterno?>"></td>
+          </tr>
+          <tr>
+            <td>Apellido materno</td>
+            <td><input class="form-control" type="text" name="apellido_Materno" value="<?= $usuario->apellido_Materno?>"></td>
           </tr>
           <tr>
             <td>Nombre de usuario</td>
-            <td><input type="text" name="nombreUsuario" value="<?= $usuario->nombreUsuario ?>"></td>
+            <td><input class="form-control" type="text" name="nombreUsuario" value="<?= $usuario->nombreUsuario ?>"></td>
           </tr>
           <tr>
             <td>Perfil de usuario</td>
-            <td><input type="text" name="perfilUsuario" value="<?= $usuario->perfilUsuario ?>"></td>
+            <td><input class="form-control" type="text" name="perfilUsuario" value="<?= $usuario->perfilUsuario ?>"></td>
           </tr>
           <tr>
             <td>Correo electrónico</td>
-            <td><input type="email" name="correoElectronico" value="<?= $usuario->correoElectronico ?>"></td>
+            <td><input class="form-control" type="email" name="correoElectronico" value="<?= $usuario->correoElectronico ?>"></td>
           </tr>
           <tr>
             <td>Fecha de nacimiento</td>
-            <td><input type="date" name="fechaNacimiento" value="<?= $usuario->fechaNacimiento ?>"></td>
+            <td><input class="form-control" type="date" name="fechaNacimiento" value="<?= $usuario->fechaNacimiento ?>"></td>
           </tr>
           <tr>
             <td>Comentarios o preferencias adicionales</td>
-            <td><textarea name="comentarioPreferencias"><?= $usuario->comentarioPreferencias ?></textarea></td>
+            <td><textarea class="form-control" name="comentarioPreferencias"><?= $usuario->comentarioPreferencias ?></textarea></td>
+          </tr>
+          <tr>
+            <td>Actualizar foto de perfil</td>
+            <td><input class="form-control" type="file" name="ilustracion"></td>
+          </tr>
+          <tr>
+            <td>Foto de perfil</td>
+            <td><img src="/avatar/<?= $usuario->imagenUsuario ?>" class="img-fluid rounded mb-2" alt="..." style="heigth:300px; width:300px"></td>
           </tr>
         </tbody>
       </table>
@@ -140,7 +156,7 @@
 
 </form>
 
-<div class="contenedor-botones" style="display:flex; justify-content:center;position:absolute;right:740px">
+<div class="contenedor-botones" style="display:flex; justify-content:center;position:absolute;right:710px;padding-bottom: 40px;">
 
     <a href="<?= base_url('/Administrador/especificacionesUsuario/' . $usuario->numeroControl) ?>"
         style="text-decoration:none;">

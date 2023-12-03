@@ -1,102 +1,68 @@
-<style>
-    .editBtn {
-        width: 55px;
-        height: 55px;
-        border-radius: 20px;
-        border: none;
-        background-color: rgb(52, 132, 236);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.123);
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s;
-    }
-
-    .editBtn::before {
-        content: "";
-        width: 200%;
-        height: 200%;
-        background-color: rgb(102, 102, 141);
-        position: absolute;
-        z-index: 1;
-        transform: scale(0);
-        transition: all 0.3s;
-        border-radius: 50%;
-        filter: blur(10px);
-    }
-
-    .editBtn:hover::before {
-        transform: scale(1);
-    }
-
-    .editBtn:hover {
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.336);
-    }
-
-    .editBtn svg {
-        height: 17px;
-        fill: white;
-        z-index: 3;
-        transition: all 0.2s;
-        transform-origin: bottom;
-    }
-
-    .editBtn:hover svg {
-        transform: rotate(-15deg) translateX(5px);
-    }
-
-    .editBtn::after {
-        content: "";
-        width: 25px;
-        height: 1.5px;
-        position: absolute;
-        bottom: 19px;
-        left: -5px;
-        background-color: white;
-        border-radius: 2px;
-        z-index: 2;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.5s ease-out;
-    }
-
-    .editBtn:hover::after {
-        transform: scaleX(1);
-        left: 0px;
-        transform-origin: right;
-    }
-</style>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check-circle-fill" viewBox="0 0 16 16">
+        <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+    </symbol>
+</svg>
 
 <h1 class="mb-5" align="center">Reservaciones registradas</h1>
 
 <div class="container ">
     <div class="row">
         <div class="col-12">
-            <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#formAgregar">
-                Registrar nueva reservación
-            </button>
+
+            <div class="container mb-3" style="background-color:white;height:40px; border-radius:7px;">
+                <div class="row">
+                    <div class="col-2">
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#formAgregar" style="position:absolute;left:16.2%;">
+                            Registrar nueva reservación
+                        </button>
+                        <a href="<?= base_url('/reporteReservaciones'); ?>" style="position:absolute;left:59.5%;">
+                            <button type="button" class="btn btn-outline-success mb-5" data-bs-toggle="modal">
+                                Descargar reporte de reservaciones
+                            </button>
+                        </a>
+                        <a href="<?= base_url('/Administrador/buscarReservacion'); ?>"
+                            style="position:absolute;left:75.5%;">
+                            <button type="button" class="btn btn-outline-success mb-5" data-bs-toggle="modal">
+                                Buscar reservación
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <?php
+            $db = \Config\Database::connect();
             if (isset($validation)) {
                 print $validation->listErrors();
+            }
+            if (isset($mensaje)) {
+                $query = "SELECT nombre, apellido_Paterno, apellido_Materno FROM usuario WHERE numeroControl = $usr";
+                $resultado = $db->query($query)->getResultArray();
+                $nombre = $resultado[0]["nombre"] . " " . $resultado[0]["apellido_Paterno"] . " " . $resultado[0]["apellido_Materno"];
+                echo '<div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg style="width:50px;height:50px;" class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <div>La reservación de <strong style="font-size:24px;">' . $nombre . '</strong>' . $mensaje . "</div></div>";
             }
             ?>
             <table class='table table-stripped'>
                 <thead>
                     <tr>
-                        <th>Usuario que reservó</th>
-                        <th>Estatus de la reservación</th>
-                        <th>Fecha reservada</th>
-                        <th>Especificaciones</th>
+                        <th style="background-color: #fa6900;">Usuario que reservó</th>
+                        <th style="background-color: #fa6900;">Estatus de la reservación</th>
+                        <th style="background-color: #fa6900;">Fecha reservada</th>
+                        <th style="background-color: #fa6900;">Especificaciones</th>
+                        <th style="background-color: #fa6900;">Editar</th>
+                        <th style="background-color: #fa6900;">Eliminar</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-group-divider">
                     <?php foreach ($reservaciones as $reservacion): ?>
                         <tr>
                             <td>
-                            <?php $db = \Config\Database::connect();
+                                <?php
                                 $query = "SELECT nombre, apellido_Paterno, apellido_Materno FROM usuario WHERE numeroControl = $reservacion->usuario";
                                 $resultado = $db->query($query)->getResultArray();
                                 echo $resultado[0]["nombre"] . " " . $resultado[0]["apellido_Paterno"] . " " . $resultado[0]["apellido_Materno"]; ?>
@@ -109,34 +75,27 @@
                             </td>
                             <td><a href="<?= base_url('/Administrador/reservacionEspecificaciones/' . $reservacion->idReservacion); ?>"
                                     style="display:flex;justify-content:center;max-width:50px;margin-right: -100px;">
-                                    <lord-icon src="https://cdn.lordicon.com/rwtswsap.json" trigger="hover"
-                                        colors="primary:#3080e8" style="width:50px;height:50px">
-                                    </lord-icon>
+                                    <img src="\icons\especs.png" style="width:30px; height: 30px;">
                                 </a>
                             </td>
                             <td>
                                 <a href="<?= base_url('/Administrador/editReservacion/' . $reservacion->idReservacion); ?>">
-                                    <button class="editBtn">
-                                        <svg height="1em" viewBox="0 0 512 512">
-                                            <path
-                                                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z">
-                                            </path>
-                                        </svg>
-                                    </button>
+                                    <img src="\icons\editar.png" style="width:30px; height: 30px;">
                                 </a>
                             </td>
                             <td>
                                 <a href="<?= base_url('/Administrador/delReservacion/' . $reservacion->idReservacion); ?>">
-                                    <lord-icon src="https://cdn.lordicon.com/skkahier.json" trigger="hover"
-                                        colors="primary:#3080e8" style="width:50px;height:50px">
-                                    </lord-icon>
+                                    <img src="\icons\del.png" style="width:30px; height: 30px;">
                                 </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-
+            Se muestran
+            <?= count($reservaciones) ?> registros de un total de
+            <?= $registros ?>
+            <?= $pager->links(); ?>
         </div>
     </div>
 </div>
@@ -152,15 +111,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/Administrador/agregarReservacion" method="post" action="cargar.php" enctype="multipart/form-data">
+                <form action="/Administrador/reservacionesTabla" method="post" action="cargar.php"
+                    enctype="multipart/form-data">
                     <?= csrf_field() ?>
 
                     <div class="mb-3">
                         <label for="atraccion_animal" class="form-label">Nombre de la atraccion a escojer</label>
                         <select name="atraccion_animal" class="form-control">
                             <?php foreach ($atraccionesAnimal as $atraccionAn): ?>
-                                <option value="<?= $atraccionAn->id?>">
-                                    <?= $atraccionAn->nombre?>
+                                <option value="<?= $atraccionAn->id ?>">
+                                    <?= $atraccionAn->nombre ?>
                                 </option>
                             <?php endforeach ?>
                         </select>

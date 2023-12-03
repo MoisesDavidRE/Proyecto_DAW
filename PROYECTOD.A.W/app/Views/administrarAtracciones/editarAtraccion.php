@@ -94,45 +94,86 @@
           </tr>
         </thead>
         <tbody>
+          <input type="hidden" name="idAtraccion" value="<?=$atraccion->idAtraccion?>">
           <tr>
             <td>Animal</td>
-            <td><input type="text" name="animal" value="<?= $atraccion->animal ?>"></td>
+            <td>
+            <select class="form-control" name="animal">
+                                <option value="<?= $atraccion->animal ?>" default>
+                                    <?php $db = \Config\Database::connect();
+                                    $query = "SELECT nombre FROM animal WHERE numeroIdentificador = $atraccion->animal";
+                                    $resultado = $db->query($query)->getResultArray();
+                                    echo $resultado[0]["nombre"]; ?>
+                                </option>
+
+                                <?php foreach ($animales as $animal): ?>
+                                    <option value="<?= $animal->numeroIdentificador ?>">
+                                        <?= $animal->nombre?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+            </td>
           </tr>
           <tr>
             <td>Área</td>
-            <td><input type="text" name="area" value="<?= $atraccion->idArea ?>"></td>
+            <td>
+            <select class="form-control" name="idArea">
+                                <option value="<?= $atraccion->idArea ?>" default>
+                                    <?php
+                                    $query = "SELECT nombre FROM area WHERE idArea = $atraccion->idArea";
+                                    $resultado = $db->query($query)->getResultArray();
+                                    echo $resultado[0]["nombre"]; ?>
+                                </option>
+
+                                <?php foreach ($areas as $area): ?>
+                                    <option value="<?= $area->idArea ?>">
+                                        <?= $area->nombre?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+            </td>
           </tr>
           <tr>
             <td>Nombre de la atracción</td>
-            <td><input type="text" name="nombreAtraccion" value="<?= $atraccion->nombre ?>"></td>
+            <td><input class="form-control" type="text" name="nombre" value="<?= $atraccion->nombre ?>"></td>
           </tr>
           <tr>
             <td>Tipo de atracción</td>
-            <td><input type="text" name="tipoAtraccion" value="<?= $atraccion->tipo ?>"></td>
+            <td>
+            <select name="tipo" class="form-control">
+                        <?php if($atraccion->tipo == "Exhibición"): ?>
+                        <option value="Exhibición" selected>Exhibición</option>
+                        <option value="Interactiva" >Interactiva</option>
+                        <?php else: ?>
+                        <option value="Exhibición" >Exhibición</option>
+                        <option value="Interactiva" selected>Interactiva</option>
+                        <?php endif ?>
+                    </select>
+            </td>
           </tr>
           <tr>
             <td>Descripción de la atracción</td>
-            <td><textarea name="descripcionAtraccion"><?= $atraccion->descripcion ?></textarea></td>
+            <td><textarea class="form-control" name="descripcion"><?= $atraccion->descripcion ?></textarea></td>
           </tr>
           <tr>
             <td>Horarios de la atracción</td>
-            <td><input type="time" name="horariosAtraccion" value="<?= $atraccion->horarios ?>"></td>
+            <td><input class="form-control" type="text" name="horarios" value="<?= $atraccion->horarios ?>"></td>
           </tr>
           <tr>
             <td>Costo</td>
-            <td><input type="number" name="costoAtraccion" value="<?= $atraccion->costo ?>"></td>
+            <td><input class="form-control" type="number" name="costo" value="<?= $atraccion->costo ?>"></td>
           </tr>
           <tr>
             <td>Capacidad máxima de habitantes</td>
-            <td><input type="number" name="capacidadMaximaAtraccion" value="<?= $atraccion->capacidadMax ?>"></td>
+            <td><input class="form-control" type="number" name="capacidadMax" value="<?= $atraccion->capacidadMax ?>"></td>
           </tr>
           <tr>
             <td>Duración aproximada de la atracción</td>
-            <td><input type="number" name="duracionAproximadaAtraccion" value="<?= $atraccion->duracionAprox ?>"></td>
+            <td><input  class="form-control" type="text" name="duracionAprox" value="<?= $atraccion->duracionAprox ?> minutos"></td>
           </tr>
           <tr>
             <td>Restricciones de salud</td>
-            <td><textarea name="restriccionesSaludAtraccion"><?= $atraccion->restriccionesDeSalud ?></textarea></td>
+            <td><textarea class="form-control" name="restriccionesDeSalud"><?= $atraccion->restriccionesDeSalud ?></textarea></td>
           </tr>
         </tbody>
       </table>

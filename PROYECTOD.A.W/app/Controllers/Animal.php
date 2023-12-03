@@ -24,6 +24,7 @@ class Animal extends BaseController
         $animalModel = model('AnimalModel');
         $areasModel = model('AreasModel');
         $especiesModel = model('EspeciesModel');
+        $data['registros'] = count($animalModel->findAll());
         $data['animales'] = $animalModel->paginate(10);
         $data['areas'] = $areasModel->findAll();
         $data['especies'] = $especiesModel->findAll();
@@ -36,7 +37,6 @@ class Animal extends BaseController
                 view('common/menu') .
                 view('administrarAnimales/animalTabla', $data);
         }
-
 
         $rules = [
             'nombre' => [
@@ -75,7 +75,7 @@ class Animal extends BaseController
                     'required' => 'El {field} es requerida'
                 ]
             ],
-            'idEspecie' => [
+            'especie' => [
                 'label' => "Especie",
                 'rules' => 'required',
                 'errors' => [
@@ -158,17 +158,6 @@ class Animal extends BaseController
         return true;
     }
 
-    private function guardarImagen()
-    {
-        $imagen = \Config\Services::image()->withFile('');
-        $config['upload_path'] = 'img/';
-        $config['file_name'] = 'ilustracion';
-        $config['allowed_types'] = 'jpg|png';
-        $config['max_size'] = '5000'; //kb
-        $config['max_with'] = '2000';
-        $config['max_height'] = '2000';
-
-    }
 
     // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarAnimal($id)
@@ -207,14 +196,64 @@ class Animal extends BaseController
         }
 
         $rules = [
-            'descripcion' => 'required',
-            'edad' => 'required',
-            'dieta' => 'required',
-            'area' => 'required',
-            'especie' => 'required',
+            'nombre' => [
+                'label' => "Nombre",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                    //Aquí puedes agregar el mensaje de una regla definida anteriormente
+                ]
+            ],
+            'descripcion' => [
+                'label' => "Descripción",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
+            'edad' => [
+                'label' => "Edad",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
+            'dieta' => [
+                'label' => "Dieta",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
+            'area' => [
+                'label' => "Área",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerida'
+                ]
+            ],
+            'especie' => [
+                'label' => "Especie",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
             'sexo' => 'required',
-            'fechaNacimiento' => 'required',
-            'historialMedico' => 'required'
+            'fechaNacimiento' => [
+                'label' => "Fecha de nacimiento",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                ]
+            ],
+            'historialMedico' => [
+                'label' => "Historial médico",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                ]
+            ]
         ];
 
         if (!$this->validate($rules)) {
@@ -232,15 +271,10 @@ class Animal extends BaseController
 
     private function _upload()
     {
-
         if ($imageFile = $this->request->getFile('ilustracion')) {
-
             if ($imageFile->isValid() && !$imageFile->hasMoved()) {
-
                 $nombre = $imageFile->getRandomName();
-
                 $imageFile->move("C:/Users/Moisés David/Desktop/Proyecto_DAW/PROYECTOD.A.W/public/img/", $nombre);
-
                 $_POST['ilustracion'] = $nombre;
                 return true;
             }
@@ -354,6 +388,6 @@ class Animal extends BaseController
         );
         $pdf->setPaper('A4', 'landscape');
         $pdf->render();
-        $pdf->stream('Reporte de animales', array("Attachment" => 1));
+        $pdf->stream('Reporte de animales', array("Attachment" => 0));
     }
 }

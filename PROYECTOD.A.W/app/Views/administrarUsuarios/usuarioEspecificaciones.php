@@ -10,6 +10,10 @@
           </tr>
         </thead>
         <tbody>
+        <tr>
+            <td>Número de control</td>
+            <td><?= $usuario->numeroControl ?></td>
+          </tr>
           <tr>
             <td>Nombre completo</td>
             <td><?= $usuario->nombre . " " .$usuario->apellido_Paterno . " " . $usuario->apellido_Materno ?></td>
@@ -33,6 +37,10 @@
           <tr>
             <td>Comentarios o preferencias adicionales</td>
             <td><?= $usuario->comentarioPreferencias ?></td>
+          </tr>
+          <tr>
+            <td>Foto de perfil</td>
+            <td><img src="/avatar/<?= $usuario->imagenUsuario ?>" class="img-fluid rounded mb-2" alt="..." style="heigth:300px; width:300px"></td>
           </tr>
         </tbody>
       </table>

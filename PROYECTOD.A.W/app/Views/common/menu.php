@@ -10,7 +10,7 @@
 <a class="navbar-brand" href="/Administrador/vistaGeneral" style="position:absolute;left:5%;">
 <img src="\icons\pagina-de-inicio.png" style="width:30px; height: 30px;"><p style="position:absolute; left:100%;top:7px;">
 Inicio</p></a>
-  <div class="container-fluid"  style="background-color: #79f3e9; width:68%;height: 50px; border-radius:7px;display:flex;justify-content:center;align-items:center;">
+  <div class="container-fluid"  style="background-color:#79f3e9; width:68%;height: 50px; border-radius:7px;display:flex;justify-content:center;align-items:center;">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav navbar-brand   mb-lg-0">
         <li class="nav-item" style="position:absolute; left:20%;top:10%">

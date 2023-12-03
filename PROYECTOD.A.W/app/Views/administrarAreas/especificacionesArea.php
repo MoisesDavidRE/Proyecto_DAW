@@ -75,98 +75,7 @@
 
   button .icon {
     position: absolute;
-    border-left: 1px solid #c41b1b;
-    transform: translateX(110px);
-    height: 35px;
-    width: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  button svg {
-    width: 15px;
-    fill: black;
-  }
-
-  button:hover {
-    <style>.Btn {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: 150px;
-      height: 45px;
-      border: none;
-      padding: 0px 20px;
-      background-color: rgb(82, 193, 218, 255);
-      color: black;
-      font-weight: 500;
-      cursor: pointer;
-      border-radius: 10px;
-      box-shadow: 5px 5px 0px rgb(35, 139, 187, 255);
-      transition-duration: .3s;
-      display: block;
-      margin: auto;
-    }
-
-    .svg {
-      width: 13px;
-      position: absolute;
-      right: 0;
-      margin-right: 20px;
-      fill: black;
-      transition-duration: .3s;
-    }
-
-    .Btn:hover {
-      color: transparent;
-    }
-
-    .Btn:hover svg {
-      top: 35%;
-      right: 42%;
-      margin: 0;
-      padding: 0;
-      border: none;
-      transition-duration: .3s;
-    }
-
-    .Btn:active {
-      transform: translate(3px, 3px);
-      transition-duration: .3s;
-      box-shadow: 2px 2px 0px rgb(140, 32, 212);
-    }
-</style>
-
-<style>
-  button {
-    width: 150px;
-    height: 50px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    background: red;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-    background: #e62222;
-  }
-
-  button,
-  button span {
-    transition: 200ms;
-  }
-
-  button .text {
-    transform: translateX(35px);
-    color: white;
-    font-weight: bold;
-  }
-
-  button .icon {
-    position: absolute;
-    border-left: 1px solid #c41b1b;
+    border-left: 1px solid black;
     transform: translateX(110px);
     height: 35px;
     width: 35px;
@@ -213,12 +122,16 @@
   h5 {
     padding: 10px;
   }
+
+  h1 {
+    align: center;
+  }
 </style>
 
 <div class="card mb-3" style="max-width:100%; ">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="/img/delfin2.jpg" class="img-fluid rounded-start mb-2" alt="..." style="heigth:100%;">
+    <img src="/areas/<?= $area->imagen ?>" class="img-fluid rounded-start mb-2" alt="..." style="heigth:100%;">
       <p style="text-align: center; font-size:20px;">
         <?= "Fotografía de " . $area->nombre ?>
       </p>
@@ -327,5 +240,8 @@
             d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
           </path>
         </svg></span></button>
+  </a>
+  <a href="<?= base_url('/Administrador/areasTabla') ?>" style="text-decoration:none;padding-left:15px">
+    <button class="noselect"style="background-color:#96be25;"><span class="text">Regresar</span><span class="icon"><img src="\icons\volver.png" style="width:20px; height: 20px;"></span></button>
   </a>
 </div>
