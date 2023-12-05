@@ -94,7 +94,7 @@ class Usuarios extends BaseController
         } else {
             $this->_upload();
             if ($this->insertarUsuario()) {
-                $nombre = $_POST['nombre'] ." ". $_POST['apellido_Paterno'] ." ". $_POST['apellido_Materno'];
+                $nombre = $_POST['nombre'] . " " . $_POST['apellido_Paterno'] . " " . $_POST['apellido_Materno'];
                 $mensaje = " fué agregado exitosamente!";
                 return
                     view('common/header', $data) .
@@ -136,7 +136,6 @@ class Usuarios extends BaseController
             "contrasenia" => $_POST['contrasenia'],
             "perfilUsuario" => $_POST["perfilUsuario"],
             "correoElectronico" => $_POST["correoElectronico"],
-            "fechaNacimiento" => $_POST["fechaNacimiento"],
             "comentarioPreferencias" => $_POST["comentarioPreferencias"]
         ];
         $usuario->insert($data, false);
@@ -147,8 +146,19 @@ class Usuarios extends BaseController
     public function eliminarUsuario($id)
     {
         $usuario = model('Usuarios');
+        $usr = $usuario->find($id);
+        if (isset($usr->nombre)) {
+            $nombre = $usr->nombre . " " . $usr->apellido_Paterno . " " . $usr->apellido_Materno;
+        }
+        $mensaje = " fue eliminado";
+        $data['registros'] = count($usuario->findAll());
+        $data['usuarios'] = $usuario->paginate(10);
+        $data['pager'] = $usuario->pager;
         $usuario->delete($id);
-        return redirect('Administrador/usuariosTabla');
+        return
+            view('common/header', $data) .
+            view('common/menu') .
+            view('administrarUsuarios/usuariosTabla',['mensajeEliminar'=>$mensaje,'nombre'=>$nombre]);
     }
 
     // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
@@ -164,7 +174,10 @@ class Usuarios extends BaseController
 
         $usuario = model('Usuarios');
         $data['usuario'] = $usuario->find($id);
-        
+        $data['registros'] = count($usuario->findAll());
+        $data['usuarios'] = $usuario->paginate(10);
+        $data['pager'] = $usuario->pager;
+
         $validation = \Config\Services::validation();
 
         if ((strtolower($this->request->getMethod()) === 'get')) {
@@ -233,7 +246,12 @@ class Usuarios extends BaseController
         } else {
             $this->_upload();
             if ($this->updateUsuario()) {
-                return redirect('Administrador/usuariosTabla');
+                $nombre = $_POST['nombre'] . " " . $_POST['apellido_Paterno'] . " " . $_POST['apellido_Materno'];
+                $mensaje = " fue editado correctamente";
+                return
+                    view('common/header', $data) .
+                    view('common/menu') .
+                    view('administrarUsuarios/usuariosTabla', ['mensajeEditar' => $mensaje, 'nombre' => $nombre]);
             }
         }
     }
@@ -256,16 +274,19 @@ class Usuarios extends BaseController
     public function updateUsuario()
     {
         $usuario = model('Usuarios');
+        if (isset($_POST["ilustracion"])) {
+            $ilustracion = $_POST['ilustracion'];
+        } else
+            $ilustracion = $_POST['perfilActual'];
         $data = [
             "nombre" => $_POST["nombre"],
             "apellido_Paterno" => $_POST['apellido_Paterno'],
             "apellido_Materno" => $_POST["apellido_Materno"],
             "nombreUsuario" => $_POST["nombreUsuario"],
-            "imagenUsuario" => $_POST['ilustracion'],
+            "imagenUsuario" => $ilustracion,
             "contrasenia" => $_POST['contrasenia'],
             "perfilUsuario" => $_POST["perfilUsuario"],
             "correoElectronico" => $_POST["correoElectronico"],
-            "fechaNacimiento" => $_POST["fechaNacimiento"],
             "comentarioPreferencias" => $_POST["comentarioPreferencias"]
         ];
         $usuario->update($_POST['numeroControl'], $data);
@@ -304,54 +325,46 @@ class Usuarios extends BaseController
             return redirect('/');
         }
 
-        $especies = model('EspeciesModel');
-        $animales = model('AnimalModel');
-        $data['especies'] = $especies->findAll();
-        $data['animales'] = $animales->findAll();
+        $usuarios = model('Usuarios');
+        $data['usuarios'] = $usuarios->findAll();
 
         if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
             $buscador = $_GET['Buscador'];
             $valor = $_GET['Valor'];
 
-
             if ($buscador == 'Nombre') {
-                $data['animales'] = $animales->like('nombre', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['usuarios'] = $usuarios->like('nombre', $valor)->findAll();
             }
 
-            if ($buscador == 'numeroIdentificador') {
-                $data['animales'] = $animales->like('numeroIdentificador', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+            if ($buscador == 'apellido_Paterno') {
+                $data['usuarios'] = $usuarios->like('apellido_Paterno', $valor)->findAll();
             }
 
-            if ($buscador == 'Especie') {
-                $data['especies'] = $especies->like('idEspecie', $valor)
-                    ->findAll();
-                if (isset($data['especies'][0])) {
-                    $data['animales'] = $animales->where('especie', ($data['especies'][0]->idEspecie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+            if ($buscador == 'apellido_Materno') {
+                $data['usuarios'] = $usuarios->like('apellido_Materno', $valor)->findAll();
+            }
+
+            if ($buscador == 'numeroControl') {
+                $data['usuarios'] = $usuarios->like('numeroControl', $valor)->findAll();
+            }
+
+            if ($buscador == 'nombreUsuario') {
+                $data['usuarios'] = $usuarios->like('nombreUsuario', $valor)->findAll();
+            }
+            if ($buscador == 'perfil') {
+                $data['usuarios'] = $usuarios->like('perfil', strtoupper($valor))->findAll();
+            }
+            if ($buscador == 'correoElectronico') {
+                $data['usuarios'] = $usuarios->like('correoElectronico', $valor)->findAll();
             }
         } else {
-            $buscador =
-                $valor =
-
-                $data['animales'] = $animales->findAll();
+            $buscador = null;
+            $valor = null;
+            $data['usuarios'] = $usuarios->findAll();
         }
         return
             view('common/header') .
             view('common/menu') .
-            view('administrarAnimales/buscar', $data);
+            view('administrarUsuarios/buscar', $data);
     }
 }

@@ -85,10 +85,10 @@ class Empleados extends BaseController
             if ($this->insertarEmpleado()) {
                 $nombre = $_POST['nombre'] . " " . $_POST['apellido_Paterno'] . " " . $_POST['apellido_Materno'];
                 $mensaje = "fue registrado exitosamente";
-                return 
+                return
                     view('common/header', $data) .
-                    view('common/menu') . 
-                    view('empleados/mostrar',['mensaje'=>$mensaje,'nombre'=>$nombre]);
+                    view('common/menu') .
+                    view('empleados/mostrar', ['mensaje' => $mensaje, 'nombre' => $nombre]);
             }
         }
     }
@@ -269,17 +269,15 @@ class Empleados extends BaseController
         $pdf->stream('Reporte de empleados', array("Attachment" => 1));
     }
 
-    public function buscarAnimal()
+    public function buscarEmpleado()
     {
         $session = session();
         if ($session->get('logged_in') != TRUE) {
             return redirect('/');
         }
 
-        $especies = model('EspeciesModel');
-        $animales = model('AnimalModel');
-        $data['especies'] = $especies->findAll();
-        $data['animales'] = $animales->findAll();
+        $empleados = model('EmpleadoModel');
+        $data['empleados'] = $empleados->findAll();
 
         if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
             $buscador = $_GET['Buscador'];
@@ -287,43 +285,30 @@ class Empleados extends BaseController
 
 
             if ($buscador == 'Nombre') {
-                $data['animales'] = $animales->like('nombre', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['empleados'] = $empleados->like('nombre', $valor)->findAll();
             }
 
-            if ($buscador == 'numeroIdentificador') {
-                $data['animales'] = $animales->like('numeroIdentificador', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+            if ($buscador == 'apellido_Paterno') {
+                $data['empleados'] = $empleados->like('apellido_Paterno', $valor)->findAll();
             }
 
-            if ($buscador == 'Especie') {
-                $data['especies'] = $especies->like('idEspecie', $valor)
-                    ->findAll();
-                if (isset($data['especies'][0])) {
-                    $data['animales'] = $animales->where('especie', ($data['especies'][0]->idEspecie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+            if ($buscador == 'apellido_Materno') {
+                $data['empleados'] = $empleados->like('apellido_Materno', $valor)->findAll();
+            }
+            if ($buscador == 'correoElectronico') {
+                $data['empleados'] = $empleados->like('correoElectronico', $valor)->findAll();
+            }
+            if ($buscador == 'telefono') {
+                $data['empleados'] = $empleados->like('telefono', $valor)->findAll();
             }
         } else {
             $buscador =
-                $valor =
-
-                $data['animales'] = $animales->findAll();
+            $valor =
+            $data['empleados'] = $empleados->findAll();
         }
         return
             view('common/header') .
             view('common/menu') .
-            view('administrarAnimales/buscar', $data);
+            view('empleados/buscar', $data);
     }
 }

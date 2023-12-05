@@ -13,7 +13,7 @@ class ReservacionModel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['atraccion_animal','usuario','fechaReservada','horaInicio','horaFin','estatus','costoTotal','comentariosAdicionales'];
+    protected $allowedFields    = ['atraccion','usuario','fechaReservada','horaInicio','horaFin','estatus','costoTotal','comentariosAdicionales'];
 
     // Dates
     protected $useTimestamps = false;

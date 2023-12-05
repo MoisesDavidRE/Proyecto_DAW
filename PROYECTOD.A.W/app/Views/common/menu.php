@@ -44,7 +44,6 @@ Inicio</p></a>
         <img src="\icons\cerrar-sesion (1).png" style="width:40px; height: 40px;">Cerrar Sesión</a>
         </li>
       </ul>
-      
     </div>
   </div>
 </nav>

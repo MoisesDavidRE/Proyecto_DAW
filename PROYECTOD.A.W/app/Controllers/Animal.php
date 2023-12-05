@@ -19,15 +19,12 @@ class Animal extends BaseController
             $session->destroy();
             return redirect('/');
         }
-
         // Retornar en $data los datos de las tablas relacionadas
         $animalModel = model('AnimalModel');
         $areasModel = model('AreasModel');
-        $especiesModel = model('EspeciesModel');
         $data['registros'] = count($animalModel->findAll());
         $data['animales'] = $animalModel->paginate(10);
         $data['areas'] = $areasModel->findAll();
-        $data['especies'] = $especiesModel->findAll();
         $data['pager'] = $animalModel->pager;
         $validation = \Config\Services::validation();
 
@@ -141,11 +138,14 @@ class Animal extends BaseController
     public function insertarAnimal()
     {
         $animalModel = model('AnimalModel');
+        if(isset($_POST["ilustracion"])){
+            $ilustracion = $_POST["ilustracion"];
+        } else $ilustracion = null;
         $data = [
-            "especie" => $_POST["idEspecie"],
+            "especie" => $_POST["especie"],
             "nombre" => $_POST['nombre'],
             "descripcion" => $_POST["descripcion"],
-            "ilustracion" => $_POST["ilustracion"],
+            "ilustracion" => $ilustracion,
             "edad" => $_POST["edad"],
             "sexo" => $_POST['sexo'],
             "area" => $_POST["area"],
@@ -162,9 +162,21 @@ class Animal extends BaseController
     // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarAnimal($id)
     {
+        $areasModel = model('AreasModel');
         $animalModel = model('AnimalModel');
+        $animal = $animalModel->find($id);
+        if(isset($animal->nombre)){
+        $nombre = $animal->nombre;
+        } else { $nombre = null; $mensaje = null; }
+        $mensaje = " fue eliminado";
         $animalModel->delete($id);
-        return redirect('Administrador/animalTabla');
+        $data['areas'] = $areasModel->findAll();
+        $data['registros'] = count($animalModel->findAll());
+        $data['animales'] = $animalModel->paginate(10);
+        $data['pager'] = $animalModel->pager;
+        return  view('common/header',$data) .
+                view('common/menu') . 
+                view('administrarAnimales/animalTabla',['mensajeEliminar' => $mensaje, 'nombre' => $nombre]);
     }
 
 
@@ -180,11 +192,12 @@ class Animal extends BaseController
         }
 
         $areas = model('AreasModel');
-        $especieModel = model('EspeciesModel');
         $animalModel = model('AnimalModel');
         $data['areas'] = $areas->findAll();
+        $data['animales'] = $animalModel->paginate(10);
         $data['animal'] = $animalModel->find($idAnimal);
-        $data['especies'] = $especieModel->findAll();
+        $data['registros'] = count($animalModel->findAll());
+        $data['pager'] = $animalModel->pager;
 
         $validation = \Config\Services::validation();
 
@@ -264,7 +277,12 @@ class Animal extends BaseController
         } else {
             $this->_upload();
             if ($this->updateAnimal()) {
-                return redirect('Administrador/animalTabla');
+                $nombre = $_POST['nombre'];
+                $mensaje = " fué editado exitosamente!";
+                return
+                view('common/header', $data) .
+                view('common/menu') .
+                view('administrarAnimales/animalTabla', ['mensajeEditar' => $mensaje, 'nombre' => $nombre]);
             }
         }
     }
@@ -287,10 +305,13 @@ class Animal extends BaseController
     public function updateAnimal()
     {
         $animal = model('AnimalModel');
+        if(isset($_POST["ilustracion"])){
+            $ilustracion = $_POST["ilustracion"];
+        } else $ilustracion = $_POST["ilustracionActual"];
         $data = [
             "especie" => $_POST['especie'],
             "nombre" => $_POST['nombre'],
-            "ilustracion" => $_POST['ilustracion'],
+            "ilustracion" => $ilustracion,
             "sexo" => $_POST['sexo'],
             'edad' => $_POST['edad'],
             'descripcion' => $_POST['descripcion'],
@@ -312,9 +333,7 @@ class Animal extends BaseController
             return redirect('/');
         }
 
-        $especies = model('EspeciesModel');
         $animales = model('AnimalModel');
-        $data['especies'] = $especies->findAll();
         $data['animales'] = $animales->findAll();
 
         if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
@@ -323,36 +342,18 @@ class Animal extends BaseController
 
 
             if ($buscador == 'Nombre') {
-                $data['animales'] = $animales->like('nombre', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['animales'] = $animales->like('nombre', $valor)->findAll();
             }
 
             if ($buscador == 'numeroIdentificador') {
-                $data['animales'] = $animales->like('numeroIdentificador', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['animales'] = $animales->like('numeroIdentificador', $valor)->findAll();
             }
 
             if ($buscador == 'Especie') {
-                $data['especies'] = $especies->like('idEspecie', $valor)
-                    ->findAll();
-                if (isset($data['especies'][0])) {
-                    $data['animales'] = $animales->where('especie', ($data['especies'][0]->idEspecie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['animales'] = $animales->like('especie', $valor)->findAll();
             }
         } else {
-            $buscador =
+            $buscador = null;
                 $valor =
 
                 $data['animales'] = $animales->findAll();
@@ -372,10 +373,8 @@ class Animal extends BaseController
 
         $animalModel = model('AnimalModel');
         $areasModel = model('AreasModel');
-        $especiesModel = model('EspeciesModel');
         $data['animales'] = $animalModel->findAll();
         $data['areas'] = $areasModel->findAll();
-        $data['especies'] = $especiesModel->findAll();
 
 
         $pdf = new Dompdf();
@@ -388,6 +387,6 @@ class Animal extends BaseController
         );
         $pdf->setPaper('A4', 'landscape');
         $pdf->render();
-        $pdf->stream('Reporte de animales', array("Attachment" => 0));
+        $pdf->stream('Reporte de animales', array("Attachment" => 1));
     }
 }

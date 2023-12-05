@@ -132,7 +132,7 @@ class Area extends BaseController
                 $mensaje = " fué agregada exitosamente!";
                 return view('common/header', $data) .
                     view('common/menu') .
-                    view('administrarAreas/areasTabla',['mensaje' => $mensaje, 'nombre' => $nombre]);
+                    view('administrarAreas/areasTabla', ['mensaje' => $mensaje, 'nombre' => $nombre]);
             }
         }
     }
@@ -198,11 +198,15 @@ class Area extends BaseController
     public function insertarArea()
     {
         $area = model('AreasModel');
+        if (isset($_POST["imagen"])) {
+            $ilustracion = $_POST["imagen"];
+        } else
+            $ilustracion = null;
         $data = [
             "encargado" => $_POST["encargado"],
             "nombre" => $_POST['nombre'],
             "descripcion" => $_POST["descripcion"],
-            "imagen" => $_POST["ilustracion"],
+            "imagen" => $ilustracion,
             "tamanio" => $_POST["tamanio"],
             "temperatura" => $_POST['temperatura'],
             "nivelAcceso" => $_POST["nivelAcceso"],
@@ -220,9 +224,23 @@ class Area extends BaseController
     // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarArea($id)
     {
-        $area = model('AreasModel');
-        $area->delete($id);
-        return redirect('Administrador/areasTabla');
+        
+        $areasModel = model('AreasModel');
+        $empleados = model('EmpleadoModel');
+        $area = $areasModel->find($id);
+        if(isset($area->nombre)){
+            $nombre = $area->nombre;
+            } else { $nombre = null; $mensaje = null; }
+        $mensaje = ' fue eliminada';
+        $data['registros'] = count($areasModel->findAll());
+        $data['empleados'] = $empleados->findAll();
+        $data['areas'] = $areasModel->paginate(10);
+        $data['pager'] = $areasModel->pager;
+        $areasModel->delete($id);
+        return 
+            view('common/header', $data) .
+            view('common/menu') . 
+            view('administrarAreas/areasTabla',['mensajeEliminar' => $mensaje, 'nombre' => $nombre]);
     }
 
     // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
@@ -238,8 +256,11 @@ class Area extends BaseController
 
         $areas = model('AreasModel');
         $empleados = model('EmpleadoModel');
+        $data['areas'] = $areas->paginate(10);
         $data['area'] = $areas->find($id);
         $data['empleados'] = $empleados->findAll();
+        $data['registros'] = count($areas->findAll());
+        $data['pager'] = $areas->pager;
 
         $validation = \Config\Services::validation();
 
@@ -249,7 +270,6 @@ class Area extends BaseController
                 view('common/menu') .
                 view('administrarAreas/editarArea', $data);
         }
-
         $rules = [
             'encargado' => [
                 'label' => "Encargado",
@@ -340,18 +360,23 @@ class Area extends BaseController
         } else {
             $this->_upload();
             if ($this->updateArea()) {
-                return redirect('Administrador/areasTabla');
+                $nombre = $_POST['nombre'];
+                $mensaje = " ha sido editada exitosamente!";
+                return
+                    view('common/header', $data) .
+                    view('common/menu') .
+                    view('administrarAreas/areasTabla', ['mensajeEditar' => $mensaje, 'nombre' => $nombre]);
             }
         }
     }
 
     private function _upload()
     {
-        if ($imageFile = $this->request->getFile('ilustracion')) {
+        if ($imageFile = $this->request->getFile('imagen')) {
             if ($imageFile->isValid() && !$imageFile->hasMoved()) {
                 $nombre = $imageFile->getRandomName();
                 $imageFile->move("C:/Users/Moisés David/Desktop/Proyecto_DAW/PROYECTOD.A.W/public/areas/", $nombre);
-                $_POST['ilustracion'] = $nombre;
+                $_POST['imagen'] = $nombre;
                 return true;
             }
         }
@@ -363,12 +388,16 @@ class Area extends BaseController
     public function updateArea()
     {
         $area = model('AreasModel');
+        if (isset($_POST["imagen"])) {
+            $ilustracion = $_POST["imagen"];
+        } else
+            $ilustracion = $_POST['imagenActual'];
         $data = [
             "encargado" => $_POST["encargado"],
             "nombre" => $_POST['nombre'],
             "descripcion" => $_POST["descripcion"],
             "tamanio" => $_POST["tamanio"],
-            "imagen" => $_POST["ilustracion"],
+            "imagen" => $ilustracion,
             "temperatura" => $_POST['temperatura'],
             "nivelAcceso" => $_POST["nivelAcceso"],
             "estado" => $_POST["estado"],
@@ -382,62 +411,63 @@ class Area extends BaseController
         return true;
     }
 
-    public function buscarAnimal()
+    public function buscarArea()
     {
         $session = session();
         if ($session->get('logged_in') != TRUE) {
             return redirect('/');
         }
 
-        $especies = model('EspeciesModel');
-        $animales = model('AnimalModel');
-        $data['especies'] = $especies->findAll();
-        $data['animales'] = $animales->findAll();
+        $areas = model('AreasModel');
+        $empleados = model('EmpleadoModel');
+        $data['areas'] = $areas->findAll();
+        $data['empleados'] = $empleados->findAll();
 
         if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
             $buscador = $_GET['Buscador'];
             $valor = $_GET['Valor'];
 
-
             if ($buscador == 'Nombre') {
-                $data['animales'] = $animales->like('nombre', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
+                $data['areas'] = $areas->like('nombre', $valor)->findAll();
+                if (isset($data['areas'][0])) {
+                    $data['empleados'] = $empleados->where('idEmpleado', ($data['areas'][0]->encargado))->findAll();
                 } else {
                     $buscador = 'Todo';
                 }
             }
 
-            if ($buscador == 'numeroIdentificador') {
-                $data['animales'] = $animales->like('numeroIdentificador', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
+            if ($buscador == 'Tamanio') {
+                $data['areas'] = $areas->like('tamanio', $valor)->findAll();
+                if (isset($data['areas'][0])) {
+                    $data['empleados'] = $empleados->where('idEmpleado', ($data['areas'][0]->encargado))->findAll();
                 } else {
                     $buscador = 'Todo';
                 }
             }
 
-            if ($buscador == 'Especie') {
-                $data['especies'] = $especies->like('idEspecie', $valor)
-                    ->findAll();
-                if (isset($data['especies'][0])) {
-                    $data['animales'] = $animales->where('especie', ($data['especies'][0]->idEspecie))->findAll();
+            if ($buscador == 'Encargado') {
+                $data['empleados'] = $empleados->like('nombre', $valor)->like('apellido_Paterno', $valor)->like('apellido_Materno', $valor)->findAll();
+                if (isset($data['empleados'][0])) {
+                    $data['areas'] = $areas->where('encargado', ($data['empleados'][0]->idEmpleado))->findAll();
+                } else {
+                    $buscador = 'Todo';
+                }
+            }
+            if ($buscador == 'nivelAcceso') {
+                $data['areas'] = $areas->like('nivelAcceso', $valor)->findAll();
+                if (isset($data['areas'][0])) {
+                    $data['empleados'] = $areas->where('encargado', ($data['empleados'][0]->idEmpleado))->findAll();
                 } else {
                     $buscador = 'Todo';
                 }
             }
         } else {
-            $buscador =
-                $valor =
-
-                $data['animales'] = $animales->findAll();
+            $data['areas'] = $areas->findAll();
         }
         return
             view('common/header') .
             view('common/menu') .
-            view('administrarAnimales/buscar', $data);
+            view('administrarAreas/buscar', $data);
     }
 
     public function ReporteAreas()
@@ -449,7 +479,7 @@ class Area extends BaseController
         }
 
         $areas = model('AreasModel');
-        
+
         $empleados = model('EmpleadoModel');
         $data['empleados'] = $empleados->findAll();
         $data['areas'] = $areas->findAll();

@@ -58,7 +58,7 @@
             <th>Nivel de acceso</th>
             <th>Ph promedio</th>
             <th>Iluminación</th>
-            <th>Temperatura grados Celcius</th>
+            <th>Temperatura °C</th>
             <th>Tipo de filtración</th>
         </tr>
     </thead>
@@ -76,7 +76,7 @@
                     echo $resultado[0]["nombre"]." ".$resultado[0]["apellido_Paterno"]." ".$resultado[0]["apellido_Materno"]; ?> 
                 </td>
                 <td>
-                    <?= $area->tamanio ?>
+                    <?= $area->tamanio ?> M²
                 </td>
                 <td style="width: 130px;">
                     <?= $area->noHabitantesMax ?> habitantes
@@ -92,7 +92,7 @@
                 <?= $area->iluminacion ?>
                 </td>
                 <td>
-                <?= $area->temperatura ?> 
+                <?= $area->temperatura ?> °C
                 </td>
                 <td>
                 <?= $area->filtracionAgua ?> 

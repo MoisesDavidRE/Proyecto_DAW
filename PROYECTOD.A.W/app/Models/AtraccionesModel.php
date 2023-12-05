@@ -13,7 +13,7 @@ class AtraccionesModel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['animal','idArea','nombre','tipo','descripcion','horarios','costo','capacidadMax','duracionAprox','restriccionesDeSalud'];
+    protected $allowedFields    = ['animal','idArea','nombre','tipo','descripcion','horaInicio','horaFin','costo','capacidadMax','duracionAprox','restriccionesDeSalud'];
 
     // Dates
     protected $useTimestamps = false;

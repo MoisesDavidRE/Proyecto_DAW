@@ -225,7 +225,7 @@ class Atracciones extends BaseController
         } else {
             if ($this->updateAtraccion()) {
                 $nombre = $_POST['nombre'];
-                $mensajeEditar = " fué editado exitosamente";
+                $mensajeEditar = " fué editada exitosamente";
                 return
                     view('common/header', $data) .
                     view('common/menu') .
@@ -286,54 +286,38 @@ class Atracciones extends BaseController
             return redirect('/');
         }
 
-        $especies = model('EspeciesModel');
+        $atracciones = model('AtraccionesModel');
+        $areas = model('AreasModel');
         $animales = model('AnimalModel');
-        $data['especies'] = $especies->findAll();
+        $data['areas'] = $areas->findAll();
         $data['animales'] = $animales->findAll();
-
+        $data['atracciones'] = $atracciones->findAll();
         if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
             $buscador = $_GET['Buscador'];
             $valor = $_GET['Valor'];
 
 
             if ($buscador == 'Nombre') {
-                $data['animales'] = $animales->like('nombre', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['atracciones'] = $atracciones->like('nombre', $valor)->findAll();
             }
-
-            if ($buscador == 'numeroIdentificador') {
-                $data['animales'] = $animales->like('numeroIdentificador', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+            if ($buscador == 'tipo') {
+                $data['atracciones'] = $atracciones->like('tipo', $valor)->findAll();
             }
-
-            if ($buscador == 'Especie') {
-                $data['especies'] = $especies->like('idEspecie', $valor)
-                    ->findAll();
-                if (isset($data['especies'][0])) {
-                    $data['animales'] = $animales->where('especie', ($data['especies'][0]->idEspecie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+            if ($buscador == 'Costo') {
+                $data['atracciones'] = $atracciones->like('costo', $valor)->findAll();
+            }
+            if ($buscador == 'capacidadMax') {
+                $data['atracciones'] = $atracciones->like('capacidadMax', $valor)->findAll();
             }
         } else {
             $buscador =
                 $valor =
 
-                $data['animales'] = $animales->findAll();
+                $data['atracciones'] = $atracciones->findAll();
         }
         return
             view('common/header') .
             view('common/menu') .
-            view('administrarAnimales/buscar', $data);
+            view('administrarAtracciones/buscar', $data);
     }
 }

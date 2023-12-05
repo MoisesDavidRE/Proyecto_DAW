@@ -128,55 +128,58 @@
   }
 </style>
 
-<div class="card mb-3" style="max-width:100%; ">
+<div class="card mb-3" style="max-width:100%; padding-left:50px;">
   <div class="row g-0">
     <div class="col-md-4">
-    <img src="/areas/<?= $area->imagen ?>" class="img-fluid rounded-start mb-2" alt="..." style="heigth:100%;">
-      <p style="text-align: center; font-size:20px;">
-        <?= "Fotografía de " . $area->nombre ?>
-      </p>
+      <!-- <img src="/areas/<?= $area->imagen ?>" class="img-fluid rounded-circle mb-2" alt="..." style="width: 150px; height: 150px;"> -->
+      <?php if (isset($area->imagen)): ?>
+        <img src="/areas/<?= $area->imagen ?>" class="img-fluid mb-2" alt="Fotografía del área <?= $area->nombre ?>" style="border-radius:50px;padding-top:20px">
+        <p style="font-size:20px;text-align:center;">
+          Fotografía del área <?= $area->nombre ?>
+        </p>
+      <?php else : ?>
+        <p>
+          El área <?= "<strong>" . $area->nombre . "</strong>" ?> no cuenta con una ilustración, favor de cargar una.
+        </p>
+      <?php endif ?>
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h4 class="card-title">
           <?= "Especificaciones de " . $area->nombre ?>
         </h4>
-        <div class="row g-0">
-          <div class="col-md-8 border">
-            <h5>Descripción</h5>
-            <p class="card-text">
-              <?= $area->descripcion ?>
-            </p>
-          </div>
-          <div class="col-md-3 border">
+
+        <div class="row g-0 mb-3">
+          <div class="col-md-6 border">
             <h5>Encargado</h5>
             <p class="card-text">
-              <?php $db = \Config\Database::connect();
+            <?php $db = \Config\Database::connect();
               $query = "SELECT nombre, apellido_Paterno, apellido_Materno FROM empleados WHERE idEmpleado = $area->encargado";
               $resultado = $db->query($query)->getResultArray();
               echo $resultado[0]["nombre"] . " " . $resultado[0]["apellido_Paterno"] . " " . $resultado[0]["apellido_Materno"]; ?>
             </p>
           </div>
-          <div class="col-md-4 border">
+          <div class="col-md-6 border">
+            <h5>Nivel de acceso</h5>
+            <p class="card-text">
+              <?= $area->nivelAcceso ?>
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-0 mb-3">
+          <div class="col-md-3 border">
             <h5>Tamaño en M²</h5>
             <p class="card-text">
               <?= $area->tamanio . " M²" ?>
             </p>
           </div>
-          <div class="col-md-4 border">
+          <div class="col-md-3 border">
             <h5>Temperatura en grados Celcius</h5>
             <p class="card-text">
-              <?= $area->temperatura?>
+              <?= $area->temperatura ?>°C
             </p>
           </div>
-          <div class="col-md-3 border">
-            <h5>Nivel de acceso</h5>
-            <p class="card-text">
-              <?= $area->nivelAcceso?>
-            </p>
-          </div>
-        </div>
-        <div class="row g-0">
           <div class="col-md-3 border">
             <h5>Estado</h5>
             <p class="card-text">
@@ -186,42 +189,42 @@
           <div class="col-md-3 border">
             <h5>Hora de mantenimiento</h5>
             <p class="card-text">
-              <?= $area->horaMantenimiento ." hrs"?>
-            </p>
-          </div>
-          <div class="col-md-5 border">
-            <h5>PH Promedio del área</h5>
-            <p class="card-text">
-              <?= $area->phPromedio ?>
+              <?= $area->horaMantenimiento ." hrs" ?>
             </p>
           </div>
         </div>
+
+        <div class="row g-0 mb-3">
+          <div class="col-md-6 border">
+            <h5>Descripción</h5>
+            <p class="card-text">
+              <?= $area->descripcion ?>
+            </p>
+          </div>
+          <div class="col-md-6 border">
+            <h5>Características ambientales</h5>
+            <ul>
+              <li>PH Promedio: <?= $area->phPromedio ?></li>
+              <li>Iluminación: <?= $area->iluminacion ?></li>
+              <li>Tipo de filtración de agua: <?= $area->filtracionAgua ?></li>
+            </ul>
+          </div>
+        </div>
+
         <div class="row g-0">
-          <div class="col-md-4 border">
-            <h5>Iluminación</h5>
-            <p class="card-text">
-              <?= $area->iluminacion ?>
-            </p>
-          </div>
-
-          <div class="col-md-4 border">
-            <h5>Tipo de filtracion de agua</h5>
-            <p class="card-text">
-              <?= $area->filtracionAgua ?>
-            </p>
-          </div>
-
-          <div class="col-md-3 border">
-            <h5>Número máximo de habitantes</h5>
+          <div class="col-md-12 border">
+            <h5>Número máximo de habitantes admitidos</h5>
             <p class="card-text">
               <?= $area->noHabitantesMax ?>
             </p>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </div>
+
 
 <div class="contenedor-botones" style="display:flex; justify-content:center;">
   <a href="<?= base_url('/Administrador/editArea/' . $area->idArea) ?>" style="text-decoration:none;">

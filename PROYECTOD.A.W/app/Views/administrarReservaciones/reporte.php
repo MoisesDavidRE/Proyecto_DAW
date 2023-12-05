@@ -83,7 +83,7 @@
                     </td>
                     <td style="width: 130px;">
                         <?php $db = \Config\Database::connect();
-                        $query = "SELECT nombre FROM atraccion_animal WHERE id = $reservacion->atraccion_animal";
+                        $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $reservacion->atraccion";
                         $resultado = $db->query($query)->getResultArray();
                         echo $resultado[0]["nombre"]; ?>
                     </td>

@@ -24,10 +24,10 @@ class Reservacion extends BaseController
         //Se adjuntan los datos de las tablas relacionadas de la base de datos
         $reservacion = model('ReservacionModel');
         $usuarios = model('Usuarios');
-        $atraccion_animal = model('AtraccionAnimal');
+        $atracciones = model('AtraccionesModel');
         $data['registros'] = count($reservacion->findAll());
         $data['usuarios'] = $usuarios->findAll();
-        $data['atraccionesAnimal'] = $atraccion_animal->findAll();
+        $data['atracciones'] = $atracciones->findAll();
         $data['reservaciones'] = $reservacion->paginate(10);
         $data['pager'] = $reservacion->pager;
 
@@ -61,29 +61,31 @@ class Reservacion extends BaseController
             if ($this->insertarReservacion()) {
                 $usr = $_POST['usuario'];
                 $mensaje = " fué registrada exitosamente!";
-                return 
+                return
                     view('common/header', $data) .
-                    view('common/menu') . 
+                    view('common/menu') .
                     view('administrarReservaciones/reservacionesTabla', ['mensaje' => $mensaje, 'usr' => $usr]);
             }
         }
 
     }
 
-// Método que hace la propia inserción de la reservación en la base de datos
+    // Método que hace la propia inserción de la reservación en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarReservacion(), no es invocado de manera directa en los formularios
     public function insertarReservacion()
     {
         $reservacion = model('ReservacionModel');
+        $atraccion = model('AtraccionesModel');
+        $atraccionSelec = $atraccion->find($_POST['atraccion']);
         $data = [
-            "atraccion_animal" => $_POST["atraccion_animal"],
+            "atraccion" => $_POST["atraccion"],
             "usuario" => $_POST['usuario'],
             "fechaReservada" => $_POST["fechaReservada"],
-            "horaInicio" => $_POST["horaInicio"],
-            "horaFin" => $_POST['horaFin'],
+            "horaInicio" => $atraccionSelec->horaInicio,
+            "horaFin" => $atraccionSelec->horaFin,
             "estatus" => $_POST["estatus"],
-            "costoTotal" => $_POST["costoTotal"],
+            "costoTotal" => $atraccionSelec->costo,
             "comentariosAdicionales" => $_POST["comentariosAdicionales"]
         ];
         $reservacion->insert($data, false);
@@ -111,12 +113,28 @@ class Reservacion extends BaseController
     // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarReservacion($id)
     {
-        $reservacion = model('ReservacionModel');
-        $reservacion->delete($id);
-        return redirect('Administrador/reservacionesTabla');
-    }
 
-    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+        $reservacionModel = model('ReservacionModel');
+        $atracciones = model('AtraccionesModel');
+        $usuarios = model('Usuarios');
+        $reservacion = $reservacionModel->find($id);
+        if(isset($reservacion->usuario)){
+            $usr = $reservacion->usuario;
+            $mensaje = " fue eliminado";
+            } else { $usr = null; $mensaje = null; }
+            $mensaje = " fue eliminada";
+        $reservacionModel->delete($id);
+        $data['reservaciones'] = $reservacionModel->paginate(10);
+        $data['atracciones'] = $atracciones->findAll();
+        $data['usuarios'] = $usuarios->findAll();
+        $data['registros'] = count($reservacionModel->findAll());
+        $data['pager'] = $reservacionModel->pager;
+        return 
+        view('common/header', $data) .
+        view('common/menu') .
+        view('administrarReservaciones/reservacionesTabla',['mensajeEliminar' => $mensaje, 'usr' => $usr]);
+    }
+// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateReservacion()
     public function editarReservacion($id)
@@ -128,11 +146,14 @@ class Reservacion extends BaseController
         }
 
         $reservacion = model('ReservacionModel');
-        $atraccionAn = model('AtraccionAnimal');
+        $atracciones = model('AtraccionesModel');
         $usuario = model('Usuarios');
         $data['reservacion'] = $reservacion->find($id);
-        $data['atraccionesAn'] = $atraccionAn->findAll();
+        $data['reservaciones'] = $reservacion->paginate(10);
+        $data['registros'] = count($reservacion->findAll());
+        $data['atracciones'] = $atracciones->findAll();
         $data['usuarios'] = $usuario->findAll();
+        $data['pager'] = $reservacion->pager;
 
         $validation = \Config\Services::validation();
 
@@ -162,7 +183,12 @@ class Reservacion extends BaseController
                 view('administrarReservaciones/editarReservacion', ['validation' => $validation], $data);
         } else {
             if ($this->updateReservacion()) {
-                return redirect('Administrador/reservacionesTabla');
+                $usr = $_POST['usuario'];
+                $mensaje = " fué editada exitosamente!";
+                return 
+                    view('common/header', $data) .
+                    view('common/menu') . 
+                    view('administrarReservaciones/reservacionesTabla', ['mensajeEditar' => $mensaje, 'usr' => $usr]);
             }
         }
     }
@@ -175,7 +201,7 @@ class Reservacion extends BaseController
     {
         $reservacion = model('ReservacionModel');
         $data = [
-            "atraccion_animal" => $_POST["atraccion_animal"],
+            "atraccion" => $_POST["atraccion"],
             "usuario" => $_POST['usuario'],
             "fechaReservada" => $_POST["fechaReservada"],
             "horaInicio" => $_POST["horaInicio"],
@@ -218,54 +244,46 @@ class Reservacion extends BaseController
             return redirect('/');
         }
 
-        $especies = model('EspeciesModel');
-        $animales = model('AnimalModel');
-        $data['especies'] = $especies->findAll();
-        $data['animales'] = $animales->findAll();
+        $reservacion = model('ReservacionModel');
+        $atracciones = model('AtraccionesModel');
+        $usuario = model('Usuarios');
+        $data['reservaciones'] = $reservacion->findAll();
+        $data['atracciones'] = $atracciones->findAll();
+        $data['usuarios'] = $usuario->findAll();
 
         if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
             $buscador = $_GET['Buscador'];
             $valor = $_GET['Valor'];
 
+            if ($buscador == 'idReservacion') {
+                $data['reservaciones'] = $reservacion->like('idReservacion', $valor)->findAll();
+            }
 
-            if ($buscador == 'Nombre') {
-                $data['animales'] = $animales->like('nombre', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
+            if ($buscador == 'atraccion') {
+                $data['atracciones'] = $atracciones->like('nombre', $valor)->findAll();
+                if (isset($data['atracciones'][0])) {
+                    $data['reservaciones'] = $reservacion->where('atraccion', ($data['atracciones'][0]->idAtraccion))->findAll();
                 } else {
                     $buscador = 'Todo';
                 }
             }
-
-            if ($buscador == 'numeroIdentificador') {
-                $data['animales'] = $animales->like('numeroIdentificador', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
+            if ($buscador == 'usuario') {
+                $data['usuarios'] = $usuario->like('nombre', $valor)->like('apellido_Paterno', $valor)->like('apellido_Materno', $valor)->findAll();
+                if (isset($data['usuarios'][0])) {
+                    $data['reservaciones'] = $reservacion->like('usuario', ($data['usuarios'][0]->numeroControl))->findAll();
                 } else {
                     $buscador = 'Todo';
                 }
             }
-
-            if ($buscador == 'Especie') {
-                $data['especies'] = $especies->like('idEspecie', $valor)
-                    ->findAll();
-                if (isset($data['especies'][0])) {
-                    $data['animales'] = $animales->where('especie', ($data['especies'][0]->idEspecie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+            if ($buscador == 'estatus') {
+                $data['reservaciones'] = $reservacion->like('estatus', $valor)->findAll();
             }
         } else {
-            $buscador =
-                $valor =
-
-                $data['animales'] = $animales->findAll();
+            $data['reservaciones'] = $reservacion->findAll();
         }
         return
             view('common/header') .
             view('common/menu') .
-            view('administrarAnimales/buscar', $data);
+            view('administrarReservaciones/buscar', $data);
     }
 }

@@ -36,6 +36,7 @@ $routes->get('/Administrador/delArea/(:num)','Area::eliminarArea/$1');
 $routes->get('/Administrador/editArea/(:num)', 'Area::editarArea/$1');
 $routes->post('/Administrador/editArea/(:num)', 'Area::editarArea/$1');
 $routes->post('/Administrador/updateArea', 'Area::updateArea');
+$routes->get('/Administrador/buscarArea', 'Area::buscarArea');
 $routes->get('/reporteAreas','Area::ReporteAreas');
 
 //Atracciones
@@ -48,6 +49,7 @@ $routes->get('/Administrador/delAtraccion/(:num)','Atracciones::eliminarAtraccio
 $routes->get('/Administrador/editAtraccion/(:num)', 'Atracciones::editarAtraccion/$1');
 $routes->post('/Administrador/editAtraccion/(:num)', 'Atracciones::editarAtraccion/$1');
 $routes->post('/Administrador/updateAtraccion', 'Atracciones::updateAtraccion');
+$routes->get('/Administrador/buscarAtraccion', 'Atracciones::buscarAtraccion');
 $routes->get('/reporteAtracciones','Atracciones::ReporteAtracciones');
 
 // Reservaciones
@@ -60,6 +62,7 @@ $routes->get('/Administrador/delReservacion/(:num)','Reservacion::eliminarReserv
 $routes->get('/Administrador/editReservacion/(:num)', 'Reservacion::editarReservacion/$1');
 $routes->post('/Administrador/editReservacion/(:num)', 'Reservacion::editarReservacion/$1');
 $routes->post('/Administrador/updateReservacion', 'Reservacion::updateReservacion');
+$routes->get('/Administrador/buscarReservacion', 'Reservacion::buscarReservacion');
 $routes->get('/reporteReservaciones','Reservacion::ReporteReservaciones');
 
 // Usuarios
@@ -72,6 +75,7 @@ $routes->get('/Administrador/delUsr/(:num)','Usuarios::eliminarUsuario/$1');
 $routes->get('/Administrador/editUsr/(:num)', 'Usuarios::editarUsuario/$1');
 $routes->post('/Administrador/editUsr/(:num)', 'Usuarios::editarUsuario/$1');
 $routes->post('/Administrador/updateUsr', 'Usuarios::updateUsuario');
+$routes->get('/Administrador/buscarUsuario', 'Usuarios::buscarUsuario');
 $routes->get('/reporteUsuarios','Usuarios::ReporteUsuarios');
 
 // Empleados
@@ -84,6 +88,7 @@ $routes->get('/Administrador/delEm/(:num)','Empleados::eliminarEmpleado/$1');
 $routes->get('/Administrador/editEm/(:num)', 'Empleados::editarEmpleado/$1');
 $routes->post('/Administrador/editEm/(:num)', 'Empleados::editarEmpleado/$1');
 $routes->post('/Administrador/updateEm', 'Empleados::updateEmpleado');
+$routes->get('/Administrador/buscarEmpleado', 'Empleados::buscarEmpleado');
 $routes->get('/reporteEmpleados','Empleados::ReporteEmpleados');
 
 //Vista general del cliente
@@ -92,12 +97,22 @@ $routes->get('/Cliente/vistaGeneral', 'ClienteController::vistaGeneral');
 //Atracciones vista del cliente
 $routes->get('/Cliente/atraccionesTabla', 'ClienteController::atraccionesTabla');
 
-//Atracciones vista del cliente
+//Areas vista del cliente
 $routes->get('/Cliente/areasTabla', 'ClienteController::areasTabla');
 
 //Animales vista del cliente
 $routes->get('/Cliente/animalesTabla', 'ClienteController::animalesTabla');
 $routes->get('/Cliente/especificacionesAnimal/(:num)', 'ClienteController::especificacionesAnimal/$1');
+$routes->get('/Cliente/buscarAn', 'ClienteController::buscarAnimal');
+$routes->get('/tablaAnimales', 'ClienteController::reporteAnimales');
 
 //Reservaciones vista del cliente
 $routes->get('/Cliente/reservacionesTabla', 'ClienteController::reservacionesTabla');
+$routes->post('/Cliente/reservacionesTabla', 'ClienteController::reservacionesTabla');
+$routes->get('/Cliente/especificacionesReservacion/(:num)', 'ClienteController::especificacionesReservacion/$1');
+$routes->get('/Cliente/buscarReser', 'ClienteController::buscarReservacion');
+$routes->get('/tablaReservaciones', 'ClienteController::reporteReservaciones');
+$routes->get('/Cliente/delReservacion/(:num)','ClienteController::eliminarReservacion/$1');
+$routes->get('/Cliente/editReservacion/(:num)', 'ClienteController::editarReservacion/$1');
+$routes->post('/Cliente/editReservacion/(:num)', 'ClienteController::editarReservacion/$1');
+$routes->post('/Cliente/updateReservacion', 'ClienteController::updateReservacion');

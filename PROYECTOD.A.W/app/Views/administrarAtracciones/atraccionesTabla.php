@@ -39,7 +39,7 @@
             if (isset($mensaje)) {
                 echo '<div class="alert alert-success d-flex align-items-center" role="alert">
                 <svg style="width:50px;height:50px;" class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <div><strong style="font-size:24px;">' . $nombre . '</strong>' . $mensaje . "</div></div>";
+                <div>La atracción <strong style="font-size:24px;">' . '"'.$nombre .'"'. '</strong>' . $mensaje . "</div></div>";
             }
             ?>
             

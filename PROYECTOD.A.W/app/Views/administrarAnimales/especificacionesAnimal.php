@@ -128,24 +128,27 @@
   }
 </style>
 
-<div class="card mb-3" style="max-width:100%; ">
+<div class="card mb-3" style="max-width:100%;">
   <div class="row g-0">
-    <div class="col-md-4" style="height: 490px;width: 490px;">
-      <img src="/img/<?= $animal->ilustracion ?>" class="img-fluid rounded-start mb-2" alt="..." style="heigth:100%;">
-      <p style="text-align: center; font-size:20px;">
-        <?= "Fotografía de " . $animal->nombre ?>
-      </p>
-    </div>
     <div class="col-md-8">
       <div class="card-body">
         <h4 class="card-title">
-          <?= "Especificaciones de " . $animal->nombre ?>
+          Especificaciones de <?= $animal->nombre ?>
         </h4>
-        <div class="row g-0">
+        <div class="row g-0 mb-3">
           <div class="col-md-3 border">
-            <h5>Descripción</h5>
+            <h5>Área</h5>
             <p class="card-text">
-              <?= $animal->descripcion ?>
+            <?php $db = \Config\Database::connect();
+              $query = "SELECT nombre FROM area WHERE idArea = $animal->area";
+              $resultado = $db->query($query)->getResultArray();
+              echo $resultado[0]["nombre"];?>
+            </p>
+          </div>
+          <div class="col-md-3 border">
+            <h5>Especie</h5>
+            <p class="card-text">
+              <?= $animal->especie ?>
             </p>
           </div>
           <div class="col-md-3 border">
@@ -155,47 +158,17 @@
             </p>
           </div>
           <div class="col-md-3 border">
-            <h5>Área</h5>
-            <p class="card-text">
-              <?= $animal->area ?>
-            </p>
-          </div>
-          <div class="col-md-3 border">
-            <h5>Especie</h5>
-            <p class="card-text">
-
-              <?php
-              $db = \Config\Database::connect();
-              $idEspecie = $animal->especie;
-              $query = "SELECT nombre FROM especie WHERE idEspecie = $idEspecie";
-              $resultado = $db->query($query)->getResultArray();
-              if (!$resultado) {
-                // Error al conectar a la base de datos
-                echo mysqli_error($db);
-              } else
-                echo $resultado[0]["nombre"];
-              ?>
-
-            </p>
-          </div>
-        </div>
-        <div class="row g-0">
-          <div class="col-md-3 border">
             <h5>Edad</h5>
             <p class="card-text">
               <?= $animal->edad . " año(s)" ?>
             </p>
           </div>
+        </div>
+        <div class="row g-0 mb-3">
           <div class="col-md-3 border">
             <h5>Sexo</h5>
             <p class="card-text">
               <?= $animal->sexo ?>
-            </p>
-          </div>
-          <div class="col-md-3 border">
-            <h5>Expectativa de vida</h5>
-            <p class="card-text">
-              <?= "Se estima una expectativa de vida de " . $animal->expectativaDeVida . " años" ?>
             </p>
           </div>
           <div class="col-md-3 border">
@@ -204,16 +177,40 @@
               <?= $animal->fechaNacimiento ?>
             </p>
           </div>
-        </div>
-        <div class="row g-0">
-          <div class="col-md-12 border">
+          <div class="col-md-3 border">
+            <h5>Expectativa de vida</h5>
+            <p class="card-text">
+              Se estima una expectativa de vida de <?= $animal->expectativaDeVida ?> años
+            </p>
+          </div>
+          <div class="col-md-3 border">
             <h5>Historial médico</h5>
             <p class="card-text">
               <?= $animal->historialMedico ?>
             </p>
           </div>
         </div>
+        <div class="row g-0">
+          <div class="col-md-12 border">
+            <h5>Descripción</h5>
+            <p class="card-text">
+              <?= $animal->descripcion ?>
+            </p>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="col-md-4">
+      <?php if (isset($animal->ilustracion)): ?>
+        <img src="/img/<?= $animal->ilustracion ?>" class="img-fluid rounded-end mb-2" alt="Fotografía de <?= $animal->nombre ?>" style="height: 100%;">
+        <p style="font-size:20px;text-align:center;">
+          Fotografía de <?= $animal->nombre ?>
+        </p>
+      <?php else : ?>
+        <p>
+          El animal <?= "<strong>" . $animal->nombre . "</strong>" ?> no cuenta con una ilustración, favor de cargar una.
+        </p>
+      <?php endif ?>
     </div>
   </div>
 </div>
@@ -228,7 +225,8 @@
       </svg></span></button>
   </a>
 
-  <a href="<?= base_url('/Administrador/delAn/' . $animal->numeroIdentificador) ?>" style="text-decoration:none;padding-right:15px">
+  <a href="<?= base_url('/Administrador/delAn/' . $animal->numeroIdentificador) ?>"
+    style="text-decoration:none;padding-right:15px">
     <button class="noselect"><span class="text">Borrar</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24">
           <path
@@ -238,6 +236,7 @@
   </a>
 
   <a href="<?= base_url('/Administrador/animalTabla') ?>" style="text-decoration:none;">
-    <button class="noselect"style="background-color:#96be25;"><span class="text">Regresar</span><span class="icon"><img src="\icons\volver.png" style="width:20px; height: 20px;"></span></button>
+    <button class="noselect" style="background-color:#96be25;"><span class="text">Regresar</span><span class="icon"><img
+          src="\icons\volver.png" style="width:20px; height: 20px;"></span></button>
   </a>
 </div>

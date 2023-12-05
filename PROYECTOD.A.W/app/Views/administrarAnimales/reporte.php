@@ -58,7 +58,6 @@
             <th>Área</th>
             <th>Edad</th>
             <th>Sexo</th>
-            <th>Dieta</th>
             <th>Expectativa de Vida</th>
         </tr>
     </thead>
@@ -77,11 +76,7 @@
                     <?= $animal->fechaNacimiento ?>
                 </td>
                 <td>
-                    <?php
-                    $db = \Config\Database::connect();
-                    $query = "SELECT nombre FROM especie WHERE idEspecie = $animal->especie";
-                    $resultado = $db->query($query)->getResultArray();
-                    echo $resultado[0]["nombre"]; ?>
+                    <?= $animal->especie ?>
                 </td>
                 <td style="width: 130px;">
                     <?php
@@ -91,13 +86,10 @@
                     echo $resultado[0]["nombre"]; ?>
                 </td>
                 <td >
-                <?= $animal->edad ?>
+                <?= $animal->edad ?> años
                 </td>
                 <td >
                 <?= $animal->sexo ?>
-                </td>
-                <td>
-                <?= $animal->dieta ?>
                 </td>
                 <td>
                 <?= $animal->expectativaDeVida ?> años
