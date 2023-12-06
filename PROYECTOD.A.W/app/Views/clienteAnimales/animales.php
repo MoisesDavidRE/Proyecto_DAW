@@ -27,7 +27,6 @@
                     <tr>
                         <th style="background-color: #fa6900;">No. identificador</th>
                         <th style="background-color: #fa6900;">Nombre</th>
-                        <th style="background-color: #fa6900;">Especie</th>
                         <th style="background-color: #fa6900;">Dieta</th>
                         <th style="background-color: #fa6900;">Fecha de nacimiento</th>
                         <th style="background-color: #fa6900;">Edad</th>
@@ -45,12 +44,7 @@
                             <td>
                                 <?= $animal->nombre ?>
                             </td>
-                            <td>
-                                <?php $db = \Config\Database::connect();
-                                $query = "SELECT nombre FROM especie WHERE idEspecie = $animal->especie";
-                                $resultado = $db->query($query)->getResultArray();
-                                echo $resultado[0]["nombre"]; ?>
-                            </td>
+                            
                             <td>
                                 <p >
                                     <?= $animal->dieta ?>

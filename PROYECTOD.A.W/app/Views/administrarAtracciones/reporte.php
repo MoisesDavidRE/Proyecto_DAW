@@ -87,7 +87,7 @@
                     <?= $atraccion->tipo?>
                 </td>
                 <td style="width: 130px;">
-                    <?= $atraccion->horarios?>
+                    <?= $atraccion->horaInicio . "-".$atraccion->horaFin?>
                 </td>
                 <td >
                 <?= $atraccion->costo ?>

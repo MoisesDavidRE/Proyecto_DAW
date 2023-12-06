@@ -55,7 +55,6 @@
             <th>Nombre</th>
             <th>Fecha de nacimiento</th>
             <th>Edad</th>
-            <th>Especie</th>
             <th>Área</th>
             <th>Dieta</th>
             <th>Sexo</th>
@@ -77,13 +76,6 @@
                 </td>
                 <td >
                 <?= $animal->edad ?>
-                </td>
-                <td>
-                    <?php
-                    $db = \Config\Database::connect();
-                    $query = "SELECT nombre FROM especie WHERE idEspecie = $animal->especie";
-                    $resultado = $db->query($query)->getResultArray();
-                    echo $resultado[0]["nombre"]; ?>
                 </td>
                 <td style="width: 130px;">
                     <?php

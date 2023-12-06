@@ -8,53 +8,18 @@
                 <?= $session->get('Nombre') ?>!
             </h1>
             <h2 align="center"></h2>
+    
+            <h3 align="center">Acuario Deimar te da la bienvenida</h3>
         </div>
 
         <div class="col-4">
             <div class="card text-center">
                 <div class="card-body">
-                    <h5 class="card-title">Usuarios</h5>
-                    <img src="https://cdn-icons-png.flaticon.com/512/33/33308.png" width="100"><br>
-                    <button type="button" class="btn btn-primary" onclick="location.href='/administrador/usuario'">Ir a
-                        Usuarios</button>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Distribuidores</h5>
-                    <img src="https://cdn-icons-png.flaticon.com/512/352/352806.png" width="100"><br>
-                    <button type="button" class="btn btn-primary"
-                        onclick="location.href='/administrador/distribuidor'">Ir a Distribuidores</button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Bicicletas</h5>
-                    <img src="https://images.vexels.com/media/users/3/153529/isolated/preview/7bc69f401f0d4ac00f7a08bc28fba2e2-icono-de-trazo-de-bicicleta.png"
+                    <h5 class="card-title">Reservaciones</h5>
+                    <img src="\icons\reserva (1).png"
                         width="100"><br>
-                    <button type="button" class="btn btn-primary" onclick="location.href='/administrador/bicicletas'">Ir
-                        a Bicicletas</button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Marcas</h5>
-                    <img src="https://cdn-icons-png.flaticon.com/512/5627/5627089.png" width="100"><br>
-                    <button type="button" class="btn btn-primary" onclick="location.href='/administrador/marca'">Ir a
-                        Marcas</button>
-
+                    <button type="button" class="btn btn-primary" onclick="location.href='/Cliente/reservacionesTabla'">Ir
+                        a Reservaciones</button>
                 </div>
             </div>
         </div>
@@ -62,10 +27,10 @@
         <div class="col-4">
             <div class="card text-center">
                 <div class="card-body">
-                    <h5 class="card-title">Modelos</h5>
-                    <img src="https://cdn-icons-png.flaticon.com/512/603/603614.png" width="100"><br>
-                    <button type="button" class="btn btn-primary" onclick="location.href='/administrador/modelo'">Ir a
-                        Modelos</button>
+                    <h5 class="card-title">Animales</h5>
+                    <img src="\icons\oceano.png" width="100"><br>
+                    <button type="button" class="btn btn-primary" onclick="location.href='/Cliente/animalesTabla'">Ir a
+                        Animales</button>
 
                 </div>
             </div>
@@ -74,25 +39,12 @@
         <div class="col-4">
             <div class="card text-center">
                 <div class="card-body">
-                    <h5 class="card-title">Características</h5>
-                    <img src="https://cdn-icons-png.flaticon.com/512/6593/6593191.png" width="100"><br>
+                    <h5 class="card-title">Atracciones</h5>
+                    <img src="\icons\delfin.png" width="100"><br>
                     <button type="button" class="btn btn-primary"
-                        onclick="location.href='/administrador/caracteristicas'">Ir a Características</button>
+                        onclick="location.href='/Cliente/atraccionesTabla'">Ir a Atracciones</button>
                 </div>
             </div>
         </div>
-
-
-        <div class="col-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Componentes</h5>
-                    <img src="https://cdn-icons-png.flaticon.com/512/4205/4205637.png" width="100"><br>
-                    <button type="button" class="btn btn-primary"
-                        onclick="location.href='/administrador/componentes'">Componentes</button>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>

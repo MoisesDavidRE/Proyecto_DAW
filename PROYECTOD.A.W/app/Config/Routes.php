@@ -10,6 +10,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'SesionController::index');
 $routes->post('/', 'SesionController::index');
 $routes->get('/cerrarSesion','SesionController::cerrarSesion');
+$routes->get('/registrar','SesionController::registrar');
 
 // Vista general
 $routes->get('/Administrador/vistaGeneral', 'AdminController::vistaGeneral');
@@ -109,7 +110,7 @@ $routes->get('/tablaAnimales', 'ClienteController::reporteAnimales');
 //Reservaciones vista del cliente
 $routes->get('/Cliente/reservacionesTabla', 'ClienteController::reservacionesTabla');
 $routes->post('/Cliente/reservacionesTabla', 'ClienteController::reservacionesTabla');
-$routes->get('/Cliente/especificacionesReservacion/(:num)', 'ClienteController::especificacionesReservacion/$1');
+$routes->get('/Cliente/reservacionEspecificaciones/(:num)', 'ClienteController::especificacionesReservacion/$1');
 $routes->get('/Cliente/buscarReser', 'ClienteController::buscarReservacion');
 $routes->get('/tablaReservaciones', 'ClienteController::reporteReservaciones');
 $routes->get('/Cliente/delReservacion/(:num)','ClienteController::eliminarReservacion/$1');

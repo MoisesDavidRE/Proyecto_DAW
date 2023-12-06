@@ -1,142 +1,167 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <style>
-  .singup {
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: block;
-    font-weight: bold;
-    font-size: x-large;
-    margin-top: 1.5em;
-  }
-
-  .card {
+  .form {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 350px;
-    width: 300px;
     flex-direction: column;
-    gap: 35px;
-    border-radius: 15px;
-    background: #e3e3e3;
-    box-shadow: 16px 16px 32px #c8c8c8,
-      -16px -16px 32px #fefefe;
-    border-radius: 8px;
-  }
-
-  .inputBox,
-  .inputBox1 {
+    gap: 10px;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
     position: relative;
-    width: 250px;
   }
 
-  .inputBox input,
-  .inputBox1 input {
-    width: 100%;
-    padding: 10px;
-    outline: none;
-    border: none;
-    color: #000;
-    font-size: 1em;
-    background: transparent;
-    border-left: 2px solid #000;
-    border-bottom: 2px solid #000;
-    transition: 0.1s;
-    border-bottom-left-radius: 8px;
+  .title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
   }
 
-  .inputBox span,
-  .inputBox1 span {
-    margin-top: 5px;
+  .title::before,
+  .title::after {
     position: absolute;
-    left: 0;
-    transform: translateY(-4px);
-    margin-left: 10px;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: royalblue;
+  }
+
+  .title::before {
+    width: 18px;
+    height: 18px;
+    background-color: royalblue;
+  }
+
+  .title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+  }
+
+  .message,
+  .signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+  }
+
+  .signin {
+    text-align: center;
+  }
+
+  .signin a {
+    color: royalblue;
+  }
+
+  .signin a:hover {
+    text-decoration: underline royalblue;
+  }
+
+  .flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .form label {
+    position: relative;
+  }
+
+  .form label .input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+  }
+
+  .form label .input+span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+  }
+
+  .form label .input:placeholder-shown+span {
+    top: 15px;
+    font-size: 0.9em;
+  }
+
+  .form label .input:focus+span,
+  .form label .input:valid+span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+
+  .form label .input:valid+span {
+    color: green;
+  }
+
+  .submit {
+    border: none;
+    outline: none;
+    background-color: royalblue;
     padding: 10px;
-    pointer-events: none;
-    font-size: 12px;
-    color: #000;
-    text-transform: uppercase;
-    transition: 0.5s;
-    letter-spacing: 3px;
-    border-radius: 8px;
-  }
-
-  .inputBox input:valid~span,
-  .inputBox input:focus~span {
-    transform: translateX(113px) translateY(-15px);
-    font-size: 0.8em;
-    padding: 5px 10px;
-    background: #000;
-    letter-spacing: 0.2em;
+    border-radius: 10px;
     color: #fff;
-    border: 2px;
+    font-size: 16px;
+    transform: .3s ease;
   }
 
-  .inputBox1 input:valid~span,
-  .inputBox1 input:focus~span {
-    transform: translateX(156px) translateY(-15px);
-    font-size: 0.8em;
-    padding: 5px 10px;
-    background: #000;
-    letter-spacing: 0.2em;
-    color: #fff;
-    border: 2px;
+  .submit:hover {
+    background-color: rgb(56, 90, 194);
   }
 
-  .inputBox input:valid,
-  .inputBox input:focus,
-  .inputBox1 input:valid,
-  .inputBox1 input:focus {
-    border: 2px solid #000;
-    border-radius: 8px;
-  }
+  @keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
 
-  .enter {
-    height: 45px;
-    width: 100px;
-    border-radius: 5px;
-    border: 2px solid #000;
-    cursor: pointer;
-    background-color: transparent;
-    transition: 0.5s;
-    text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-bottom: 3em;
-  }
-
-  .enter:hover {
-    background-color: rgb(0, 0, 0);
-    color: white;
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
   }
 </style>
 
-
-   <form class="form" action="<?= base_url('/'); ?>" method="POST">
-          <?= csrf_field() ?>
-<div class="container" style="display:flex; justify-content:center;position:absolute; top:20%; left:42%;">
-  <div class="col-8">
-    <div class="container">
-      <div class="card">
-        <a class="singup">Iniciar sesión</a>
-     
-
-          <div class="inputBox1">
-            <input type="text" required="required" name="correo">
-            <span class="user">Correo</span>
-          </div>
-
-          <div class="inputBox">
-            <input type="password" required="required" name="contrasenia">
-            <span>Contraseña</span>
-          </div>
-
-          <button typye="submit" class="enter">Ingresar</button>
+<div class="container" style="position:absolute; top:15%;left:17%">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-8">
+      <form class="form" action="<?= base_url('/'); ?>" method="POST">
+        <?= csrf_field() ?>
+        <img src="\icons\logo.png" width="300">
+        <p class="title">Iniciar sesión</p>
         
-      </div>
+        <p class="message">Inicia sesión con tu cuenta de usuario</p>
+
+        <label>
+          <input required="" placeholder="" name="correo" type="email" class="input">
+          <span>Correo electrónico</span>
+        </label>
+        <label>
+          <input required="required" placeholder="" name="contrasenia" type="password" class="input">
+          <span>Contraseña</span>
+        </label>
+        <button class="submit">Registrar</button>
+        <p class="signin">No estás registrado? <a href="/registrar">Crear una cuenta</a> </p>
+      </form>
     </div>
   </div>
 </div>
 
-</form>
+<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

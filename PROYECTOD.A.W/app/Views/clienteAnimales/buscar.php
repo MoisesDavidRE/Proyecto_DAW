@@ -71,10 +71,10 @@
 </style>
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-3">
             <h1 align="center">Buscar animal</h1>
 
-            <form action="<?= base_url('/Cliente/buscarAn'); ?>" method="GET">
+            <form action="<?= base_url('/Administrador/buscarAn'); ?>" method="GET">
 
                 <div class="col-5 mb-3">
                     <label for="Buscador">Buscar por: </label>
@@ -93,53 +93,71 @@
                 </div>
 
                 <input type="submit" class="btn btn-outline-success" value="Buscar">
-
             </form>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
-            <h2>Animales</h2>
-            <table class=" table table-bordered-stripped border-primary">
+            <table class='table table-bordered  table-striped' style="border-radius: 7px;">
                 <thead>
-                    <th>Número identificador</th>
-                    <th>Nombre</th>
-                    <th>Especie</th>
-                    <th>Especificaciones</th>
+                    <tr>
+                        <th style="background-color: #fa6900;">Número identificador</th>
+                        <th style="background-color: #fa6900;">Nombre</th>
+                        <th style="background-color: #fa6900;">Fecha de nacimiento</th>
+                        <th style="background-color: #fa6900;">Especie</th>
+                        <th style="background-color: #fa6900;">Área</th>
+                        <th style="background-color: #fa6900;">Especif.</th>
+                        <th style="background-color: #fa6900;">Editar</th>
+                        <th style="background-color: #fa6900;">Eliminar</th>
+                    </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-group-divider">
                     <?php foreach ($animales as $animal): ?>
                         <tr>
-                            <td>
-                                <?= $animal->numeroIdentificador ?>
+                            <td style="width: 50px;">
+                                <p style="display:flex;justify-content:center;">
+                                    <?= $animal->numeroIdentificador ?>
+                                </p>
                             </td>
-
                             <td>
                                 <?= $animal->nombre ?>
                             </td>
-
-                          
-                                    <td>De la especie:
-                                        <?php
-                                        $db = \Config\Database::connect();
-                                        $query = "SELECT nombre FROM especie WHERE idEspecie = $animal->especie";
-                                        $resultado = $db->query($query)->getResultArray();
-                                        echo $resultado[0]["nombre"]; 
-                                          ?>
-                                    </td>
-                               
-
+                            <td style="width: 250px;">
+                                <?= $animal->fechaNacimiento ?>
+                            </td>
                             <td>
-                                <a href="<?= base_url('/Cliente/especificacionesAnimal/' . $animal->numeroIdentificador); ?>"
-                                    style="display:flex;justify-content:center;max-width:50px;margin-right: -100px;">
-                                    <lord-icon src="https://cdn.lordicon.com/rwtswsap.json" trigger="hover"
-                                        colors="primary:#3080e8" style="width:50px;height:50px">
-                                    </lord-icon>
+
+                                <?= $animal->especie ?>
+
+                            </td>
+                            <td style="width: 250px;">
+                                <?php
+                                $db = \Config\Database::connect();
+                                $query = "SELECT nombre FROM area WHERE idArea = $animal->area";
+                                $resultado = $db->query($query)->getResultArray();
+                                echo $resultado[0]["nombre"]; ?>
+                            </td>
+                            <td style="width: 50px;"><a
+                                    href="<?= base_url('/Administrador/especificacionesAnimal/' . $animal->numeroIdentificador); ?>"
+                                    style="display:flex;justify-content:center;max-width:50px;">
+                                    <img src="\icons\especs.png" style="width:30px; height: 30px;">
+                                </a>
+                            </td>
+                            <td style="width: 50px;">
+                                <a href="<?= base_url('/Administrador/editAn/' . $animal->numeroIdentificador); ?>">
+
+                                    <img src="\icons\editar.png" style="width:30px; height: 30px;">
+
+                                </a>
+                            </td>
+                            <td style="width: 50px;">
+                                <a href="<?= base_url('/Administrador/delAn/' . $animal->numeroIdentificador); ?>">
+                                    <img src="\icons\del.png" style="width:30px; height: 30px;">
                                 </a>
                             </td>
                         </tr>
-                    <?php endforeach ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 

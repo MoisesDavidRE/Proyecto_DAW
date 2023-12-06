@@ -172,7 +172,7 @@
                         </div>
                         <div class="col-md-3 border">
                             <h5>Hora de mantenimiento</h5>
-                            <input class="form-control" type="time" value="<?= $area->horaMantenimiento ?>"
+                            <input class="form-control" type="text" value="<?= $area->horaMantenimiento ?>"
                                 name="horaMantenimiento">
                         </div>
                         <div class="col-md-5 border">

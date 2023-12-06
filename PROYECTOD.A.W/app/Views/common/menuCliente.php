@@ -7,6 +7,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg mb-3 " style="background-color:#22ccdb">
+<h5 style="position:absolute;padding-left:50px;"><?php $session = \Config\Services::session(); echo $session->get('Nombre')." ".$session->get('ApellidoPaterno')." ".$session->get('ApellidoMaterno')?></h5>
   <div class="container-fluid"
     style="background-color:#79f3e9; width:68%;height: 50px; border-radius:7px;display:flex;justify-content:center;align-items:center;">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

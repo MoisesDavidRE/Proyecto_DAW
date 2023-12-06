@@ -27,25 +27,16 @@ class ClienteController extends BaseController
     public function atraccionesTabla()
     {
         $session = session();
-        if ($session->get('logged_in') != TRUE) {
+        if ($session->get('logged_in') != TRUE ) {
             $session->destroy();
             return redirect('/');
         }
-        return
-            view('common/menuCliente') .
-            view('clienteAtracciones/atracciones');
-    }
 
-    public function areasTabla()
-    {
-        $session = session();
-        if ($session->get('logged_in') != TRUE) {
-            $session->destroy();
-            return redirect('/');
-        }
+        $atracciones = model('AtraccionesModel');
+        $data['atracciones'] = $atracciones->findAll();
         return
             view('common/menuCliente') .
-            view('clienteAtracciones/atracciones');
+            view('clienteAtracciones/atracciones',$data);
     }
 
     public function animalesTabla()
@@ -58,10 +49,8 @@ class ClienteController extends BaseController
         }
         $animalModel = model('AnimalModel');
         $areasModel = model('AreasModel');
-        $especiesModel = model('EspeciesModel');
         $data['animales'] = $animalModel->paginate(10);
         $data['areas'] = $areasModel->findAll();
-        $data['especies'] = $especiesModel->findAll();
         $data['registros'] = count($animalModel->findAll());
         $data['pager'] = $animalModel->pager;
 
@@ -77,9 +66,7 @@ class ClienteController extends BaseController
             return redirect('/');
         }
 
-        $especies = model('EspeciesModel');
         $animales = model('AnimalModel');
-        $data['especies'] = $especies->findAll();
         $data['animales'] = $animales->findAll();
 
         if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
@@ -88,44 +75,26 @@ class ClienteController extends BaseController
 
 
             if ($buscador == 'Nombre') {
-                $data['animales'] = $animales->like('nombre', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['animales'] = $animales->like('nombre', $valor)->findAll();
             }
 
             if ($buscador == 'numeroIdentificador') {
-                $data['animales'] = $animales->like('numeroIdentificador', $valor)
-                    ->findAll();
-                if (isset($data['animales'][0])) {
-                    $data['especies'] = $especies->where('idEspecie', ($data['animales'][0]->especie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['animales'] = $animales->like('numeroIdentificador', $valor)->findAll();
             }
 
             if ($buscador == 'Especie') {
-                $data['especies'] = $especies->like('idEspecie', $valor)
-                    ->findAll();
-                if (isset($data['especies'][0])) {
-                    $data['animales'] = $animales->where('especie', ($data['especies'][0]->idEspecie))->findAll();
-                } else {
-                    $buscador = 'Todo';
-                }
+                $data['animales'] = $animales->like('especie', $valor)->findAll();
             }
         } else {
-            $buscador =
+            $buscador = null;
                 $valor =
 
                 $data['animales'] = $animales->findAll();
         }
         return
-            view('common/header') .
-            view('common/menuCliente') .
-            view('clienteAnimales/buscar', $data);
+        view('common/header') .
+        view('common/menuCliente') .
+        view('clienteAnimales/buscar', $data);
     }
 
     public function ReporteAnimales()
@@ -138,10 +107,8 @@ class ClienteController extends BaseController
 
         $animalModel = model('AnimalModel');
         $areasModel = model('AreasModel');
-        $especiesModel = model('EspeciesModel');
         $data['animales'] = $animalModel->findAll();
         $data['areas'] = $areasModel->findAll();
-        $data['especies'] = $especiesModel->findAll();
 
 
         $pdf = new Dompdf();
@@ -182,12 +149,11 @@ class ClienteController extends BaseController
 
         $reservacion = model('ReservacionModel');
         $usuarios = model('Usuarios');
-        $atraccion_animal = model('AtraccionAnimal');
+        $atracciones = model('AtraccionesModel');
         $data['registros'] = count($reservacion->findAll());
         $data['usuarios'] = $usuarios->findAll();
-        $data['atraccionesAnimal'] = $atraccion_animal->findAll();
-        $data['reservaciones'] = $reservacion->paginate(10);
-        $data['pager'] = $reservacion->pager;
+        $data['atracciones'] = $atracciones->findAll();
+        $data['reservaciones'] = $reservacion->findAll();
         $validation = \Config\Services::validation();
 
         if ((strtolower($this->request->getMethod()) === 'get')) {
@@ -267,8 +233,65 @@ class ClienteController extends BaseController
     public function eliminarReservacion($id)
     {
         $reservacion = model('ReservacionModel');
+        $reserv = $reservacion->find($id);
+        if(isset($reserv->usuario)){
+            $usr = $reserv->usuario;
+        }
         $reservacion->delete($id);
-        return redirect('Cliente/reservacionesTabla');
+        return
+            view('common/header').
+            view('common/menuCliente'). 
+            view('clienteReservaciones/reservacionesTabla');
+    }
+
+    public function buscarReservacion()
+    {
+        $session = session();
+        if ($session->get('logged_in') != TRUE) {
+            return redirect('/');
+        }
+
+        $reservacion = model('ReservacionModel');
+        $atracciones = model('AtraccionesModel');
+        $usuario = model('Usuarios');
+        $data['reservaciones'] = $reservacion->findAll();
+        $data['atracciones'] = $atracciones->findAll();
+        $data['usuarios'] = $usuario->findAll();
+
+        if (isset($_GET['Buscador']) && isset($_GET['Valor'])) {
+            $buscador = $_GET['Buscador'];
+            $valor = $_GET['Valor'];
+
+            if ($buscador == 'idReservacion') {
+                $data['reservaciones'] = $reservacion->like('idReservacion', $valor)->findAll();
+            }
+
+            if ($buscador == 'atraccion') {
+                $data['atracciones'] = $atracciones->like('nombre', $valor)->findAll();
+                if (isset($data['atracciones'][0])) {
+                    $data['reservaciones'] = $reservacion->where('atraccion', ($data['atracciones'][0]->idAtraccion))->findAll();
+                } else {
+                    $buscador = 'Todo';
+                }
+            }
+            if ($buscador == 'usuario') {
+                $data['usuarios'] = $usuario->like('nombre', $valor)->like('apellido_Paterno', $valor)->like('apellido_Materno', $valor)->findAll();
+                if (isset($data['usuarios'][0])) {
+                    $data['reservaciones'] = $reservacion->like('usuario', ($data['usuarios'][0]->numeroControl))->findAll();
+                } else {
+                    $buscador = 'Todo';
+                }
+            }
+            if ($buscador == 'estatus') {
+                $data['reservaciones'] = $reservacion->like('estatus', $valor)->findAll();
+            }
+        } else {
+            $data['reservaciones'] = $reservacion->findAll();
+        }
+        return
+            view('common/header') .
+            view('common/menu') .
+            view('administrarReservaciones/buscar', $data);
     }
 
     public function ReporteReservaciones()
@@ -300,7 +323,7 @@ class ClienteController extends BaseController
         $pdf->stream('Tabla de reservaciones', array("Attachment" => 1));
     }
 
-    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateReservacion()
     public function editarReservacion($id)
@@ -312,10 +335,10 @@ class ClienteController extends BaseController
         }
 
         $reservacion = model('ReservacionModel');
-        $atraccionAn = model('AtraccionAnimal');
+        $atracciones = model('AtraccionesModel');
         $usuario = model('Usuarios');
         $data['reservacion'] = $reservacion->find($id);
-        $data['atraccionesAn'] = $atraccionAn->findAll();
+        $data['atracciones'] = $atracciones->findAll();
         $data['usuarios'] = $usuario->findAll();
 
         $validation = \Config\Services::validation();
@@ -323,7 +346,7 @@ class ClienteController extends BaseController
         if ((strtolower($this->request->getMethod()) === 'get')) {
             return
                 view('common/header', $data) .
-                view('common/menu') .
+                view('common/menuCliente') .
                 view('clienteReservaciones/editarReservacion', $data);
         }
 

@@ -258,12 +258,6 @@ class Atracciones extends BaseController
 
     public function ReporteAtracciones()
     {
-        $session = session();
-        if ($session->get('logged_in') != TRUE || $session->get('Perfil') != 'ADMINISTRADOR') {
-            $session->destroy();
-            return redirect('/');
-        }
-
         $atracciones = model('AtraccionesModel');
         $data['atracciones'] = $atracciones->findAll();
         $pdf = new Dompdf();

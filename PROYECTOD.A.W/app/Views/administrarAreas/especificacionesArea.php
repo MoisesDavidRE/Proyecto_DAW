@@ -133,7 +133,7 @@
     <div class="col-md-4">
       <!-- <img src="/areas/<?= $area->imagen ?>" class="img-fluid rounded-circle mb-2" alt="..." style="width: 150px; height: 150px;"> -->
       <?php if (isset($area->imagen)): ?>
-        <img src="/areas/<?= $area->imagen ?>" class="img-fluid mb-2" alt="Fotografía del área <?= $area->nombre ?>" style="border-radius:50px;padding-top:20px">
+        <img src="/areas/<?= $area->imagen ?>" class="img-fluid mb-2" alt="Fotografía del área <?= $area->nombre ?>" style="width:500px;height:300px;border-radius:50px;padding-top:20px">
         <p style="font-size:20px;text-align:center;">
           Fotografía del área <?= $area->nombre ?>
         </p>

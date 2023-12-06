@@ -175,7 +175,6 @@ class Reservacion extends BaseController
             ]
             //costo total, hora inicio y hora fin deben ser especificados automáticamente
         ];
-
         if (!$this->validate($rules)) {
             return
                 view('common/header', $data) .
@@ -213,7 +212,6 @@ class Reservacion extends BaseController
         $reservacion->update($_POST['idReservacion'], $data);
         return true;
     }
-
     public function ReporteReservaciones()
     {
         $session = session();
@@ -221,7 +219,6 @@ class Reservacion extends BaseController
             $session->destroy();
             return redirect('/');
         }
-
         $reservaciones = model('ReservacionModel');
         $data['reservaciones'] = $reservaciones->findAll();
         $pdf = new Dompdf();
