@@ -38,6 +38,7 @@ class SesionController extends BaseController
                     'Nombre' => $data['usuario'][0]->nombre,
                     'ApellidoPaterno' => $data['usuario'][0]->apellido_Paterno,
                     'ApellidoMaterno' => $data['usuario'][0]->apellido_Materno,
+                    'Imagen' => $data['usuario'][0]->imagenUsuario,
                     'Correo_Elec' => $data['usuario'][0]->correoElectronico,
                     'logged_in' => true,
                     'Perfil' => $data['usuario'][0]->perfilUsuario
@@ -125,7 +126,6 @@ public function registrar()
 
     if (!$this->validate($rules)) {
         return
-            view('common/header') .
             view('InicioSesion/registrar', ['validation' => $validation]);
     } else {
         if ($this->insertarUsuario()) {
@@ -148,12 +148,11 @@ public function insertarUsuario()
         "nombre" => $_POST["nombre"],
         "apellido_Paterno" => $_POST['apellido_Paterno'],
         "apellido_Materno" => $_POST["apellido_Materno"],
-        "imagenUsuario" => $_POST['ilustracion'],
         "nombreUsuario" => $_POST["nombreUsuario"],
         "contrasenia" => $_POST['contrasenia'],
-        "perfilUsuario" => $_POST["perfilUsuario"],
+        "perfilUsuario" => "CLIENTE",
         "correoElectronico" => $_POST["correoElectronico"],
-        "comentarioPreferencias" => $_POST["comentarioPreferencias"]
+        "comentarioPreferencias" => ""
     ];
     $usuario->insert($data, false);
     return true;

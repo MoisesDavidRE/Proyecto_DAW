@@ -95,6 +95,9 @@ $routes->get('/reporteEmpleados','Empleados::ReporteEmpleados');
 //Vista general del cliente
 $routes->get('/Cliente/vistaGeneral', 'ClienteController::vistaGeneral');
 
+// Registrar un nuevo usuario
+$routes->post('/Cliente/registrar', 'SesionController::registrar');
+
 //Atracciones vista del cliente
 $routes->get('/Cliente/atraccionesTabla', 'ClienteController::atraccionesTabla');
 
