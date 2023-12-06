@@ -112,7 +112,7 @@
                   </option>
                   <?php foreach ($atracciones as $atraccion): ?>
                     <option value="<?= $atraccion->idAtraccion ?>">
-                      <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $reservacion->atraccion";
+                      <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $atraccion->idAtraccion";
                       $resultado = $db->query($query)->getResultArray();
                       echo $resultado[0]["nombre"]; ?>
                     </option>
@@ -144,8 +144,13 @@
               <td>Estatus de la reservación</td>
               <td>
                     <select class="form-control" name="estatus">
-                      <option value="Confirmado">Confirmado</option>
-                      <option value="En revisión">En revisión</option>
+                    <?php if ($reservacion->estatus == "Confirmado"): ?>
+                  <option value="Confirmado" selected>Confirmado</option>
+                  <option value="En revisión">En revisión</option>
+                <?php else: ?>
+                  <option value="Confirmado">Confirmado</option>
+                  <option value="En revisión" selected>En revisión</option>
+                <?php endif ?>
                     </select>
               </td>
             </tr>

@@ -140,7 +140,7 @@
                         <select name="atraccion" class="form-control">
                             <?php foreach ($atracciones as $atraccion): ?>
                                 <option value="<?= $atraccion->idAtraccion ?>">
-                                    <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $reservacion->atraccion";
+                                    <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $atraccion->idAtraccion";
                                 $resultado = $db->query($query)->getResultArray();
                                 echo $resultado[0]["nombre"]; ?>
                                 </option>

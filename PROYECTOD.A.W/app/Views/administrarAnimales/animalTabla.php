@@ -147,11 +147,11 @@
                                 <legend>Información básica</legend>
                                 <div class="mb-3">
                                     <label for="especie" class="form-label">Especie</label>
-                                    <input type="text" name="especie" class="form-control" pattern="[a-z - A-Z 0-9 \s]{5,25}">
+                                    <input type="text" name="especie" class="form-control" pattern="[a-z - A-Z \s]{5,25}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control">
+                                    <input type="text" name="nombre" class="form-control" pattern="[a-z - A-Z \s]{5,25}">
                                 </div>
                             </fieldset>
                         </div>
@@ -180,7 +180,7 @@
                                 <legend>Información adicional</legend>
                                 <div class="mb-3">
                                     <label for="edad" class="form-label">Edad</label>
-                                    <input type="number" name="edad" id="edad" class="form-control">
+                                    <input type="number" name="edad" id="edad" class="form-control" maxlength="2"> años
                                 </div>
                                 <div class="mb-3">
                                     <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
@@ -188,7 +188,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="dieta" class="form-label">Dieta</label>
-                                    <input type="text" name="dieta" class="form-control">
+                                    <input type="text" name="dieta" class="form-control" pattern="[a-z - A-Z \s]{5,25}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="area" class="form-label">Área</label>
@@ -218,7 +218,7 @@
                             </fieldset>
                             <fieldset>
                                 <legend>Descripción</legend>
-                                <textarea name="descripcion" class="form-control" rows="5"></textarea>
+                                <textarea name="descripcion" class="form-control" rows="5" pattern="[a-z - A-Z \s]{5,25}"></textarea>
                             </fieldset>
                         </div>
                     </div>

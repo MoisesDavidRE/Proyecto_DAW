@@ -14,24 +14,16 @@
 <div class="container ">
     <div class="row">
         <div class="col-12">
-
             <div class="container mb-3" style="background-color:white;height:40px; border-radius:7px;">
                 <div class="row">
                     <div class="col-2">
-
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#formAgregar" style="position:absolute;left:16.2%;">
                             Registrar nueva reservación
                         </button>
-                        <a href="<?= base_url('/reporteReservaciones'); ?>" style="position:absolute;left:59.5%;">
+                        <a href="<?= base_url('/reporteReservacionesCliente'); ?>" style="position:absolute;left:69.5%;">
                             <button type="button" class="btn btn-outline-success mb-5" data-bs-toggle="modal">
                                 Descargar reporte de reservaciones
-                            </button>
-                        </a>
-                        <a href="<?= base_url('/Administrador/buscarReservacion'); ?>"
-                            style="position:absolute;left:75.5%;">
-                            <button type="button" class="btn btn-outline-success mb-5" data-bs-toggle="modal">
-                                Buscar reservación
                             </button>
                         </a>
                     </div>
@@ -72,6 +64,7 @@
                     <tr>
                         <th style="background-color: #fa6900;">Usuario que reservó</th>
                         <th style="background-color: #fa6900;">Estatus de la reservación</th>
+                        <th style="background-color: #fa6900;">Atracción reservada</th>
                         <th style="background-color: #fa6900;">Fecha reservada</th>
                         <th style="background-color: #fa6900;">Especificaciones</th>
                         <th style="background-color: #fa6900;">Editar</th>
@@ -91,6 +84,12 @@
                             </td>
                             <td>
                                 <?= $reservacion->estatus ?>
+                            </td>
+                            <td>
+                                <?php
+                                $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $reservacion->atraccion";
+                                $resultado = $db->query($query)->getResultArray();
+                                echo $resultado[0]["nombre"]; ?>
                             </td>
                             <td>
                                 <?= $reservacion->fechaReservada ?>
@@ -126,11 +125,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar área</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar reservación</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/Administrador/reservacionesTabla" method="post" action="cargar.php"
+                <form action="/Cliente/reservacionesTabla" method="post" action="cargar.php"
                     enctype="multipart/form-data">
                     <?= csrf_field() ?>
 
@@ -139,7 +138,7 @@
                         <select name="atraccion" class="form-control">
                             <?php foreach ($atracciones as $atraccion): ?>
                                 <option value="<?= $atraccion->idAtraccion ?>">
-                                    <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $reservacion->atraccion";
+                                    <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $atraccion->idAtraccion";
                                 $resultado = $db->query($query)->getResultArray();
                                 echo $resultado[0]["nombre"]; ?>
                                 </option>
@@ -150,11 +149,9 @@
                     <div class="mb-3">
                         <label for="usuario" class="form-label">Usuario</label>
                         <select name="usuario" class="form-control">
-                            <?php foreach ($usuarios as $usuario): ?>
-                                <option value="<?= $usuario->numeroControl ?>">
-                                    <?= $usuario->nombre . " " . $usuario->apellido_Paterno . " " . $usuario->apellido_Materno ?>
+                                <option value="<?= $session->get('idUsuario') ?>">
+                                    <?= $session->get('Nombre') . " " . $session->get('ApellidoPaterno') . " " . $session->get('ApellidoMaterno') ?>
                                 </option>
-                            <?php endforeach ?>
                         </select>
                     </div>
 
@@ -167,7 +164,6 @@
                     <div class="mb-3">
                         <label for="estatus" class="form-label">Estatus de la reservación</label>
                         <select name="estatus" class="form-control">
-                            <option value="Confirmado">Confirmado</option>
                             <option value="En revisión">En revisión</option>
                         </select>
                     </div>

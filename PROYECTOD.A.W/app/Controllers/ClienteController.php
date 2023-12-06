@@ -27,7 +27,7 @@ class ClienteController extends BaseController
     public function atraccionesTabla()
     {
         $session = session();
-        if ($session->get('logged_in') != TRUE ) {
+        if ($session->get('logged_in') != TRUE) {
             $session->destroy();
             return redirect('/');
         }
@@ -36,7 +36,23 @@ class ClienteController extends BaseController
         $data['atracciones'] = $atracciones->findAll();
         return
             view('common/menuCliente') .
-            view('clienteAtracciones/atracciones',$data);
+            view('clienteAtracciones/atracciones', $data);
+    }
+
+    public function especificacionesAtraccion($id)
+    {
+        $session = session();
+        if ($session->get('logged_in') != TRUE) {
+            $session->destroy();
+            return redirect('/');
+        }
+
+        $atraccion = model('AtraccionesModel');
+        $data['atraccion'] = $atraccion->find($id);
+        return
+            view('common/header') .
+            view('common/menuCliente') .
+            view('clienteAtracciones/especificacionesAtraccion', $data);
     }
 
     public function animalesTabla()
@@ -87,14 +103,14 @@ class ClienteController extends BaseController
             }
         } else {
             $buscador = null;
-                $valor =
+            $valor =
 
                 $data['animales'] = $animales->findAll();
         }
         return
-        view('common/header') .
-        view('common/menuCliente') .
-        view('clienteAnimales/buscar', $data);
+            view('common/header') .
+            view('common/menuCliente') .
+            view('clienteAnimales/buscar', $data);
     }
 
     public function ReporteAnimales()
@@ -195,17 +211,22 @@ class ClienteController extends BaseController
     // Método que hace la propia inserción de la reservación en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarReservacion(), no es invocado de manera directa en los formularios
+    // Método que hace la propia inserción de la reservación en la base de datos
+// Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
+// método agregarReservacion(), no es invocado de manera directa en los formularios
     public function insertarReservacion()
     {
         $reservacion = model('ReservacionModel');
+        $atraccion = model('AtraccionesModel');
+        $atraccionSelec = $atraccion->find($_POST['atraccion']);
         $data = [
-            "atraccion_animal" => $_POST["atraccion_animal"],
+            "atraccion" => $_POST["atraccion"],
             "usuario" => $_POST['usuario'],
             "fechaReservada" => $_POST["fechaReservada"],
-            "horaInicio" => $_POST["horaInicio"],
-            "horaFin" => $_POST['horaFin'],
+            "horaInicio" => $atraccionSelec->horaInicio,
+            "horaFin" => $atraccionSelec->horaFin,
             "estatus" => $_POST["estatus"],
-            "costoTotal" => $_POST["costoTotal"],
+            "costoTotal" => $atraccionSelec->costo,
             "comentariosAdicionales" => $_POST["comentariosAdicionales"]
         ];
         $reservacion->insert($data, false);
@@ -225,23 +246,33 @@ class ClienteController extends BaseController
         $reservacion = model('ReservacionModel');
         $data['reservacion'] = $reservacion->find($id);
         return
-            view('common/menu') .
+            view('common/menuCliente') .
             view('clienteReservaciones/reservacionEspecificaciones', $data);
     }
 
     // Función que elimina de la base de datos el registro coincidente con el ID que recibe como parámetro
     public function eliminarReservacion($id)
     {
-        $reservacion = model('ReservacionModel');
-        $reserv = $reservacion->find($id);
-        if(isset($reserv->usuario)){
-            $usr = $reserv->usuario;
+        $reservacionModel = model('ReservacionModel');
+        $atracciones = model('AtraccionesModel');
+        $usuarios = model('Usuarios');
+        $reservacion = $reservacionModel->find($id);
+        if (isset($reservacion->usuario)) {
+            $usr = $reservacion->usuario;
+            $mensaje = " fue eliminado";
+        } else {
+            $usr = null;
+            $mensaje = null;
         }
-        $reservacion->delete($id);
+        $mensaje = " fue eliminada";
+        $reservacionModel->delete($id);
+        $data['reservaciones'] = $reservacionModel->findAll();
+        $data['atracciones'] = $atracciones->findAll();
+        $data['usuarios'] = $usuarios->findAll();
         return
-            view('common/header').
-            view('common/menuCliente'). 
-            view('clienteReservaciones/reservacionesTabla');
+            view('common/header', $data) .
+            view('common/menuCliente') .
+            view('clienteReservaciones/reservaciones', ['mensajeEliminar' => $mensaje, 'usr' => $usr]);
     }
 
     public function buscarReservacion()
@@ -290,8 +321,8 @@ class ClienteController extends BaseController
         }
         return
             view('common/header') .
-            view('common/menu') .
-            view('administrarReservaciones/buscar', $data);
+            view('common/menuCliente') .
+            view('clienteReservaciones/buscar', $data);
     }
 
     public function ReporteReservaciones()
@@ -304,9 +335,9 @@ class ClienteController extends BaseController
 
         $reservacion = model('ReservacionModel');
         $usuarios = model('Usuarios');
-        $atraccion_animal = model('AtraccionAnimal');
+        $atraccion = model('AtraccionesModel');
         $data['usuarios'] = $usuarios->findAll();
-        $data['atraccionesAnimal'] = $atraccion_animal->findAll();
+        $data['atracciones'] = $atraccion->findAll();
         $data['reservaciones'] = $reservacion->findAll();
 
 
@@ -323,7 +354,7 @@ class ClienteController extends BaseController
         $pdf->stream('Tabla de reservaciones', array("Attachment" => 1));
     }
 
-// Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
+    // Método que ayuda a validar los datos insertados en el formulario para editar un registro en específico
 // Dicho registro es específicado mediante el ID que la función recibe como parámetro
 // En caso de que las reglas de validación sean aceptadas, se invoca al método updateReservacion()
     public function editarReservacion($id)
@@ -337,6 +368,7 @@ class ClienteController extends BaseController
         $reservacion = model('ReservacionModel');
         $atracciones = model('AtraccionesModel');
         $usuario = model('Usuarios');
+        $data['reservaciones'] = $reservacion->findAll();
         $data['reservacion'] = $reservacion->find($id);
         $data['atracciones'] = $atracciones->findAll();
         $data['usuarios'] = $usuario->findAll();
@@ -365,11 +397,14 @@ class ClienteController extends BaseController
         if (!$this->validate($rules)) {
             return
                 view('common/header', $data) .
-                view('common/menu') .
+                view('common/menuCliente') .
                 view('clienteReservaciones/editarReservacion', ['validation' => $validation], $data);
         } else {
             if ($this->updateReservacion()) {
-                return redirect('Cliente/reservacionesTabla');
+                $usr = $_POST['usuario'];
+                $mensaje = " fué editada exitosamente!";
+                return view('common/header', $data) .
+                    view('common/menuCliente') . view('clienteReservaciones/reservaciones', ['mensajeEditar' => $mensaje, 'usr' => $usr]);
             }
         }
     }
@@ -379,15 +414,17 @@ class ClienteController extends BaseController
 // en los formularios
     public function updateReservacion()
     {
+        $atracciones = model('AtraccionesModel');
         $reservacion = model('ReservacionModel');
+        $atraccion = $atracciones->find($_POST['atraccion']);
         $data = [
-            "atraccion_animal" => $_POST["atraccion_animal"],
+            "atraccion" => $_POST["atraccion"],
             "usuario" => $_POST['usuario'],
             "fechaReservada" => $_POST["fechaReservada"],
-            "horaInicio" => $_POST["horaInicio"],
-            "horaFin" => $_POST['horaFin'],
+            "horaInicio" => $atraccion->horaInicio,
+            "horaFin" => $atraccion->horaFin,
             "estatus" => $_POST["estatus"],
-            "costoTotal" => $_POST["costoTotal"],
+            "costoTotal" => $atraccion->costo,
             "comentariosAdicionales" => $_POST["comentariosAdicionales"]
         ];
         $reservacion->update($_POST['idReservacion'], $data);

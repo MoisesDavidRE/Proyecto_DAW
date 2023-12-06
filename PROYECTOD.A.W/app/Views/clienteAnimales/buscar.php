@@ -74,7 +74,7 @@
         <div class="col-12 mb-3">
             <h1 align="center">Buscar animal</h1>
 
-            <form action="<?= base_url('/Administrador/buscarAn'); ?>" method="GET">
+            <form action="<?= base_url('/Cliente/buscarAn'); ?>" method="GET">
 
                 <div class="col-5 mb-3">
                     <label for="Buscador">Buscar por: </label>
@@ -108,8 +108,6 @@
                         <th style="background-color: #fa6900;">Especie</th>
                         <th style="background-color: #fa6900;">Área</th>
                         <th style="background-color: #fa6900;">Especif.</th>
-                        <th style="background-color: #fa6900;">Editar</th>
-                        <th style="background-color: #fa6900;">Eliminar</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -139,21 +137,9 @@
                                 echo $resultado[0]["nombre"]; ?>
                             </td>
                             <td style="width: 50px;"><a
-                                    href="<?= base_url('/Administrador/especificacionesAnimal/' . $animal->numeroIdentificador); ?>"
+                                    href="<?= base_url('/Cliente/especificacionesAnimal/' . $animal->numeroIdentificador); ?>"
                                     style="display:flex;justify-content:center;max-width:50px;">
                                     <img src="\icons\especs.png" style="width:30px; height: 30px;">
-                                </a>
-                            </td>
-                            <td style="width: 50px;">
-                                <a href="<?= base_url('/Administrador/editAn/' . $animal->numeroIdentificador); ?>">
-
-                                    <img src="\icons\editar.png" style="width:30px; height: 30px;">
-
-                                </a>
-                            </td>
-                            <td style="width: 50px;">
-                                <a href="<?= base_url('/Administrador/delAn/' . $animal->numeroIdentificador); ?>">
-                                    <img src="\icons\del.png" style="width:30px; height: 30px;">
                                 </a>
                             </td>
                         </tr>

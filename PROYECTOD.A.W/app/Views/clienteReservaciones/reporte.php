@@ -70,7 +70,8 @@
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            <?php foreach ($reservaciones as $reservacion): ?>
+            <?php $session = \Config\Services::session(); foreach ($reservaciones as $reservacion): ?>
+                <?php if($session->get('idUsuario')==$reservacion->usuario):?>   
                 <tr>
                     <td style="width: 50px;">
                         <p
@@ -104,7 +105,7 @@
                         <?= $reservacion->comentariosAdicionales ?>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+            <?php endif; endforeach; ?>
         </tbody>
     </table>
     </div>

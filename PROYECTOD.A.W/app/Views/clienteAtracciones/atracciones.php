@@ -41,8 +41,6 @@
                         <th style="background-color: #fa6900;">Costo</th>
                         <th style="background-color: #fa6900;">Capacidad máxima</th>
                         <th style="background-color: #fa6900;">Especificaciones</th>
-                        <th style="background-color: #fa6900;">Editar</th>
-                        <th style="background-color: #fa6900;">Eliminar</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -68,19 +66,9 @@
                             <td>
                                 <?= $atraccion->capacidadMax . " habitantes" ?>
                             </td>
-                            <td><a href="<?= base_url('/Administrador/especificacionesAtraccion/' . $atraccion->idAtraccion); ?>"
+                            <td><a href="<?= base_url('/Cliente/especificacionesAtraccion/' . $atraccion->idAtraccion); ?>"
                                     style="display:flex;justify-content:center;max-width:50px;margin-right: -100px;">
                                     <img src="\icons\especs.png" style="width:30px; height: 30px;">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="<?= base_url('/Administrador/editAtraccion/' . $atraccion->idAtraccion); ?>">
-                                <img src="\icons\editar.png" style="width:30px; height: 30px;">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="<?= base_url('/Administrador/delAtraccion/' . $atraccion->idAtraccion); ?>">
-                                <img src="\icons\del.png" style="width:30px; height: 30px;">
                                 </a>
                             </td>
                         </tr>

@@ -155,7 +155,12 @@
           <input required="required" placeholder="" name="contrasenia" type="password" class="input">
           <span>Contraseña</span>
         </label>
-        <button class="submit">Registrar</button>
+        <?php if(isset($mensaje)){
+          echo $mensaje;
+        } ?>
+        
+        <button class="submit">Ingresar</button>
+        <button class="btn btn-outline-secondary" onclick="location.href='/publico'">Continuar sin iniciar sesión</button>
         <p class="signin">No estás registrado? <a href="/registrar">Crear una cuenta</a> </p>
       </form>
     </div>

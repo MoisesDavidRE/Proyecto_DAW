@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+
 $session = \Config\Services::session();
 
 class SesionController extends BaseController
@@ -44,119 +45,121 @@ class SesionController extends BaseController
                     'Perfil' => $data['usuario'][0]->perfilUsuario
                 ];
                 $session->set($newdata);
-                if($session->get('Perfil')=='ADMINISTRADOR'){
-                return redirect('Administrador/vistaGeneral');
-                } 
-                else if($session->get('Perfil')=='CLIENTE'){
-                    return redirect ('Cliente/vistaGeneral');
+                if ($session->get('Perfil') == 'ADMINISTRADOR') {
+                    return redirect('Administrador/vistaGeneral');
+                } else if ($session->get('Perfil') == 'CLIENTE') {
+                    return redirect('Cliente/vistaGeneral');
                 }
             } else {
-                return redirect('/');
+                $mensaje = "El usuario o la contraseña son incorrectos";
+                return view('common/header') .
+                    view('InicioSesion/iniciarSesion', ['mensaje' => $mensaje]);
             }
         }
     }
-    public function cerrarSesion(){
+    public function cerrarSesion()
+    {
         $session = \Config\Services::session();
         $session->destroy();
         return redirect('/');
     }
 
-        // Método que muestra la tabla de usuarios en caso que la sesión exista, 
+    // Método que muestra la tabla de usuarios en caso que la sesión exista, 
 // no se puede acceder por URL si la sesión no existe
-public function registrar()
-{
-    $validation = \Config\Services::validation();
+    public function registrar()
+    {
+        $validation = \Config\Services::validation();
 
-    if ((strtolower($this->request->getMethod()) === 'get')) {
-        return
-            view('common/header') .
-            view('InicioSesion/registrar');
-    }
-
-    $rules = [
-        'nombre' => [
-            'label' => "Nombre",
-            'rules' => 'required',
-            'errors' => [
-                'required' => 'El {field} es requerido'
-                //Aquí puedes agregar el mensaje de una regla definida anteriormente
-            ]
-        ],
-        'apellido_Paterno' => [
-            'label' => "Apellido paterno",
-            'rules' => 'required',
-            'errors' => [
-                'required' => 'El {field} es requerido'
-                //Aquí puedes agregar el mensaje de una regla definida anteriormente
-            ]
-        ],
-        'apellido_Materno' => [
-            'label' => "Apellido materno",
-            'rules' => 'required',
-            'errors' => [
-                'required' => 'El {field} es requerido'
-                //Aquí puedes agregar el mensaje de una regla definida anteriormente
-            ]
-        ],
-        'nombreUsuario' => [
-            'label' => "Nombre de usuario",
-            'rules' => 'required',
-            'errors' => [
-                'required' => 'El {field} es requerido'
-                //Aquí puedes agregar el mensaje de una regla definida anteriormente
-            ]
-        ],
-        'contrasenia' => [
-            'label' => "Contraseña",
-            'rules' => 'required',
-            'errors' => [
-                'required' => 'La {field} es requerida'
-                //Aquí puedes agregar el mensaje de una regla definida anteriormente
-            ]
-        ],
-        'correoElectronico' => [
-            'label' => "Correo electrónico",
-            'rules' => 'required',
-            'errors' => [
-                'required' => 'El {field} es requerido'
-                //Aquí puedes agregar el mensaje de una regla definida anteriormente
-            ]
-        ],
-    ];
-
-    if (!$this->validate($rules)) {
-        return
-            view('InicioSesion/registrar', ['validation' => $validation]);
-    } else {
-        if ($this->insertarUsuario()) {
-            $nombre = $_POST['nombre'] . " " . $_POST['apellido_Paterno'] . " " . $_POST['apellido_Materno'];
-            $mensaje = " fué agregado exitosamente, regresa al login para poder acceder con tu cuenta!";
+        if ((strtolower($this->request->getMethod()) === 'get')) {
             return
                 view('common/header') .
-                view('InicioSesion/registrar', ['mensaje' => $mensaje, 'nombre' => $nombre]);
+                view('InicioSesion/registrar');
+        }
+
+        $rules = [
+            'nombre' => [
+                'label' => "Nombre",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                    //Aquí puedes agregar el mensaje de una regla definida anteriormente
+                ]
+            ],
+            'apellido_Paterno' => [
+                'label' => "Apellido paterno",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                    //Aquí puedes agregar el mensaje de una regla definida anteriormente
+                ]
+            ],
+            'apellido_Materno' => [
+                'label' => "Apellido materno",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                    //Aquí puedes agregar el mensaje de una regla definida anteriormente
+                ]
+            ],
+            'nombreUsuario' => [
+                'label' => "Nombre de usuario",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                    //Aquí puedes agregar el mensaje de una regla definida anteriormente
+                ]
+            ],
+            'contrasenia' => [
+                'label' => "Contraseña",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'La {field} es requerida'
+                    //Aquí puedes agregar el mensaje de una regla definida anteriormente
+                ]
+            ],
+            'correoElectronico' => [
+                'label' => "Correo electrónico",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                    //Aquí puedes agregar el mensaje de una regla definida anteriormente
+                ]
+            ],
+        ];
+
+        if (!$this->validate($rules)) {
+            return
+                view('InicioSesion/registrar', ['validation' => $validation]);
+        } else {
+            if ($this->insertarUsuario()) {
+                $nombre = $_POST['nombre'] . " " . $_POST['apellido_Paterno'] . " " . $_POST['apellido_Materno'];
+                $mensaje = " fué agregado exitosamente, regresa al login para poder acceder con tu cuenta!";
+                return
+                    view('common/header') .
+                    view('InicioSesion/registrar', ['mensaje' => $mensaje, 'nombre' => $nombre]);
+            }
         }
     }
-}
 
     // Método que hace la propia inserción del usuario en la base de datos
 // Únicamente se invoca cuando las reglas de validación han sido aceptadas en el
 // método agregarUsuario(), no es invocado de manera directa en los formularios
-public function insertarUsuario()
-{
-    $usuario = model('Usuarios');
-    $data = [
-        "nombre" => $_POST["nombre"],
-        "apellido_Paterno" => $_POST['apellido_Paterno'],
-        "apellido_Materno" => $_POST["apellido_Materno"],
-        "nombreUsuario" => $_POST["nombreUsuario"],
-        "contrasenia" => $_POST['contrasenia'],
-        "perfilUsuario" => "CLIENTE",
-        "correoElectronico" => $_POST["correoElectronico"],
-        "comentarioPreferencias" => ""
-    ];
-    $usuario->insert($data, false);
-    return true;
-}
+    public function insertarUsuario()
+    {
+        $usuario = model('Usuarios');
+        $data = [
+            "nombre" => $_POST["nombre"],
+            "apellido_Paterno" => $_POST['apellido_Paterno'],
+            "apellido_Materno" => $_POST["apellido_Materno"],
+            "nombreUsuario" => $_POST["nombreUsuario"],
+            "contrasenia" => $_POST['contrasenia'],
+            "perfilUsuario" => "CLIENTE",
+            "correoElectronico" => $_POST["correoElectronico"],
+            "comentarioPreferencias" => ""
+        ];
+        $usuario->insert($data, false);
+        return true;
+    }
 
 }
 

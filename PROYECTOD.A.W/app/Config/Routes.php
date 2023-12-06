@@ -100,6 +100,7 @@ $routes->post('/Cliente/registrar', 'SesionController::registrar');
 
 //Atracciones vista del cliente
 $routes->get('/Cliente/atraccionesTabla', 'ClienteController::atraccionesTabla');
+$routes->get('/Cliente/especificacionesAtraccion/(:num)', 'ClienteController::especificacionesAtraccion/$1');
 
 //Areas vista del cliente
 $routes->get('/Cliente/areasTabla', 'ClienteController::areasTabla');
@@ -114,9 +115,18 @@ $routes->get('/tablaAnimales', 'ClienteController::reporteAnimales');
 $routes->get('/Cliente/reservacionesTabla', 'ClienteController::reservacionesTabla');
 $routes->post('/Cliente/reservacionesTabla', 'ClienteController::reservacionesTabla');
 $routes->get('/Cliente/reservacionEspecificaciones/(:num)', 'ClienteController::especificacionesReservacion/$1');
-$routes->get('/Cliente/buscarReser', 'ClienteController::buscarReservacion');
+$routes->get('/Cliente/buscarReservacion', 'ClienteController::buscarReservacion');
 $routes->get('/tablaReservaciones', 'ClienteController::reporteReservaciones');
 $routes->get('/Cliente/delReservacion/(:num)','ClienteController::eliminarReservacion/$1');
 $routes->get('/Cliente/editReservacion/(:num)', 'ClienteController::editarReservacion/$1');
 $routes->post('/Cliente/editReservacion/(:num)', 'ClienteController::editarReservacion/$1');
 $routes->post('/Cliente/updateReservacion', 'ClienteController::updateReservacion');
+$routes->get('/reporteReservacionesCliente','ClienteController::ReporteReservaciones');
+
+//FrontEnd
+$routes->get('/publico', 'Front::index');
+$routes->get('/publico/animales', 'Front::animales');
+$routes->get('/publico/animalEspecs/(:num)', 'Front::especificacionesAnimal/$1');
+$routes->get('/publico/reservaciones', 'Front::reservaciones');
+$routes->get('/publico/atracciones', 'Front::atracciones');
+$routes->get('/publico/especificacionesAtraccion/(:num)', 'Front::especificacionesAtraccion/$1');

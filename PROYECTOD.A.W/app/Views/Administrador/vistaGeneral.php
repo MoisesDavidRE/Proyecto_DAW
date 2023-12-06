@@ -83,7 +83,6 @@
 </style>
 <div class="col-2"></div>
 <div class="container" style="padding-left:200px">
-
     <div class="row">
         <div>
             <h1 align="center">¡Hola
@@ -97,53 +96,37 @@
             <img src="https://cdn-icons-png.flaticon.com/512/33/33308.png" width="100">
             <div class="card__content">
                 <p class="card__title">Usuarios</p>
-                <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco.</p>
+                <p class="card__description">Este módulo permite crear, editar, consultar y eliminar usuarios, así como asignar roles por usuario</p>
                 <button type="button" class="btn btn-outline-primary"
                     onclick="location.href='/Administrador/usuariosTabla'">Ir
                     a Usuarios</button>
             </div>
         </div>
-
-
         <div class="card col-3">
             <img src="\icons\area-con-alfileres.png" width="100">
             <div class="card__content">
                 <p class="card__title">Áreas</p>
-                <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco.</p>
+                <p class="card__description">Dentro de este módulo se puedem agregar nuevas áreas, editar o eliminar las existentes, consultar datos del área</p>
                 <button type="button" class="btn btn-outline-primary"
                     onclick="location.href='/Administrador/areasTabla'">Ir
                     a áreas</button>
             </div>
         </div>
-
-
-
-
         <div class="card col-3">
             <img src="\icons\reserva (1).png" width="100">
             <div class="card__content">
                 <p class="card__title">Reservaciones</p>
-                <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco.</p>
+                <p class="card__description">Este módulo permite al administrador administrar las reservas del acuario, incluidas las reservas de atracciones.</p>
                 <button type="button" class="btn btn-outline-primary"
                     onclick="location.href='/Administrador/reservacionesTabla'">Ir
                     a Reservaciones</button>
             </div>
         </div>
-
-
         <div class="card col-3">
             <img src="\icons\oceano.png" width="100">
             <div class="card__content">
                 <p class="card__title">Animales</p>
-                <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco.</p>
+                <p class="card__description">Este módulo ayuda a modificar los datos de los animales, consultar datos privados, agregar nuevos registros o eliminarlos.</p>
                 <button type="button" class="btn btn-outline-primary"
                     onclick="location.href='/Administrador/animalTabla'">Ir a
                     Animales</button>
@@ -154,9 +137,7 @@
             <img src="\icons\empleados (1).png" width="100">
             <div class="card__content">
                 <p class="card__title">Empleados</p>
-                <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco.</p>
+                <p class="card__description">En este módulo se pueden administrar los datos de los empleados, agregar nuevos registros o en caso necesario, eliminar registros</p>
                 <button type="button" class="btn btn-outline-primary"
                     onclick="location.href='/Administrador/empleadosTabla'">Ir
                     a
@@ -167,10 +148,8 @@
         <div class="card col-3">
             <img src="\icons\delfin.png" width="100">
             <div class="card__content">
-                <p class="card__title">Empleados</p>
-                <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco.</p>
+                <p class="card__title">Atracciones</p>
+                <p class="card__description">Aquí se pueden editar las atracciones registradas en el sistema</p>
                 <button type="button" class="btn btn-outline-primary"
                     onclick="location.href='/Administrador/atraccionesTabla'">Ir a Atracciones</button>
             </div>

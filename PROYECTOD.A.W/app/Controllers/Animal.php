@@ -40,7 +40,7 @@ class Animal extends BaseController
                 'label' => "Nombre",
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'El {field} es requerido'
+                    'required' => 'El {field} es requerido ese',
                     //Aquí puedes agregar el mensaje de una regla definida anteriormente
                 ]
             ],
@@ -79,7 +79,13 @@ class Animal extends BaseController
                     'required' => 'La {field} es requerida'
                 ]
             ],
-            'sexo' => 'required',
+            'sexo' => [
+                'label' => "Sexo",
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'El {field} es requerido'
+                ]
+            ],
             'fechaNacimiento' => [
                 'label' => "Fecha de nacimiento",
                 'rules' => 'required',
@@ -97,6 +103,7 @@ class Animal extends BaseController
         ];
 
         if (!$this->validate($rules)) {
+            
             return
                 view('common/header', $data) .
                 view('common/menu') .

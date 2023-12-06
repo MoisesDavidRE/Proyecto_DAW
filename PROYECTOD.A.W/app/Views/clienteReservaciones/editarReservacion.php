@@ -104,15 +104,15 @@
             <tr>
               <td>Atracción reservada</td>
               <td>
-                <select class="form-control" name="atraccion" class="form-control">
-                  <option default value="<?= $reservacion->atraccion ?>">
+                <select <?php if($reservacion->estatus=="Confirmado"){ echo "disabled"; }?> class="form-control" name="atraccion" class="form-control">
+                  <option  default value="<?= $reservacion->atraccion ?>">
                     <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $reservacion->atraccion";
                     $resultado = $db->query($query)->getResultArray();
                     echo $resultado[0]["nombre"]; ?>
                   </option>
                   <?php foreach ($atracciones as $atraccion): ?>
                     <option value="<?= $atraccion->idAtraccion ?>">
-                      <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $reservacion->atraccion";
+                      <?php $query = "SELECT nombre FROM atraccion WHERE idAtraccion = $atraccion->idAtraccion";
                       $resultado = $db->query($query)->getResultArray();
                       echo $resultado[0]["nombre"]; ?>
                     </option>
@@ -130,7 +130,9 @@
             </tr>
             <tr>
               <td>Fecha reservada</td>
-              <td><input class="form-control" type="date" name="fechaReservada" value="<?= $reservacion->fechaReservada ?>"></td>
+              <td><input class="form-control" type="date" name="fechaReservada" 
+              <?php if($reservacion->estatus=="Confirmado"){ echo "readonly"; }?>
+              value="<?= $reservacion->fechaReservada ?>"></td>
             </tr>
             <tr>
               <td>Hora de inicio</td>
@@ -174,7 +176,7 @@
 
 
 <div class="contenedor-botones" style="display:flex; justify-content:center;position:absolute;right:740px">
-  <a href="<?= base_url('/Cliente/especificacionesReservación/' . $reservacion->idReservacion) ?>"
+  <a href="<?= base_url('/Cliente/reservacionEspecificaciones/' . $reservacion->idReservacion) ?>"
     style="text-decoration:none;">
     <button class="noselect"><span class="text">Cancelar</span><span class="icon"><svg
           xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

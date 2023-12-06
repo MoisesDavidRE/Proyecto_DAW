@@ -176,7 +176,7 @@
           </tr>
           <tr>
             <td>Monto total de la reservación</td>
-            <td><?= $reservacion->costoTotal ?></td>
+            <td>$<?= $reservacion->costoTotal ?></td>
           </tr>
           <tr>
             <td>Comentarios adicionales de la reservación</td>
